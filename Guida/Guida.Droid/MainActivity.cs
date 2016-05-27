@@ -12,7 +12,6 @@ namespace Guida.Droid
 	[Activity (Label = "Guida.Droid", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		int count = 1;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -23,11 +22,25 @@ namespace Guida.Droid
 
 			// Get our button from the layout resource,
 			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.myButton);
-			
-			button.Click += delegate {
-				button.Text = string.Format ("{0} clicks!", count++);
-			};
+			Button loginButton = FindViewById<Button> (Resource.Id.loginButton);
+            EditText usernameField = FindViewById<EditText>(Resource.Id.usernameField);
+            EditText passwordField = FindViewById<EditText>(Resource.Id.passwordField);
+            TextView authStatus = FindViewById<TextView>(Resource.Id.authStatusText);
+
+            MyClass mc = new MyClass();
+
+            loginButton.Click += delegate {
+                String username = usernameField.Text;
+                String password = passwordField.Text;
+                bool auth = mc.authenticate(username, password);
+                if (auth)
+                {
+                    authStatus.Text += " Logged in!";
+                }else
+                {
+                    authStatus.Text += " Failed";
+                }
+            };
 		}
 	}
 }
