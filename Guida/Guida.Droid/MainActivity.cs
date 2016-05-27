@@ -27,7 +27,7 @@ namespace Guida.Droid
             EditText passwordField = FindViewById<EditText>(Resource.Id.passwordField);
             TextView authStatus = FindViewById<TextView>(Resource.Id.authStatusText);
 
-            MyClass mc = new MyClass();
+            Authentication mc = new Authentication();
 
             loginButton.Click += delegate {
                 String username = usernameField.Text;

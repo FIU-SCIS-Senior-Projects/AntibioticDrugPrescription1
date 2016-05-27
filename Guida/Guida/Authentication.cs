@@ -13,10 +13,10 @@ namespace Guida
       public String password { get; set; }
     }
 
-	public class MyClass
+	public class Authentication
 	{
         SQLiteConnection db;
-        public MyClass ()
+        public Authentication()
 		{
             var sqliteFilename = "MyDatabase.db3";
 #if __ANDROID__
