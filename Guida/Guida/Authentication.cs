@@ -11,6 +11,8 @@ namespace Guida
       public String username { get; set; }
       [Column("password")]
       public String password { get; set; }
+      [Column("name")]
+      public String name { get; set; }
     }
 
 	public class Authentication
@@ -18,7 +20,7 @@ namespace Guida
         SQLiteConnection db;
         public Authentication()
 		{
-            var sqliteFilename = "MyDatabase.db3";
+            var sqliteFilename = "Guida.db3";
 #if __ANDROID__
             // Just use whatever directory SpecialFolder.Personal returns
             string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
@@ -30,15 +32,7 @@ namespace Guida
 #endif
             var path = Path.Combine(libraryPath, sqliteFilename);
             db = new SQLiteConnection(path);
-            Console.WriteLine("Creating database, if it doesn't already exist");
             db.CreateTable<Doctor>();
-            if(db.Table<Doctor> ().Count() == 0)
-            {
-                var user = new Doctor();
-                user.username = "Sean";
-                user.password = "12345";
-                db.Insert(user);
-            }
         }
 
         public bool authenticate(string username, string password)
