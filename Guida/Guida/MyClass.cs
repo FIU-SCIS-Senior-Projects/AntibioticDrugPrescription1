@@ -6,6 +6,7 @@ namespace Guida
 	{
 		public MyClass ()
 		{
+			//code here
 		}
 	}
 }
