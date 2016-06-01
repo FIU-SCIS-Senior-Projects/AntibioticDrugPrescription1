@@ -7,7 +7,7 @@ using System.IO;
 namespace Guida
 {
     /// <summary>
-    /// Represents an instance of the database table "doctors"
+    /// Represents the database table "doctors"
     /// Doctor is the user of the system.
     /// Doctor has a unique username, a password and a name.
     /// </summary>
@@ -23,7 +23,7 @@ namespace Guida
     }
 
     /// <summary>
-    /// Represents and instance of the database table "patients"
+    /// Represents the database table "patients"
     /// Patient has a name and a DoB(Date of Birth)
     /// </summary>
     [Table("patients")]
@@ -36,7 +36,7 @@ namespace Guida
     }
 
     /// <summary>
-    /// Represents an instance of the database table "visits"
+    /// Represents the database table "visits"
     /// Visit has a date, patient, and doctor
     /// </summary>
     [Table("visits")]
@@ -51,7 +51,7 @@ namespace Guida
     }
 
     /// <summary>
-    /// Represents an instance of the batabase table "disease"
+    /// Represents the batabase table "disease"
     /// Disease has a name, and an affectedArea.
     /// </summary>
     [Table("disease")]
@@ -64,7 +64,7 @@ namespace Guida
     }
 
     /// <summary>
-    /// Represents an instance of the database table "antibiotics"
+    /// Represents the database table "antibiotics"
     /// Antibiotic has a name, a price, acceptable uses, and a toxicity.
     /// </summary>
     [Table("antibiotics")]
