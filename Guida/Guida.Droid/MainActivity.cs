@@ -35,7 +35,9 @@ namespace Guida.Droid
                 bool auth = mc.authenticate(username, password);
                 if (auth)
                 {
-                    authStatus.Text += " Logged in!";
+                    //authStatus.Text += " Logged in!";
+					SetContentView (Resource.Layout.Home);
+				
                 }else
                 {
                     authStatus.Text += " Failed";

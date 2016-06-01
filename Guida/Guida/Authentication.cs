@@ -33,13 +33,17 @@ namespace Guida
             var path = Path.Combine(libraryPath, sqliteFilename);
             db = new SQLiteConnection(path);
             db.CreateTable<Doctor>();
-            if(db.Table<Doctor>().Count() == 0)
+            if(db.Table<Doctor>().Count() == 0)  
             {
                 Doctor doc = new Doctor();
                 doc.username = "Sean";
                 doc.password = "12345";
                 db.Insert(doc);
+				doc.username = "Alan";
+				doc.password = "12345";
+				db.Insert(doc);
             }
+
         }
 
         public bool authenticate(string username, string password)

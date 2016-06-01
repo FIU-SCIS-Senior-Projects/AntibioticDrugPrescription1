@@ -6,8 +6,6 @@ namespace Guida.iOS
 {
 	public partial class ViewController : UIViewController
 	{
-		int count = 1;
-
 		public ViewController (IntPtr handle) : base (handle)
 		{
 		}
@@ -16,11 +14,18 @@ namespace Guida.iOS
 		{
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
-			Button.AccessibilityIdentifier = "myButton";
-			Button.TouchUpInside += delegate {
-				var title = string.Format ("{0} clicks!", count++);
-				Button.SetTitle (title, UIControlState.Normal);
+			Authentication log = new Authentication ();
+			Login.TouchUpInside += (object sender, EventArgs e) => {
+				if (log.authenticate(Username.Text,Password.Text)){
+					
+					//Login.SetTitle("Logged in!",UIControlState.Normal);
+					UIViewController home = Storyboard.InstantiateViewController ("HomeViewController") as HomeViewController;
+					this.NavigationController.PushViewController (home, true);
+				}
+
 			};
+
+
 		}
 
 		public override void DidReceiveMemoryWarning ()
