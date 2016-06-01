@@ -11,12 +11,12 @@
         android:id="@+id/textView1"
         android:textAlignment="center" />
     <ImageButton
-        android:src="@android:drawable/ic_menu_gallery"
+        android:src="@drawable/lung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton1" />
     <ImageButton
-        android:src="@android:drawable/ic_menu_gallery"
+        android:src="@drawable/abs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton2" />
