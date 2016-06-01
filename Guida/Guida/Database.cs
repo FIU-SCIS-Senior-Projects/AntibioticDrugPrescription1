@@ -6,7 +6,12 @@ using System.IO;
 
 namespace Guida
 {
-    [Table("Doctors")]
+    /// <summary>
+    /// Represents an instance of the database table "doctors"
+    /// Doctor is the user of the system.
+    /// Doctor has a unique username, a password and a name.
+    /// </summary>
+    [Table("doctors")]
     public class Doctor
     {
         [PrimaryKey, Column("username")]
@@ -15,32 +20,40 @@ namespace Guida
         public String password { get; set; }
         [Column("name")]
         public String name { get; set; }
-        [Column("patients")]
-        public Patient[] patients { get; set; }
     }
 
-    [Table("Patients")]
+    /// <summary>
+    /// Represents and instance of the database table "patients"
+    /// Patient has a name and a DoB(Date of Birth)
+    /// </summary>
+    [Table("patients")]
     public class Patient
     {
         [PrimaryKey, Column("name")]
         public String name { get; set; }
-        [PrimaryKey, Column("DoB")]
+        [Column("DoB")]
         public String DoB { get; set; }
-        [Column("doctors")]
-        public Doctor[] doctors { get; set; }
     }
 
-    [Table("Visits")]
+    /// <summary>
+    /// Represents an instance of the database table "visits"
+    /// Visit has a date, patient, and doctor
+    /// </summary>
+    [Table("visits")]
     public class Visit
     {
         [PrimaryKey, Column("date")]
         public String date { get; set; }
-        [PrimaryKey, Column("patient")]
-        public Patient patient { get; set; }
+        [Column("patient")]
+        public String patient { get; set; }
         [Column("doctor")]
-        public Doctor doctor { get; set; }
+        public String doctor { get; set; }
     }
 
+    /// <summary>
+    /// Represents an instance of the batabase table "disease"
+    /// Disease has a name, and an affectedArea.
+    /// </summary>
     [Table("disease")]
     public class Disease
     {
@@ -50,25 +63,36 @@ namespace Guida
         public String affectedArea { get; set; }
     }
 
-    [Table("antibiotic")]
+    /// <summary>
+    /// Represents an instance of the database table "antibiotics"
+    /// Antibiotic has a name, a price, acceptable uses, and a toxicity.
+    /// </summary>
+    [Table("antibiotics")]
     public class Antibiotic
     {
         [PrimaryKey, Column("name")]
         public string name { get; set; }
         [Column("price")]
-        public double price { get; set; }
+        public int price { get; set; }
         [Column("acceptableUses")]
-        public String[] acceptableUses { get; set}
+        public String acceptableUses { get; set; }
         [Column("toxicity")]
         public String toxicity { get; set; }
-        [Column("interactions")]
-        public Antibiotic[] interactions { get; set; }
     }
 
+    /// <summary>
+    /// This class represents a connection to the local database.
+    /// </summary>
     class Database
     {
         public SQLiteConnection db;
-        public Database() {
+
+        /// <summary>
+        /// Creates a connection to the DB. DB location is based on operating system. 
+        /// Creates all tables if they don't already exist.
+        /// </summary>
+        public Database()
+        {
             var sqliteFilename = "Guida.db3";
 #if __ANDROID__
             // Just use whatever directory SpecialFolder.Personal returns
@@ -84,20 +108,60 @@ namespace Guida
             db.CreateTable<Doctor>();
             db.CreateTable<Patient>();
             db.CreateTable<Visit>();
-            db.CreateTable<Antibiotic>();
             db.CreateTable<Disease>();
-            if (db.Table<Doctor>().Count() == 0)
-            {
-                Doctor doc = new Doctor();
-                doc.username = "Sean";
-                doc.password = "12345";
-                db.Insert(doc);
-            }
+            db.CreateTable<Antibiotic>();
         }
 
-        public void insert<T>(ref T obj)
-        { 
-            db.Insert(obj);
+        /// <summary>
+        /// Adds a user to the database.
+        /// </summary>
+        /// <param name="doc">
+        /// The Doctor object to be created.
+        /// Must have a unique username, a password and a name.
+        /// </param>
+        /// <returns>
+        /// True if the user was created successully.
+        /// False if the user was not created.
+        /// </returns>
+        public bool createUser(Doctor doc)
+        {
+            var users = db.Table<Doctor>();
+            foreach (Doctor x in users)
+            {
+                if (x.username == doc.username)
+                {
+                    return false;
+                }
+            }
+            if (doc.password == null) return false;
+            if (doc.name == null) return false;
+            db.Insert(doc);
+            return true;
+        }
+
+        /// <summary>
+        /// Authenticates a username and password.
+        /// i.e checks if a user exists in the batabase with the given username and password.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>
+        /// True if the username and password were authenticated
+        /// False if the username and password were not authenticated
+        /// </returns>
+        public bool authenticate(string username, string password)
+        {
+            var users = db.Table<Doctor>();
+            bool auth = false;
+            foreach (var doc in users)
+            {
+                if (doc.username == username && doc.password == password)
+                {
+                    auth = true;
+                    break;
+                }
+            }
+            return auth;
         }
     }
 }

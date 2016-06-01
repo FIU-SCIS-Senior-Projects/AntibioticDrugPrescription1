@@ -4,31 +4,28 @@ using System.IO;
 
 namespace Guida
 {
-   
+    /// <summary>
+    /// This is serving as a test for the backend right now.
+    /// ToDo: Delete this file and replace with backend controller.
+    /// </summary>
 	public class Authentication
 	{
-        
-        SQLiteConnection db;
+        Database database;
         public Authentication()
 		{
-            Database database = new Database();
-            db = database.db;
+            database = new Database();
+            Doctor user = new Doctor();
+            user.name = "Sean";
+            user.password = "199";
+            user.username = "3digit";
+            database.createUser(user);
         }
 
-        public bool authenticate(string username, string password)
+        public bool authenticate(String username, String password)
         {
-            var users = db.Table<Doctor>();
-            bool auth = false;
-            foreach (var doc in users)
-            {
-                if (doc.username == username && doc.password == password)
-                {
-                    auth = true;
-                    break;
-                }
-            }
-            return auth;
+            return database.authenticate(username, password);
         }
+        
 	}
 }
 
