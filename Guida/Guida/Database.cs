@@ -14,7 +14,7 @@ namespace Guida
     [Table("doctors")]
     public class Doctor
     {
-        [PrimaryKey, Column("username")]
+        [PrimaryKey, Unique, Column("username")]
         public String username { get; set; }
         [Column("password")]
         public String password { get; set; }
@@ -29,10 +29,25 @@ namespace Guida
     [Table("patients")]
     public class Patient
     {
-        [PrimaryKey, Column("name")]
+        [PrimaryKey,AutoIncrement,Column("id")]
+        public int id { get; }
+        [Column("name")]
         public String name { get; set; }
         [Column("DoB")]
         public String DoB { get; set; }
+    }
+
+    /// <summary>
+    /// Represents a relashionship between a doctor an a patient
+    /// </summary>
+    [Table("doctor-patient")]
+    public class DoctorPatient{
+        [PrimaryKey,AutoIncrement,Column("id")]
+        public int id { get; }
+        [Column("doctor")]
+        public String doctor { get; set; }
+        [Column("patient")]
+        public String patient { get; set; }
     }
 
     /// <summary>
@@ -42,7 +57,9 @@ namespace Guida
     [Table("visits")]
     public class Visit
     {
-        [PrimaryKey, Column("date")]
+        [PrimaryKey, AutoIncrement, Column("id")]
+        public int id { get; }
+        [Column("date")]
         public String date { get; set; }
         [Column("patient")]
         public String patient { get; set; }
@@ -107,6 +124,7 @@ namespace Guida
             db = new SQLiteConnection(path);
             db.CreateTable<Doctor>();
             db.CreateTable<Patient>();
+            db.CreateTable<DoctorPatient>();
             db.CreateTable<Visit>();
             db.CreateTable<Disease>();
             db.CreateTable<Antibiotic>();
