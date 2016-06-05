@@ -143,6 +143,8 @@ namespace Guida
         /// </returns>
         public bool createUser(Doctor doc)
         {
+            if (doc.password == null) return false;
+            if (doc.name == null) return false;
             var users = db.Table<Doctor>();
             foreach (Doctor x in users)
             {
@@ -151,8 +153,6 @@ namespace Guida
                     return false;
                 }
             }
-            if (doc.password == null) return false;
-            if (doc.name == null) return false;
             db.Insert(doc);
             return true;
         }
