@@ -144,7 +144,7 @@ namespace Guida
         public bool createUser(Doctor doc)
         {
             if (doc.password == null) return false;
-            if (doc.name == null) return false;
+            if (doc.username == null) return false;
             var users = db.Table<Doctor>();
             foreach (Doctor x in users)
             {
