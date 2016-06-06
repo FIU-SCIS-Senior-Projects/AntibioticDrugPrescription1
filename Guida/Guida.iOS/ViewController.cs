@@ -14,9 +14,9 @@ namespace Guida.iOS
 		{
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
-			Authentication log = new Authentication ();
+			ApplicationFacade log = new ApplicationFacade();
 			Login.TouchUpInside += (object sender, EventArgs e) => {
-				if (log.authenticate(Username.Text,Password.Text)){
+				if (log.logIn(Username.Text,Password.Text)){
 					
 					//Login.SetTitle("Logged in!",UIControlState.Normal);
 					UIViewController home = Storyboard.InstantiateViewController ("HomeViewController") as HomeViewController;

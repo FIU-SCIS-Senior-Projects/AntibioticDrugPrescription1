@@ -27,12 +27,12 @@ namespace Guida.Droid
             EditText passwordField = FindViewById<EditText>(Resource.Id.passwordField);
             TextView authStatus = FindViewById<TextView>(Resource.Id.authStatusText);
 
-            Authentication mc = new Authentication();
+            ApplicationFacade mc = new ApplicationFacade();
 
             loginButton.Click += delegate {
                 String username = usernameField.Text;
                 String password = passwordField.Text;
-                bool auth = mc.authenticate(username, password);
+                bool auth = mc.logIn(username, password);
                 if (auth)
                 {
                     //authStatus.Text += " Logged in!";
