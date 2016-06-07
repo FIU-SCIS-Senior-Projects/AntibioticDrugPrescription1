@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Guida
 {
-    class ApplicationFacade
+    class Controller
     {
         Database db;
-        public ApplicationFacade()
+        public Controller()
         {
             db = new Database();
         }

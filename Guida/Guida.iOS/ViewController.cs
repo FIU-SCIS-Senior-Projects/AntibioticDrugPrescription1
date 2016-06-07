@@ -14,7 +14,7 @@ namespace Guida.iOS
 		{
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
-			ApplicationFacade log = new ApplicationFacade();
+			Controller log = new Controller();
 			Login.TouchUpInside += (object sender, EventArgs e) => {
 				if (log.logIn(Username.Text,Password.Text)){
 					

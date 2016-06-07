@@ -92,7 +92,7 @@ namespace UnitTests
         }
 
         /// <summary>
-        /// A authentication request with valid credentials will return true;
+        /// A authentication request with valid credentials will return true
         /// Preconditions: A user exists in the database.
         ///                Username: testuser123
         ///                Password: 987
@@ -114,6 +114,13 @@ namespace UnitTests
             Assert.True(db.authenticate("testuser123", "987"));
         }
 
+        /// <summary>
+        /// An authentication request with invalid credentials will return false
+        /// Preconditions: A user exists in the database.
+        ///                Username: testuser123
+        ///                Password: 987
+        /// PostConditions:True
+        /// </summary>
         [Test]
         public void TC005()
         {
@@ -127,7 +134,7 @@ namespace UnitTests
             db.createUser(user);
 
             //Assert
-            Assert.True(db.authenticate("testuser123", "987"));
+            Assert.True(db.authenticate("testuser123", "985"));
         }
     }
 }

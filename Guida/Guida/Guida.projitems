@@ -9,7 +9,7 @@
     <Import_RootNamespace>Guida</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)ApplicationFacade.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controller.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Database.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
   </ItemGroup>
