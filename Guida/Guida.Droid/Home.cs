@@ -31,7 +31,11 @@ namespace Guida.Droid
 			};
 			patientInfo.Click += delegate
 			{
-				StartActivity(typeof(PList));
+				string username = Intent.GetStringExtra("Data") ?? "Data not available";
+				var plist = new Intent(this, typeof(PList));
+				plist.PutExtra("Data", username);
+				StartActivity(plist);
+				//StartActivity(typeof(PList));
 			};
 			searchAntibiotic.Click += delegate
 			{

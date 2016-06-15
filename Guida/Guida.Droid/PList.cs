@@ -16,16 +16,29 @@ namespace Guida.Droid
 	[Activity(Label = "PatientList")]
 	public class PList : Activity
 	{
+		private List<string> patients;
+		private ListView listp;
+		private string user;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.ListP);
+			user = Intent.GetStringExtra("Data") ?? "Data not available";
 			Controller mc = new Controller();
-			List<string> patients = mc.patientsList("Alan");
-
-			ListView listp = FindViewById<ListView>(Resource.Id.listView1);
+			patients = mc.patientsList(user);
+			listp = FindViewById<ListView>(Resource.Id.listView1);
 			ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, patients);
 			listp.Adapter = adapter;
+			listp.ItemClick += listp_ItemClicked;
+		}
+
+		void listp_ItemClicked(object sender, AdapterView.ItemClickEventArgs e)
+		{
+
+			var pinfo = new Intent(this, typeof(PatientInfo));
+			pinfo.PutExtra("Data", patients[e.Position]);
+			StartActivity(pinfo);
+			//Console.WriteLine(patients[e.Position]);
 		}
 	}
 }

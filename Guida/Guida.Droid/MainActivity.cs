@@ -62,8 +62,9 @@ namespace Guida.Droid
                 if (auth)
                 {
                     //authStatus.Text += " Logged in!";
-
-					StartActivity(typeof(Home));
+					var home = new Intent(this, typeof(Home));
+					home.PutExtra("Data",username);
+					StartActivity(home);
                 }else
                 {
                     authStatus.Text += " Failed";
@@ -72,5 +73,7 @@ namespace Guida.Droid
 		}
 	}
 }
+
+
 
 
