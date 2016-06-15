@@ -29,8 +29,8 @@ namespace Guida
     [Table("patients")]
     public class Patient
     {
-        [PrimaryKey,AutoIncrement,Column("id")]
-        public int id { get; }
+        [PrimaryKey, AutoIncrement, Column("id")]
+		public int id { get; set;}
         [Column("name")]
         public String name { get; set; }
         [Column("DoB")]
@@ -42,12 +42,10 @@ namespace Guida
     /// </summary>
     [Table("doctor-patient")]
     public class DoctorPatient{
-        [PrimaryKey,AutoIncrement,Column("id")]
-        public int id { get; }
+        [PrimaryKey, Column("id")]
+		public int id { get; set; }
         [Column("doctor")]
         public String doctor { get; set; }
-        [Column("patient")]
-        public String patient { get; set; }
     }
 
     /// <summary>
@@ -157,6 +155,38 @@ namespace Guida
             return true;
         }
 
+		public bool createPatient(Patient doc)
+		{
+			if (doc.name == null) return false;
+			if (doc.DoB == null) return false;
+			var users = db.Table<Patient>();
+			foreach (Patient x in users)
+			{
+				if (x.id == doc.id)
+				{
+					return false;
+				}
+			}
+			db.Insert(doc);
+			return true;
+		}
+
+		public bool createDoctorPatient(DoctorPatient doc)
+		{
+			if (doc.id < 0) return false;
+			if (doc.doctor == null) return false;
+			var users = db.Table<DoctorPatient>();
+			foreach (DoctorPatient x in users)
+			{
+				if (x.id == doc.id && x.doctor == doc.doctor)
+				{
+					return false;
+				}
+			}
+			db.Insert(doc);
+			return true;
+		}
+
         /// <summary>
         /// Authenticates a username and password.
         /// i.e checks if a user exists in the batabase with the given username and password.
@@ -181,6 +211,79 @@ namespace Guida
             }
             return auth;
         }
+
+		public List<string> DisplayPatients(string username)
+		{
+			var patients = db.Table<Patient>();
+			var doctorpatient = db.Table<DoctorPatient>();
+			List<string> list = new List<string>();
+
+			foreach (var pat in patients)
+			{
+				foreach (var docpat in doctorpatient)
+				{
+					if (pat.id == docpat.id && docpat.doctor == username)
+					{
+						list.Add(pat.name);
+						break;
+					}
+
+				}
+			}
+			return list;
+		}
+
+		public List<string> DisplayAllDoctors()
+		{
+			var users = db.Table<Doctor>();
+			List<string> list = new List<string>();
+			foreach (var doc in users)
+			{
+				list.Add(doc.username);
+			}
+			return list;
+		}
+		public List<string> DisplayAllPatients()
+		{
+			var users = db.Table<Patient>();
+			List<string> list = new List<string>();
+			foreach (var doc in users)
+			{
+				list.Add(doc.name);
+			}
+			return list;
+		}
+		public List<string> DisplayAllDoctorPatient()
+		{
+			var users = db.Table<DoctorPatient>();
+			List<string> list = new List<string>();
+			foreach (var doc in users)
+			{
+				list.Add(doc.doctor);
+			}
+			return list;
+		}
+
+		public List<string> DisplayAll()
+		{
+			var doctor = db.Table<Doctor>();
+			var patient = db.Table<Patient>();
+			var docpat = db.Table<DoctorPatient>();
+			List<string> list = new List<string>();
+			foreach (var doc in doctor)
+			{
+				list.Add(doc.username);
+			}
+			foreach (var doc in patient)
+			{
+				list.Add(doc.id.ToString()+doc.name);
+			}
+			foreach (var doc in docpat)
+			{
+				list.Add(doc.id.ToString()+doc.doctor);
+			}
+			return list;
+		}
     }
 }
 

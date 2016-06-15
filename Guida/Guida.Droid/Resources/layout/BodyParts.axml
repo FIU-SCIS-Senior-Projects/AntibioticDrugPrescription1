@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Choose one"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textAlignment="center" />
+    <ImageButton
+        android:src="@drawable/abs"
+        android:layout_width="match_parent"
+        android:layout_height="122.0dp"
+        android:id="@+id/imageButton1" />
+    <ImageButton
+        android:src="@drawable/lung"
+        android:layout_width="match_parent"
+        android:layout_height="122.0dp"
+        android:id="@+id/imageButton2" />
+</LinearLayout>

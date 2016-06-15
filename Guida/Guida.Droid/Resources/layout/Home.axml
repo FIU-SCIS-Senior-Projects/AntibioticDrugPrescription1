@@ -3,21 +3,19 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:text="Choose one"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    <Button
+        android:text="Body Parts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:textAlignment="center" />
-    <ImageButton
-        android:src="@drawable/abs"
+        android:id="@+id/bodyButton" />
+    <Button
+        android:text="Patient Info"
         android:layout_width="match_parent"
-        android:layout_height="122.0dp"
-        android:id="@+id/imageButton1" />
-    <ImageButton
-        android:src="@drawable/lung"
+        android:layout_height="wrap_content"
+        android:id="@+id/patientInfoButton" />
+    <Button
+        android:text="Search Antibiotic"
         android:layout_width="match_parent"
-        android:layout_height="122.0dp"
-        android:id="@+id/imageButton2" />
+        android:layout_height="wrap_content"
+        android:id="@+id/searchAntibioticButton" />
 </LinearLayout>
