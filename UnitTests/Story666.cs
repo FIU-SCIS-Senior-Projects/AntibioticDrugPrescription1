@@ -134,7 +134,7 @@ namespace UnitTests
             db.createUser(user);
 
             //Assert
-            Assert.True(db.authenticate("testuser123", "985"));
+            Assert.False(db.authenticate("testuser123", "985"));
         }
     }
 }

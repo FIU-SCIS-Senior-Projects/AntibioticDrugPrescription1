@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout1">
+        <TextView
+            android:text="Antibiotic Information"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="423.5dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/antibiticTitleText"
+            android:textAlignment="center" />
+    </RelativeLayout>
+    <TextView
+        android:text="Name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/antibioticNameText" />
+    <TextView
+        android:text="Information"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="511.5dp"
+        android:id="@+id/antibioticInfoText" />
+</LinearLayout>

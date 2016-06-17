@@ -39,7 +39,7 @@ namespace Guida.Droid
 			};
 			searchAntibiotic.Click += delegate
 			{
-				//Sean add code here
+                StartActivity(typeof(AntibioticSearch));
 			};
 		}
 	}

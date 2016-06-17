@@ -94,5 +94,20 @@ namespace Guida
 		{
 			return db.DisplayPatientsID(username);
 		}
+
+        public Antibiotic getAntibiotic(String name)
+        {
+            return db.getAntibiotic(name);
+        }
+
+        public bool addAntibiotic(String name, String acceptableUses, int price, String toxicity)
+        {
+            Antibiotic antibiotic = new Antibiotic();
+            antibiotic.name = name;
+            antibiotic.acceptableUses = acceptableUses;
+            antibiotic.price = price;
+            antibiotic.toxicity = toxicity;
+            return db.addAntibiotic(antibiotic);
+        }
     }
 }
