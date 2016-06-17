@@ -233,54 +233,23 @@ namespace Guida
 			return list;
 		}
 
-		public List<string> DisplayAllDoctors()
+		public List<string> DisplayPatientsID(string username)
 		{
-			var users = db.Table<Doctor>();
+			var patients = db.Table<Patient>();
+			var doctorpatient = db.Table<DoctorPatient>();
 			List<string> list = new List<string>();
-			foreach (var doc in users)
-			{
-				list.Add(doc.username);
-			}
-			return list;
-		}
-		public List<string> DisplayAllPatients()
-		{
-			var users = db.Table<Patient>();
-			List<string> list = new List<string>();
-			foreach (var doc in users)
-			{
-				list.Add(doc.name);
-			}
-			return list;
-		}
-		public List<string> DisplayAllDoctorPatient()
-		{
-			var users = db.Table<DoctorPatient>();
-			List<string> list = new List<string>();
-			foreach (var doc in users)
-			{
-				list.Add(doc.doctor);
-			}
-			return list;
-		}
 
-		public List<string> DisplayAll()
-		{
-			var doctor = db.Table<Doctor>();
-			var patient = db.Table<Patient>();
-			var docpat = db.Table<DoctorPatient>();
-			List<string> list = new List<string>();
-			foreach (var doc in doctor)
+			foreach (var pat in patients)
 			{
-				list.Add(doc.username);
-			}
-			foreach (var doc in patient)
-			{
-				list.Add(doc.id.ToString()+doc.name);
-			}
-			foreach (var doc in docpat)
-			{
-				list.Add(doc.id.ToString()+doc.doctor);
+				foreach (var docpat in doctorpatient)
+				{
+					if (pat.id == docpat.id && docpat.doctor == username)
+					{
+						list.Add(pat.id.ToString());
+						break;
+					}
+
+				}
 			}
 			return list;
 		}

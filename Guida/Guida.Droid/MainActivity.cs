@@ -27,8 +27,15 @@ namespace Guida.Droid
             EditText usernameField = FindViewById<EditText>(Resource.Id.usernameField);
             EditText passwordField = FindViewById<EditText>(Resource.Id.passwordField);
             TextView authStatus = FindViewById<TextView>(Resource.Id.authStatusText);
+			usernameField.Click += delegate {
+				usernameField.Text = "";
+			};
+			passwordField.Click += delegate
+			{
+				passwordField.Text = "";
+			};
 
-            Controller mc = new Controller();
+            var mc = new Controller();
 
 			//DOCTORS
 			mc.addUser("Alan", "12345");
@@ -56,24 +63,25 @@ namespace Guida.Droid
 	
 
             loginButton.Click += delegate {
+				//Doctor doc = new Doctor() { username = usernameField.Text, password = passwordField.Text, name = null };
                 String username = usernameField.Text;
                 String password = passwordField.Text;
-                bool auth = mc.logIn(username, password);
+				bool auth = mc.logIn(username, password);
                 if (auth)
                 {
                     //authStatus.Text += " Logged in!";
 					var home = new Intent(this, typeof(Home));
 					home.PutExtra("Data",username);
 					StartActivity(home);
+
                 }else
                 {
-                    authStatus.Text += " Failed";
+                    authStatus.Text += " Log in Failed! ";
                 }
             };
 		}
 	}
 }
-
 
 
 

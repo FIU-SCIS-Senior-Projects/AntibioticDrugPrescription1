@@ -22,10 +22,9 @@ namespace Guida.Droid
 			SetContentView(Resource.Layout.PInfo);
 			// Create your application here
 			string user = Intent.GetStringExtra("Data") ?? "Data not available";
+			string id = Intent.GetStringExtra("ID") ?? "Data not available";
 			TextView listp = FindViewById<TextView>(Resource.Id.textView1);
-			listp.Text = "Enter " + user + " information here";
-
-
+			listp.Text = "ID: " + id + " Enter " + user + " information here!";
 		}
 	}
 }

@@ -90,24 +90,9 @@ namespace Guida
 			return db.DisplayPatients(username);
 		}
 
-		public List<string> allDoctors()
+		public List<string> patientsIDList(string username)
 		{
-			return db.DisplayAllDoctors();
-		}
-
-		public List<string> allPatients()
-		{
-			return db.DisplayAllPatients();
-		}
-
-		public List<string> allDoctorPatient()
-		{
-			return db.DisplayAllDoctorPatient();
-		}
-
-		public List<string> all()
-		{
-			return db.DisplayAll();
+			return db.DisplayPatientsID(username);
 		}
     }
 }

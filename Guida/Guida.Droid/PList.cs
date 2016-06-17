@@ -17,6 +17,7 @@ namespace Guida.Droid
 	public class PList : Activity
 	{
 		private List<string> patients;
+		private List<string> patientsID;
 		private ListView listp;
 		private string user;
 		protected override void OnCreate(Bundle savedInstanceState)
@@ -26,6 +27,7 @@ namespace Guida.Droid
 			user = Intent.GetStringExtra("Data") ?? "Data not available";
 			Controller mc = new Controller();
 			patients = mc.patientsList(user);
+			patientsID = mc.patientsIDList(user);
 			listp = FindViewById<ListView>(Resource.Id.listView1);
 			ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, patients);
 			listp.Adapter = adapter;
@@ -37,8 +39,8 @@ namespace Guida.Droid
 
 			var pinfo = new Intent(this, typeof(PatientInfo));
 			pinfo.PutExtra("Data", patients[e.Position]);
+			pinfo.PutExtra("ID", patientsID[e.Position]);
 			StartActivity(pinfo);
-			//Console.WriteLine(patients[e.Position]);
 		}
 	}
 }
