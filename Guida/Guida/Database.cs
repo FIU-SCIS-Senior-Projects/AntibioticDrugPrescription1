@@ -254,12 +254,13 @@ namespace Guida
 			return list;
 		}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        public bool addAntibiotic(Antibiotic antibiotic)
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		public bool addAntibiotic(Antibiotic antibiotic)
         {
             var table = db.Table<Antibiotic>();
             foreach (var element in table)

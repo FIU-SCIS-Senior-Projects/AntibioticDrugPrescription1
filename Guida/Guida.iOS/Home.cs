@@ -26,7 +26,7 @@ namespace Guida.iOS
 			};
 			PatientsInfo.TouchUpInside += (object sender, EventArgs e) =>
 			{
-				UIViewController home = Storyboard.InstantiateViewController("HomeViewController") as HomeViewController;
+				UIViewController home = Storyboard.InstantiateViewController("PatientsList") as PatientsList;
 				this.NavigationController.PushViewController(home, true);
 			};
 			SearchAntibiotic.TouchUpInside += (object sender, EventArgs e) =>

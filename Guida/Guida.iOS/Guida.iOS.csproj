@@ -150,15 +150,16 @@
     <Compile Include="AntibioticSearch.designer.cs">
       <DependentUpon>AntibioticSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="PatientsList.cs" />
+    <Compile Include="PatientsList.designer.cs">
+      <DependentUpon>PatientsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSource.cs" />
   </ItemGroup>
   <Import Project="..\Guida\Guida.projitems" Label="Shared" Condition="Exists('..\Guida\Guida.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <BundleResource Include="Resources\abs.png" />
     <BundleResource Include="Resources\lung.png" />
-    <BundleResource Include="PatientList.cs" />
-    <BundleResource Include="PatientList.designer.cs">
-      <DependentUpon>PatientList.cs</DependentUpon>
-    </BundleResource>
   </ItemGroup>
 </Project>

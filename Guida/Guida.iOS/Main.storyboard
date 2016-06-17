@@ -193,6 +193,25 @@
             </objects>
             <point key="canvasLocation" x="1410" y="61"/>
         </scene>
+        <scene sceneID="211">
+            <objects>
+                <viewController id="212" sceneMemberID="viewController" customClass="PatientsList" storyboardIdentifier="PatientsList">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="209"/>
+                        <viewControllerLayoutGuide type="bottom" id="210"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="213">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews/>
+                    </view>
+                    <connections/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="214" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1398" y="732"/>
+        </scene>
     </scenes>
     <resources>
         <image name="abs.png" width="274" height="256"/>
