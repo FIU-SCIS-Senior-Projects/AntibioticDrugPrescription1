@@ -181,6 +181,45 @@ namespace Guida
             }
             return auth;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool addAntibiotic(Antibiotic antibiotic)
+        {
+            var table = db.Table<Antibiotic>();
+            foreach (var element in table)
+            {
+                if(element.name == antibiotic.name)
+                {
+                    return false;
+                }
+            }
+            db.Insert(antibiotic);
+            return true;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public Antibiotic getAntibiotic(String name)
+        {
+            Antibiotic antibiotic = null;
+            var antibiotics = db.Table<Antibiotic>();
+            foreach (var ab in antibiotics)
+            {
+                if(ab.name == name)
+                {
+                    antibiotic = ab;
+                    break;
+                }
+            }
+            return antibiotic;
+        }
     }
 }
 
