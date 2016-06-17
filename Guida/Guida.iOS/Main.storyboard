@@ -141,10 +141,57 @@
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="BodyParts" destination="166" id="name-outlet-166"/>
+                        <outlet property="PatientsInfo" destination="167" id="name-outlet-167"/>
+                        <outlet property="SearchAntibiotic" destination="168" id="name-outlet-168"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="164" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="719" y="747"/>
+        </scene>
+        <scene sceneID="177">
+            <objects>
+                <viewController id="178" sceneMemberID="viewController" customClass="AntibioticSearch" storyboardIdentifier="AntibioticSearch">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="175"/>
+                        <viewControllerLayoutGuide type="bottom" id="176"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="179">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="188" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="108" y="235" width="123" height="30"/>
+                                <state key="normal" title="Search Antibiotic">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="189" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" textAlignment="center" text="Antibiotic Name" clearsOnBeginEditing="YES">
+                                <rect key="frame" x="108" y="157" width="123" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="192" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" textAlignment="center" numberOfLines="4">
+                                <rect key="frame" x="84" y="282" width="171" height="160"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="AntibioticName" destination="189" id="name-outlet-189"/>
+                        <outlet property="SearchAntibiotic" destination="188" id="name-outlet-188"/>
+                        <outlet property="AntibioticInfo" destination="192" id="name-outlet-192"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="180" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1410" y="61"/>
         </scene>
     </scenes>
     <resources>

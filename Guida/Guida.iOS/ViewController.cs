@@ -39,6 +39,10 @@ namespace Guida.iOS
 			mc.addDoctorPatient(5, "Giri");
 			mc.addDoctorPatient(6, "Trevor");
 
+			//Antibiotic
+			mc.addAntibiotic("Ab1", "Flu", 5, "100mg");
+			mc.addAntibiotic("Pulmoderpoxifan", "Derp", 5, "100mg");
+
 			Login.TouchUpInside += (object sender, EventArgs e) => {
 				if (mc.logIn(Username.Text,Password.Text)){
 

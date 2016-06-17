@@ -146,11 +146,19 @@
     <Compile Include="Home.designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="AntibioticSearch.cs" />
+    <Compile Include="AntibioticSearch.designer.cs">
+      <DependentUpon>AntibioticSearch.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\Guida\Guida.projitems" Label="Shared" Condition="Exists('..\Guida\Guida.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <BundleResource Include="Resources\abs.png" />
     <BundleResource Include="Resources\lung.png" />
+    <BundleResource Include="PatientList.cs" />
+    <BundleResource Include="PatientList.designer.cs">
+      <DependentUpon>PatientList.cs</DependentUpon>
+    </BundleResource>
   </ItemGroup>
 </Project>

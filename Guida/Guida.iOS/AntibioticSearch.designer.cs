@@ -11,16 +11,16 @@ using UIKit;
 
 namespace Guida.iOS
 {
-    [Register ("Home")]
-    partial class Home
+    [Register ("AntibioticSearch")]
+    partial class AntibioticSearch
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton BodyParts { get; set; }
+        UIKit.UILabel AntibioticInfo { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton PatientsInfo { get; set; }
+        UIKit.UITextField AntibioticName { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -28,14 +28,14 @@ namespace Guida.iOS
 
         void ReleaseDesignerOutlets ()
         {
-            if (BodyParts != null) {
-                BodyParts.Dispose ();
-                BodyParts = null;
+            if (AntibioticInfo != null) {
+                AntibioticInfo.Dispose ();
+                AntibioticInfo = null;
             }
 
-            if (PatientsInfo != null) {
-                PatientsInfo.Dispose ();
-                PatientsInfo = null;
+            if (AntibioticName != null) {
+                AntibioticName.Dispose ();
+                AntibioticName = null;
             }
 
             if (SearchAntibiotic != null) {
