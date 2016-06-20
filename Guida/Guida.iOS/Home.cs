@@ -6,13 +6,15 @@ namespace Guida.iOS
 {
 	public partial class Home : UIViewController
 	{
+
 		public Home(IntPtr handle) : base (handle)
 		{
-			
+
 		}
 
 		public Home() : base("Home", null)
 		{
+			
 		}
 
 		public override void ViewDidLoad()
@@ -27,6 +29,8 @@ namespace Guida.iOS
 			PatientsInfo.TouchUpInside += (object sender, EventArgs e) =>
 			{
 				UIViewController home = Storyboard.InstantiateViewController("PatientsList") as PatientsList;
+				//PatientsList a = new PatientsList();
+				//a.user = "Alan";
 				this.NavigationController.PushViewController(home, true);
 			};
 			SearchAntibiotic.TouchUpInside += (object sender, EventArgs e) =>

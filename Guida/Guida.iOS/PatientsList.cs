@@ -23,26 +23,16 @@ namespace Guida.iOS
 
 			UITableView PTable;
 
-			List<string> data = control.patientsList("Alan");;
+			List<string> data = control.patientsList(User.doc.username);
+			//List<string> ids = control.patientsIDList(User.doc.username);
 ;
 			PTable = new UITableView
 			{
 				Frame = new CoreGraphics.CGRect(0, 0, View.Bounds.Width, View.Bounds.Height),
-				Source = new TableSource(data)
+				Source = new TableSource(data,this)
 			};
 			View.AddSubview(PTable);
 
-			/*SearchAntibiotic.TouchUpInside += delegate
-			{
-				String antibioticName = AntibioticName.Text;
-				Antibiotic found = control.getAntibiotic(antibioticName);
-				if (found != null)
-				{
-
-					String info = "Name: " + found.name + "\nPrice: $" + found.price + "\nAcceptableUses: " + found.acceptableUses + "\nToxicity: " + found.toxicity;
-					AntibioticInfo.Text = info;
-				}
-			};*/
 		}
 
 		public override void DidReceiveMemoryWarning()

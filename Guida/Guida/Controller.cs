@@ -95,6 +95,11 @@ namespace Guida
 			return db.DisplayPatientsID(username);
 		}
 
+		public bool patientExist(int id)
+		{
+			return db.patientExist(id);
+		}
+
         public Antibiotic getAntibiotic(String name)
         {
             return db.getAntibiotic(name);

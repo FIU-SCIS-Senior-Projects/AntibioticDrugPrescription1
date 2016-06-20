@@ -9,10 +9,12 @@ namespace Guida.iOS
 		
 		List<string> tableItems;
 		string cellIdentifier = "Patients";
+		PatientsList parent; 
 
-		public TableSource(List<string> items)
+		public TableSource(List<string> items, PatientsList p)
 		{
 			tableItems = items;
+			parent = p;
 		}
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
@@ -23,18 +25,23 @@ namespace Guida.iOS
 				cell = new UITableViewCell(UITableViewCellStyle.Default, cellIdentifier);
 			}
 			cell.TextLabel.Text = tableItems[indexPath.Row];
+
 			return cell;
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
-			return 3;
+			return tableItems.Count;
 		}
 
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
 			//base.RowSelected(tableView, indexPath);
-			new UIAlertView("Patient Info", "Name:" + tableItems[indexPath.Row], null, "OK", null).Show();
+			//new UIAlertView("Patient Info", "Name:" + tableItems[indexPath.Row], null, "OK", null).Show()
+			Controller mc = new Controller();
+			mc.patientExist(indexPath.Row + 1);
+			UIViewController home = parent.Storyboard.InstantiateViewController("PatientInfo") as PatientInfo;
+			parent.NavigationController.PushViewController(home, true);
 			tableView.DeselectRow(indexPath, true);
 		}
 

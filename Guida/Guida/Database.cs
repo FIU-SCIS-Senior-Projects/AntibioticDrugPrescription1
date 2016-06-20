@@ -55,8 +55,8 @@ namespace Guida
     [Table("visits")]
     public class Visit
     {
-        [PrimaryKey, AutoIncrement, Column("id")]
-        public int id { get; }
+        [PrimaryKey, AutoIncrement,Column("id")]
+		public int id { get; set;}
         [Column("date")]
         public String date { get; set; }
         [Column("patient")]
@@ -206,6 +206,7 @@ namespace Guida
                 if (doc.username == username && doc.password == password)
                 {
                     auth = true;
+					User.doc = doc;
                     break;
                 }
             }
@@ -254,6 +255,19 @@ namespace Guida
 			return list;
 		}
 
+		public bool patientExist(int id)
+		{
+			var patients = db.Table<Patient>();
+			foreach (var pat in patients)
+			{
+				if (pat.id == id)
+				{
+					User.patInfo = pat;
+					return true;
+				}
+			}
+			return false;
+		}
 
 		/// <summary>
 		/// 

@@ -43,6 +43,13 @@ namespace Guida.iOS
 			mc.addAntibiotic("Ab1", "Flu", 5, "100mg");
 			mc.addAntibiotic("Pulmoderpoxifan", "Derp", 5, "100mg");
 
+			//Visit
+			//mc.addVisits(1, "01-05-16", "Sergio", "Thyru");
+			//mc.addVisits(2, "02-05-16", "Karla", "Alan");
+			//mc.addVisits(3, "03-05-16", "Richard", "Sean");
+			//mc.addVisits(4, "04-05-16", "Everlyn", "Giri");
+			//mc.addVisits(1, "02-05-16", "Sergio", "Trevor");
+
 			Login.TouchUpInside += (object sender, EventArgs e) => {
 				if (mc.logIn(Username.Text,Password.Text)){
 
@@ -50,7 +57,7 @@ namespace Guida.iOS
 					Username.Text = "";
 					Password.Text = "";
 					UIViewController home = Storyboard.InstantiateViewController ("Home") as Home;
-					this.NavigationController.PushViewController (home, true);
+					this.NavigationController.PushViewController(home, true);
 				}
 			};
 
@@ -65,7 +72,3 @@ namespace Guida.iOS
 	}
 }
 
-/*
-UIViewController home = Storyboard.InstantiateViewController("HomeViewController") as HomeViewController;
-this.NavigationController.PushViewController (home, true);
-*/

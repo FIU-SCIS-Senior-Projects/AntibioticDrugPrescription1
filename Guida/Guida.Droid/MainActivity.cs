@@ -60,9 +60,16 @@ namespace Guida.Droid
 			mc.addDoctorPatient(4, "Sean");
 			mc.addDoctorPatient(5, "Giri");
 			mc.addDoctorPatient(6, "Trevor");
-	
 
-            loginButton.Click += delegate {
+			//Visit
+			//mc.addVisits(1, "01-05-16", "Sergio", "Thyru");
+			//mc.addVisits(2, "02-05-16", "Karla", "Alan");
+			//mc.addVisits(3, "03-05-16", "Richard", "Sean");
+			//mc.addVisits(4, "04-05-16", "Everlyn", "Giri");
+			//mc.addVisits(1, "02-05-16", "Sergio", "Trevor");
+
+
+			loginButton.Click += delegate {
 				//Doctor doc = new Doctor() { username = usernameField.Text, password = passwordField.Text, name = null };
                 String username = usernameField.Text;
                 String password = passwordField.Text;
@@ -70,9 +77,9 @@ namespace Guida.Droid
                 if (auth)
                 {
                     //authStatus.Text += " Logged in!";
-					var home = new Intent(this, typeof(Home));
-					home.PutExtra("Data",username);
-					StartActivity(home);
+					//var home = new Intent(this, typeof(Home));
+					//home.PutExtra("Data",username);
+					StartActivity(typeof(Home));
 
                 }else
                 {
