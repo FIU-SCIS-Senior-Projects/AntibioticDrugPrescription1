@@ -4,7 +4,21 @@ using System.Text;
 
 namespace Guida
 {
-    class Controller
+    public static class appSettings {
+        public static Controller controller {
+            get {
+                if(controller == null) {
+                    controller = new Controller();
+                }
+                return controller;
+            }
+            set {
+                controller = value;
+            }
+        }
+    }
+
+    public class Controller
     {
         Database db;
         public Controller()
@@ -23,7 +37,13 @@ namespace Guida
         /// </returns>
         public bool logIn(String username, String password)
         {
-            return db.authenticate(username, password);
+            Doctor user =  db.authenticate(username, password);
+            if (user == null) return false;
+            else {
+                Session.user = user;
+                User.doc = user;
+                return true;
+            }
         }
 
 		/// <summary>
@@ -100,11 +120,27 @@ namespace Guida
 			return db.patientExist(id);
 		}
 
+        /// <summary>
+        /// Retrieves an antibiotic from the database with a given name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>
+        /// Antibiotic if name exists
+        /// null otherwise
+        /// </returns>
         public Antibiotic getAntibiotic(String name)
         {
             return db.getAntibiotic(name);
         }
 
+        /// <summary>
+        /// Attempts to add an antibiotic to the database
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="acceptableUses"></param>
+        /// <param name="price"></param>
+        /// <param name="toxicity"></param>
+        /// <returns></returns>
         public bool addAntibiotic(String name, String acceptableUses, int price, String toxicity)
         {
             Antibiotic antibiotic = new Antibiotic();

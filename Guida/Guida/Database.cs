@@ -194,23 +194,20 @@ namespace Guida
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns>
-        /// True if the username and password were authenticated
-        /// False if the username and password were not authenticated
+        /// Doctor object if the username and password were authenticated
+        /// Null if the username and password were not authenticated
         /// </returns>
-        public bool authenticate(string username, string password)
+        public Doctor authenticate(string username, string password)
         {
             var users = db.Table<Doctor>();
-            bool auth = false;
             foreach (var doc in users)
             {
                 if (doc.username == username && doc.password == password)
                 {
-                    auth = true;
-					User.doc = doc;
-                    break;
+                    return doc;
                 }
             }
-            return auth;
+            return null;
         }
 
 		public List<string> DisplayPatients(string username)
@@ -299,7 +296,7 @@ namespace Guida
             var antibiotics = db.Table<Antibiotic>();
             foreach (var ab in antibiotics)
             {
-                if(ab.name == name)
+                if(String.Compare(ab.name,name,true) == 0)
                 {
                     antibiotic = ab;
                     break;

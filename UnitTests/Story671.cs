@@ -103,5 +103,29 @@ namespace UnitTests
             //assert
             Assert.True(ab == null);
         }
+
+        /// <summary>
+        /// An antibiotic that exists in the database can be retrieved regardless of case
+        /// Preconditions: An antibiotic exists in the database
+        ///                 getAntibiotic() is called
+        /// Postconditions: antibitoic is returned
+        /// </summary>
+        [Test]
+        public void TC005() {
+            //execute
+            //preconditions
+            Antibiotic antibiotic = new Antibiotic();
+            antibiotic.name = "Test";
+            antibiotic.price = 350;
+            antibiotic.acceptableUses = "Flu,Cold";
+            antibiotic.toxicity = "150mg";
+            db.addAntibiotic(antibiotic);
+
+            //execute
+            var ab = db.getAntibiotic("test");
+
+            //assert
+            Assert.True(ab.name == antibiotic.name && ab.price == antibiotic.price && ab.acceptableUses == antibiotic.acceptableUses && ab.toxicity == antibiotic.toxicity);
+        }
     }
 }
