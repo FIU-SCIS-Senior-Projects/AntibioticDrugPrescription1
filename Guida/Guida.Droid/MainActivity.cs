@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -10,82 +9,85 @@ using System.Collections.Generic;
 
 namespace Guida.Droid
 {
+	//Main activity. When application is launched, this is the first activity to be displayed
 	[Activity (Label = "Guida.Droid", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
+		//Layout Variables
+		Button loginButton;
+		EditText usernameField, passwordField;
+		TextView authStatus;
 
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
-			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
+			//Set content view to Main Layout
+			SetContentView(Resource.Layout.Main);
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button loginButton = FindViewById<Button> (Resource.Id.loginButton);
-            EditText usernameField = FindViewById<EditText>(Resource.Id.usernameField);
-            EditText passwordField = FindViewById<EditText>(Resource.Id.passwordField);
-            TextView authStatus = FindViewById<TextView>(Resource.Id.authStatusText);
+			//Initialize layout variables
+			loginButton = FindViewById<Button> (Resource.Id.loginButton);
+            usernameField = FindViewById<EditText>(Resource.Id.usernameField);
+            passwordField = FindViewById<EditText>(Resource.Id.passwordField);
+            authStatus = FindViewById<TextView>(Resource.Id.authStatusText);
+
+			//Clear Text when usernameField is clicked
 			usernameField.Click += delegate {
 				usernameField.Text = "";
 			};
+			//Clear Text when passwordField is clicked
 			passwordField.Click += delegate
 			{
 				passwordField.Text = "";
 			};
 
-            var mc = new Controller();
+			//Create Database. (The creation of the database should be moved to another file)
+			//-------------------------------------------------------------------------------
 
 			//DOCTORS
-			mc.addUser("Alan", "12345");
-			mc.addUser("Sean", "12345");
-			mc.addUser("Mohsen", "12345");
-			mc.addUser("Sadjadi", "12345");
-			mc.addUser("Giri", "12345");
-			mc.addUser("Trevor", "12345");
+			appSettings.GetController().addUser("Alan", "12345");
+			appSettings.GetController().addUser("Sean", "12345");
+			appSettings.GetController().addUser("Mohsen", "12345");
+			appSettings.GetController().addUser("Sadjadi", "12345");
+			appSettings.GetController().addUser("Giri", "12345");
+			appSettings.GetController().addUser("Trevor", "12345");
 
 			//PATIENTS
-			mc.addPatient("Sergio", "Jul");
-			mc.addPatient("Karla", "Aug");
-			mc.addPatient("Richard", "Jan");
-			mc.addPatient("Evelyn", "Dec");
-			mc.addPatient("Guillermo", "Oct");
-			mc.addPatient("Eduardo", "Sep");
+			appSettings.GetController().addPatient("Sergio", "Jul");
+			appSettings.GetController().addPatient("Karla", "Aug");
+			appSettings.GetController().addPatient("Richard", "Jan");
+			appSettings.GetController().addPatient("Evelyn", "Dec");
+			appSettings.GetController().addPatient("Guillermo", "Oct");
+			appSettings.GetController().addPatient("Eduardo", "Sep");
 
 			//DOCTOR-PATIENT
-			mc.addDoctorPatient(1, "Alan");
-			mc.addDoctorPatient(2, "Alan");
-			mc.addDoctorPatient(3, "Alan");
-			mc.addDoctorPatient(4, "Sean");
-			mc.addDoctorPatient(5, "Giri");
-			mc.addDoctorPatient(6, "Trevor");
+			appSettings.GetController().addDoctorPatient(1, "Alan");
+			appSettings.GetController().addDoctorPatient(2, "Alan");
+			appSettings.GetController().addDoctorPatient(3, "Alan");
+			appSettings.GetController().addDoctorPatient(4, "Sean");
+			appSettings.GetController().addDoctorPatient(5, "Giri");
+			appSettings.GetController().addDoctorPatient(6, "Trevor");
 
-			//Visit
-			//mc.addVisits(1, "01-05-16", "Sergio", "Thyru");
-			//mc.addVisits(2, "02-05-16", "Karla", "Alan");
-			//mc.addVisits(3, "03-05-16", "Richard", "Sean");
-			//mc.addVisits(4, "04-05-16", "Everlyn", "Giri");
-			//mc.addVisits(1, "02-05-16", "Sergio", "Trevor");
+			//VISIT
+			//appSettings.controller.addVisits(1, "01-05-16", "Sergio", "Thyru");
+			//appSettings.controller.addVisits(2, "02-05-16", "Karla", "Alan");
+			//appSettings.controller.addVisits(3, "03-05-16", "Richard", "Sean");
+			//appSettings.controller.addVisits(4, "04-05-16", "Everlyn", "Giri");
+			//appSettings.controller.addVisits(1, "02-05-16", "Sergio", "Trevor");
 
+			//When Log in button is clicked, user may log in if username and password are stored in the database
+			loginButton.Click += delegate {      
 
-			loginButton.Click += delegate {
-				//Doctor doc = new Doctor() { username = usernameField.Text, password = passwordField.Text, name = null };
-                String username = usernameField.Text;
-                String password = passwordField.Text;
-				bool auth = mc.logIn(username, password);
-                if (auth)
-                {
-                    //authStatus.Text += " Logged in!";
-					//var home = new Intent(this, typeof(Home));
-					//home.PutExtra("Data",username);
-					StartActivity(typeof(Home));
+				//Return true if username and password entered are stored in the database
+				bool auth = appSettings.GetController().logIn(usernameField.Text, passwordField.Text);
 
-                }else
-                {
-                    authStatus.Text += " Log in Failed! ";
-                }
+				//If username and password is valid, start next activity
+                if (auth) StartActivity(typeof(Home));
+				//Else, let know the user log in failed
+                else authStatus.Text += " Log in Failed! ";
+                
             };
+
 		}
 	}
 }

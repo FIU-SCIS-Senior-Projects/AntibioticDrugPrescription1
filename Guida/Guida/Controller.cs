@@ -5,17 +5,17 @@ using System.Text;
 namespace Guida
 {
     public static class appSettings {
-        public static Controller controller {
-            get {
-                if(controller == null) {
-                    controller = new Controller();
-                }
-                return controller;
-            }
-            set {
-                controller = value;
-            }
-        }
+
+		public static Controller controller;
+		public static Controller GetController()
+		{
+			if (controller == null) controller = new Controller();
+			return controller;
+		}
+		public static void SetController(Controller ctrl)
+		{
+			controller = ctrl;
+		}
     }
 
     public class Controller
