@@ -11,7 +11,7 @@ namespace Guida.iOS
         }
 		public override void ViewDidLoad()
 		{
-			Visits.Text = "ID: " + User.patInfo.id + " Enter " + User.patInfo.name + " information here!";
+			Visits.Text = "ID: " + Session.selectedPatient.id + " Enter " + Session.selectedPatient.name + " information here!";
 		}
     }
 }

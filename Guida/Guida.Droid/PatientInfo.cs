@@ -23,7 +23,7 @@ namespace Guida.Droid
 			// Create your application here
 
 			TextView listp = FindViewById<TextView>(Resource.Id.textView1);
-			listp.Text = "ID: " + User.patInfo.id + " Enter " + User.patInfo.name + " information here!";
+			listp.Text = "ID: " + Session.selectedPatient.id + " Enter " + Session.selectedPatient.name + " information here!";
 		}
 	}
 }

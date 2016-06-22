@@ -24,7 +24,7 @@ namespace Guida
 
     /// <summary>
     /// Represents the database table "patients"
-    /// Patient has a name and a DoB(Date of Birth)
+    /// Patient has an id, name and a DoB(Date of Birth)
     /// </summary>
     [Table("patients")]
     public class Patient
@@ -37,13 +37,16 @@ namespace Guida
         public String DoB { get; set; }
     }
 
-    /// <summary>
-    /// Represents a relashionship between a doctor an a patient
-    /// </summary>
-    [Table("doctor-patient")]
-    public class DoctorPatient{
-        [PrimaryKey, Column("id")]
+	/// <summary>
+	/// Represents a relashionship between a doctor an a patient
+	/// </summary>
+	[Table("doctor-patient")]
+	public class DoctorPatient
+	{
+		[PrimaryKey, AutoIncrement, Column("id")]
 		public int id { get; set; }
+		[Column("patient_id")]
+		public int patient_id {get;set;}
         [Column("doctor")]
         public String doctor { get; set; }
     }
@@ -173,12 +176,12 @@ namespace Guida
 
 		public bool createDoctorPatient(DoctorPatient doc)
 		{
-			if (doc.id < 0) return false;
+			if (doc.patient_id < 0) return false;
 			if (doc.doctor == null) return false;
 			var users = db.Table<DoctorPatient>();
 			foreach (DoctorPatient x in users)
 			{
-				if (x.id == doc.id && x.doctor == doc.doctor)
+				if (x.patient_id == doc.patient_id && x.doctor == doc.doctor)
 				{
 					return false;
 				}
@@ -220,7 +223,7 @@ namespace Guida
 			{
 				foreach (var docpat in doctorpatient)
 				{
-					if (pat.id == docpat.id && docpat.doctor == username)
+					if (pat.id == docpat.patient_id && docpat.doctor == username)
 					{
 						list.Add(pat.name);
 						break;
@@ -241,7 +244,7 @@ namespace Guida
 			{
 				foreach (var docpat in doctorpatient)
 				{
-					if (pat.id == docpat.id && docpat.doctor == username)
+					if (pat.id == docpat.patient_id && docpat.doctor == username)
 					{
 						list.Add(pat.id.ToString());
 						break;
@@ -259,7 +262,7 @@ namespace Guida
 			{
 				if (pat.id == id)
 				{
-					User.patInfo = pat;
+					Session.selectedPatient = pat;
 					return true;
 				}
 			}

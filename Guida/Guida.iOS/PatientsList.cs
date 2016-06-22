@@ -23,7 +23,7 @@ namespace Guida.iOS
 
 			UITableView PTable;
 
-			List<string> data = control.patientsList(User.doc.username);
+			List<string> data = control.patientsList(Session.user.username);
 			//List<string> ids = control.patientsIDList(User.doc.username);
 ;
 			PTable = new UITableView

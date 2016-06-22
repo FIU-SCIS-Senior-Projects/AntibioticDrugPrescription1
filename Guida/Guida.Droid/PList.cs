@@ -28,8 +28,8 @@ namespace Guida.Droid
 
 			//Code
 			mc = new Controller();
-			patients = mc.patientsList(User.doc.username);
-			patientsID = mc.patientsIDList(User.doc.username);
+			patients = mc.patientsList(Session.user.username);
+			patientsID = mc.patientsIDList(Session.user.username);
 			listp = FindViewById<ListView>(Resource.Id.listView1);
 			ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, patients);
 			listp.Adapter = adapter;

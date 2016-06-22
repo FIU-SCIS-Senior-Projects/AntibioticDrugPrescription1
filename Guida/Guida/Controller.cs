@@ -41,7 +41,6 @@ namespace Guida
             if (user == null) return false;
             else {
                 Session.user = user;
-                User.doc = user;
                 return true;
             }
         }
@@ -61,10 +60,10 @@ namespace Guida
 		}
 
 
-		public bool addDoctorPatient(int id, String username)
+		public bool addDoctorPatient(int patient_id, String username)
 		{
 			DoctorPatient newUser = new DoctorPatient();
-			newUser.id = id;
+			newUser.patient_id = patient_id;
 			newUser.doctor = username;
 			return db.createDoctorPatient(newUser);
 		}
@@ -115,9 +114,9 @@ namespace Guida
 			return db.DisplayPatientsID(username);
 		}
 
-		public bool patientExist(int id)
+		public bool patientExist(int patient_id)
 		{
-			return db.patientExist(id);
+			return db.patientExist(patient_id);
 		}
 
         /// <summary>
