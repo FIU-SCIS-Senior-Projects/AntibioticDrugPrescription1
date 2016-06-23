@@ -70,18 +70,28 @@ namespace UnitTests
 		public void TC003()
 		{
 			//preconditions
-			//preconditions
+			Doctor doctor = new Doctor();
+			doctor.username = "Alan";
+			doctor.password = "12345";
+			db.createUser(doctor);
+
 			Patient patient = new Patient();
 			patient.name = "Sergio";
-			patient.DoB = "July";
+			patient.DoB = "Jul";
 			db.createPatient(patient);
 
-			//List<string> list = db.DisplayPatients("Sergio");
+			DoctorPatient doctorPatient = new DoctorPatient();
+			doctorPatient.patient_id = 1;
+			doctorPatient.doctor = "Alan";
+			db.createDoctorPatient(doctorPatient);
+
+			//Execute
+			var list = db.getPatientList("Alan");
+
 			//assert
 			Assert.True(list.Count > 0);
-		}
-		*/
-		/*
+		}*/
+
 		/// <summary>
 		/// A list of Patients that does not exists in the database can not be retrieved
 		/// Preconditions:  A list of petients does not exists in the database 
@@ -92,12 +102,11 @@ namespace UnitTests
 		public void TC004()
 		{
 			//execute
-			//var ab = db.DisplayPatients("Test");
+			var ab = db.getPatientList("Test");
 
 			//assert
 			Assert.True(ab.Count == 0);
 		}
-		*/
 	}
 }
 

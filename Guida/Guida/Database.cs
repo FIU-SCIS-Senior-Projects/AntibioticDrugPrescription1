@@ -260,7 +260,7 @@ namespace Guida
 		/// </summary>
 		/// <returns>The patient list.</returns>
 		/// <param name="username">Username.</param>
-		public List<Patient> getPatientList(string username)
+		public List<Patient> getPatientList(string name)
 		{
 			var patient = db.Table<Patient>();
 			var doctorPatient = db.Table<DoctorPatient>();
@@ -270,7 +270,7 @@ namespace Guida
 			{
 				foreach (var docpat in doctorPatient)
 				{
-					if (pat.id == docpat.patient_id && docpat.doctor == username)
+					if (pat.id == docpat.patient_id && docpat.doctor == name)
 					{
 						list.Add(pat);
 						break;
