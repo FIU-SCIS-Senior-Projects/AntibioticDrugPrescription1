@@ -106,7 +106,7 @@ namespace Guida.Droid
 			public const int passwordField = 2131034125;
 			
 			// aapt resource value: 0x7f05000a
-			public const int patientInfoButton = 2131034122;
+			public const int patientInformationButton = 2131034122;
 			
 			// aapt resource value: 0x7f050000
 			public const int relativeLayout1 = 2131034112;
@@ -149,7 +149,7 @@ namespace Guida.Droid
 			public const int Main = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int PatientInfo = 2130903045;
+			public const int PatientInformation = 2130903045;
 			
 			// aapt resource value: 0x7f030006
 			public const int PatientList = 2130903046;

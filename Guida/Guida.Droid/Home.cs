@@ -18,7 +18,7 @@ namespace Guida.Droid
 	public class Home : Activity
 	{
 		//Layout Variables
-		Button antibioticPrescription, patientInfo, searchAntibiotic;
+		Button antibioticPrescription, patientInformation, searchAntibiotic;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -30,7 +30,7 @@ namespace Guida.Droid
 			//Initialize layout variables
 			//---------------------------
 			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);	//Antibiotic Prescription button
-			patientInfo = FindViewById<Button>(Resource.Id.patientInfoButton);							//Patient Information button
+			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);			//Patient Information button
 			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);				//Search Antibiotic button
 
 			//if Antibiotic Prescription button is clicked, move to AntibioticPrescription activity
@@ -40,7 +40,7 @@ namespace Guida.Droid
 			};
 
 			//if Patient Information button is clicked, move to PList activity
-			patientInfo.Click += delegate
+			patientInformation.Click += delegate
 			{
 				StartActivity(typeof(PatientList));
 			};

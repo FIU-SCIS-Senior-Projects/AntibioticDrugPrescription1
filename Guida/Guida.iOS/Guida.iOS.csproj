@@ -138,10 +138,6 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomeViewController.cs" />
-    <Compile Include="HomeViewController.designer.cs">
-      <DependentUpon>HomeViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Home.cs" />
     <Compile Include="Home.designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
@@ -150,14 +146,22 @@
     <Compile Include="AntibioticSearch.designer.cs">
       <DependentUpon>AntibioticSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="PatientsList.cs" />
-    <Compile Include="PatientsList.designer.cs">
-      <DependentUpon>PatientsList.cs</DependentUpon>
-    </Compile>
     <Compile Include="TableSource.cs" />
-    <Compile Include="PatientInfo.cs" />
-    <Compile Include="PatientInfo.designer.cs">
-      <DependentUpon>PatientInfo.cs</DependentUpon>
+    <Compile Include="AntibioticPrescription.cs" />
+    <Compile Include="AntibioticPrescription.designer.cs">
+      <DependentUpon>AntibioticPrescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientList.cs" />
+    <Compile Include="PatientList.designer.cs">
+      <DependentUpon>PatientList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientInformation.cs" />
+    <Compile Include="PatientInformation.designer.cs">
+      <DependentUpon>PatientInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AntibioticInformation.cs" />
+    <Compile Include="AntibioticInformation.designer.cs">
+      <DependentUpon>AntibioticInformation.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="..\Guida\Guida.projitems" Label="Shared" Condition="Exists('..\Guida\Guida.projitems')" />

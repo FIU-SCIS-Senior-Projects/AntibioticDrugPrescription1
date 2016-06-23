@@ -16,31 +16,31 @@ namespace Guida.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton BodyParts { get; set; }
+        UIKit.UIButton antibioticPrescriptionButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton PatientsInfo { get; set; }
+        UIKit.UIButton patientListButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton SearchAntibiotic { get; set; }
+        UIKit.UIButton searchAntibioticButton { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (BodyParts != null) {
-                BodyParts.Dispose ();
-                BodyParts = null;
+            if (antibioticPrescriptionButton != null) {
+                antibioticPrescriptionButton.Dispose ();
+                antibioticPrescriptionButton = null;
             }
 
-            if (PatientsInfo != null) {
-                PatientsInfo.Dispose ();
-                PatientsInfo = null;
+            if (patientListButton != null) {
+                patientListButton.Dispose ();
+                patientListButton = null;
             }
 
-            if (SearchAntibiotic != null) {
-                SearchAntibiotic.Dispose ();
-                SearchAntibiotic = null;
+            if (searchAntibioticButton != null) {
+                searchAntibioticButton.Dispose ();
+                searchAntibioticButton = null;
             }
         }
     }

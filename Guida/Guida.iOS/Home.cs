@@ -4,39 +4,40 @@ using UIKit;
 
 namespace Guida.iOS
 {
+	//This class allows the user to see all the pages the user can access
 	public partial class Home : UIViewController
 	{
+		//Next page
+		UIViewController next;
 
 		public Home(IntPtr handle) : base (handle)
 		{
 
 		}
 
-		public Home() : base("Home", null)
-		{
-			
-		}
-
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			// Perform any additional setup after loading the view, typically from a nib.
-			BodyParts.TouchUpInside += (object sender, EventArgs e) =>
+
+			//Antibiotic Prescription button is clicked. Go to Antibiotic Prescription page
+			antibioticPrescriptionButton.TouchUpInside += (object sender, EventArgs e) =>
 			{
-				UIViewController home = Storyboard.InstantiateViewController("HomeViewController") as HomeViewController;
-				this.NavigationController.PushViewController(home, true);
+				next = Storyboard.InstantiateViewController("AntibioticPrescription") as AntibioticPrescription;
+				this.NavigationController.PushViewController(next, true);
 			};
-			PatientsInfo.TouchUpInside += (object sender, EventArgs e) =>
+
+			//Patient List button is clicked. Go to Patient List page
+			patientListButton.TouchUpInside += (object sender, EventArgs e) =>
 			{
-				UIViewController home = Storyboard.InstantiateViewController("PatientsList") as PatientsList;
-				//PatientsList a = new PatientsList();
-				//a.user = "Alan";
-				this.NavigationController.PushViewController(home, true);
+				next = Storyboard.InstantiateViewController("PatientList") as PatientList;
+				this.NavigationController.PushViewController(next, true);
 			};
-			SearchAntibiotic.TouchUpInside += (object sender, EventArgs e) =>
+
+			//Search Antibiotic button is clicked. Go to Search Antibiotic page
+			searchAntibioticButton.TouchUpInside += (object sender, EventArgs e) =>
 			{
-				UIViewController home = Storyboard.InstantiateViewController("AntibioticSearch") as AntibioticSearch;
-				this.NavigationController.PushViewController(home, true);
+				next = Storyboard.InstantiateViewController("AntibioticSearch") as AntibioticSearch;
+				this.NavigationController.PushViewController(next, true);
 			};
 		}
 

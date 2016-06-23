@@ -20,11 +20,11 @@ namespace Guida.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField AntibioticName { get; set; }
+        UIKit.UITextField nameField { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton SearchAntibiotic { get; set; }
+        UIKit.UIButton searchButton { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
@@ -33,14 +33,14 @@ namespace Guida.iOS
                 AntibioticInfo = null;
             }
 
-            if (AntibioticName != null) {
-                AntibioticName.Dispose ();
-                AntibioticName = null;
+            if (nameField != null) {
+                nameField.Dispose ();
+                nameField = null;
             }
 
-            if (SearchAntibiotic != null) {
-                SearchAntibiotic.Dispose ();
-                SearchAntibiotic = null;
+            if (searchButton != null) {
+                searchButton.Dispose ();
+                searchButton = null;
             }
         }
     }

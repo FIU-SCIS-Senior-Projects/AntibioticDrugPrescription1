@@ -11,11 +11,19 @@ using UIKit;
 
 namespace Guida.iOS
 {
-    [Register ("PatientsList")]
-    partial class PatientsList
+    [Register ("AntibioticInformation")]
+    partial class AntibioticInformation
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel antibioticInformation { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (antibioticInformation != null) {
+                antibioticInformation.Dispose ();
+                antibioticInformation = null;
+            }
         }
     }
 }

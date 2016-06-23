@@ -11,25 +11,25 @@ namespace Guida.iOS
 
 		}
 
-		public AntibioticSearch() : base("AntibioticSearch", null)
-		{
-		}
-
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			// Perform any additional setup after loading the view, typically from a nib.
-			Controller control = new Controller();
 
-			SearchAntibiotic.TouchUpInside += delegate
+			//Search for antibiotic button is clicked
+			searchButton.TouchUpInside += delegate
 			{
-				String antibioticName = AntibioticName.Text;
-				Antibiotic found = control.getAntibiotic(antibioticName);
+				//Return the antibiotic entered in nameField text box 
+				Antibiotic found = appSettings.GetController().getAntibiotic(nameField.Text);
+
+				//If antibiotic is found, display it
 				if (found != null)
 				{
+					//Store antibiotic information to display on the next page
+					Session.antibioticInformation = found;
 
-					String info = "Name: "+ found.name + "\nPrice: $" + found.price + "\nAcceptableUses: " + found.acceptableUses + "\nToxicity: " + found.toxicity;
-					AntibioticInfo.Text = info;
+					//Go to the next page
+					UIViewController antibioticInformation = Storyboard.InstantiateViewController("AntibioticInformation") as AntibioticInformation;
+					NavigationController.PushViewController(antibioticInformation, true);
 				}
 			};
 		}

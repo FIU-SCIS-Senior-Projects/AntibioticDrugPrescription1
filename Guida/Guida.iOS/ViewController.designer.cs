@@ -11,35 +11,37 @@ using UIKit;
 
 namespace Guida.iOS
 {
-	[Register ("ViewController")]
-	partial class ViewController
-	{
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton Login { get; set; }
+    [Register ("ViewController")]
+    partial class ViewController
+    {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton loginButton { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField Password { get; set; }
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField passwordField { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField Username { get; set; }
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField usernameField { get; set; }
 
-		void ReleaseDesignerOutlets ()
-		{
-			if (Login != null) {
-				Login.Dispose ();
-				Login = null;
-			}
-			if (Password != null) {
-				Password.Dispose ();
-				Password = null;
-			}
-			if (Username != null) {
-				Username.Dispose ();
-				Username = null;
-			}
-		}
-	}
+        void ReleaseDesignerOutlets ()
+        {
+            if (loginButton != null) {
+                loginButton.Dispose ();
+                loginButton = null;
+            }
+
+            if (passwordField != null) {
+                passwordField.Dispose ();
+                passwordField = null;
+            }
+
+            if (usernameField != null) {
+                usernameField.Dispose ();
+                usernameField = null;
+            }
+        }
+    }
 }

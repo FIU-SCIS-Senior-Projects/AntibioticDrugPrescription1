@@ -45,9 +45,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Login" destination="oBE-Ac-vcx" id="name-outlet-oBE-Ac-vcx"/>
-                        <outlet property="Password" destination="3" id="name-outlet-3"/>
-                        <outlet property="Username" destination="4" id="name-outlet-4"/>
+                        <outlet property="loginButton" destination="oBE-Ac-vcx" id="name-outlet-oBE-Ac-vcx"/>
+                        <outlet property="passwordField" destination="3" id="name-outlet-3"/>
+                        <outlet property="usernameField" destination="4" id="name-outlet-4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -71,44 +71,6 @@
             <point key="canvasLocation" x="-16" y="57"/>
         </scene>
         <!--Home View Controller-->
-        <scene sceneID="102">
-            <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="103" customClass="HomeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="100"/>
-                        <viewControllerLayoutGuide type="bottom" id="101"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="104">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="145" fixedFrame="YES">
-                                <rect key="frame" x="136" y="206" width="104" height="79"/>
-                                <state key="normal" backgroundImage="abs.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="146" fixedFrame="YES">
-                                <rect key="frame" x="136" y="353" width="104" height="77"/>
-                                <state key="normal" backgroundImage="lung.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Choose one" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="153" horizontalContentHuggingPriority="1000" verticalContentHuggingPriority="1000" fixedFrame="YES">
-                                <rect key="frame" x="112" y="117" width="152" height="29"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="105" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-18" y="755"/>
-        </scene>
         <scene sceneID="161">
             <objects>
                 <viewController id="162" sceneMemberID="viewController" customClass="Home" storyboardIdentifier="Home">
@@ -122,19 +84,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="166" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="107" y="119" width="145" height="30"/>
-                                <state key="normal" title="Body Parts">
+                                <rect key="frame" x="95" y="132" width="157" height="30"/>
+                                <state key="normal" title="Antibiotic Prescription">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="167" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="107" y="206" width="145" height="30"/>
-                                <state key="normal" title="Patients Info">
+                                <rect key="frame" x="95" y="240" width="157" height="30"/>
+                                <state key="normal" title="Patients Information">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="168" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="107" y="315" width="145" height="30"/>
+                                <rect key="frame" x="95" y="346" width="157" height="30"/>
                                 <state key="normal" title="Search Antibiotic">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -142,9 +104,9 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="BodyParts" destination="166" id="name-outlet-166"/>
-                        <outlet property="PatientsInfo" destination="167" id="name-outlet-167"/>
-                        <outlet property="SearchAntibiotic" destination="168" id="name-outlet-168"/>
+                        <outlet property="antibioticPrescriptionButton" destination="166" id="name-outlet-166"/>
+                        <outlet property="patientListButton" destination="167" id="name-outlet-167"/>
+                        <outlet property="searchAntibioticButton" destination="168" id="name-outlet-168"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="164" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,8 +146,8 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="AntibioticName" destination="189" id="name-outlet-189"/>
-                        <outlet property="SearchAntibiotic" destination="188" id="name-outlet-188"/>
+                        <outlet property="nameField" destination="189" id="name-outlet-189"/>
+                        <outlet property="searchButton" destination="188" id="name-outlet-188"/>
                         <outlet property="AntibioticInfo" destination="192" id="name-outlet-192"/>
                     </connections>
                 </viewController>
@@ -193,39 +155,107 @@
             </objects>
             <point key="canvasLocation" x="1410" y="61"/>
         </scene>
-        <scene sceneID="211">
+        <scene sceneID="290">
             <objects>
-                <viewController id="212" sceneMemberID="viewController" customClass="PatientsList" storyboardIdentifier="PatientsList">
+                <viewController id="291" sceneMemberID="viewController" customClass="AntibioticPrescription" storyboardIdentifier="AntibioticPrescription">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="209"/>
-                        <viewControllerLayoutGuide type="bottom" id="210"/>
+                        <viewControllerLayoutGuide type="top" id="288"/>
+                        <viewControllerLayoutGuide type="bottom" id="289"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="213">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <subviews/>
-                    </view>
-                    <connections/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="214" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1398" y="732"/>
-        </scene>
-        <scene sceneID="225">
-            <objects>
-                <viewController id="226" sceneMemberID="viewController" storyboardIdentifier="PatientInfo" customClass="PatientInfo">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="223"/>
-                        <viewControllerLayoutGuide type="bottom" id="224"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="227">
+                    <view key="view" contentMode="scaleToFill" id="292">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="248" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" textAlignment="center">
-                                <rect key="frame" x="56" y="98" width="195" height="268"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose one" lineBreakMode="tailTruncation" minimumFontSize="10" id="312" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" textAlignment="center">
+                                <rect key="frame" x="118" y="119" width="122" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="315" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="115" y="176" width="128" height="120"/>
+                                <state key="normal" backgroundImage="abs.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="316" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="121" y="332" width="116" height="111"/>
+                                <state key="normal" backgroundImage="lung.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="UIButton316_TouchUpInside:" destination="291" id="317" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="293" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10" y="748"/>
+        </scene>
+        <scene sceneID="299">
+            <objects>
+                <viewController id="300" sceneMemberID="viewController" customClass="PatientList" storyboardIdentifier="PatientList">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="297"/>
+                        <viewControllerLayoutGuide type="bottom" id="298"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="301">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="302" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1431" y="754"/>
+        </scene>
+        <scene sceneID="332">
+            <objects>
+                <viewController id="333" sceneMemberID="viewController" customClass="PatientInformation" storyboardIdentifier="PatientInformation">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="330"/>
+                        <viewControllerLayoutGuide type="bottom" id="331"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="334">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="345" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" numberOfLines="10" textAlignment="center">
+                                <rect key="frame" x="30" y="75" width="270" height="264"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="patientInformation" destination="345" id="name-outlet-345"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="335" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10" y="1405"/>
+        </scene>
+        <scene sceneID="366">
+            <objects>
+                <viewController id="367" sceneMemberID="viewController" customClass="AntibioticInformation" storyboardIdentifier="AntibioticInformation">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="364"/>
+                        <viewControllerLayoutGuide type="bottom" id="365"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="368">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="371" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" textAlignment="center" numberOfLines="10">
+                                <rect key="frame" x="45" y="75" width="286" height="297"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -234,12 +264,12 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="Visits" destination="248" id="name-outlet-248"/>
+                        <outlet property="antibioticInformation" destination="371" id="name-outlet-371"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="228" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="369" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-27" y="1480"/>
+            <point key="canvasLocation" x="714" y="1408"/>
         </scene>
     </scenes>
     <resources>

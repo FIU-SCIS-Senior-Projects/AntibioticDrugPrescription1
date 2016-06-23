@@ -13,24 +13,24 @@ using Android.Widget;
 namespace Guida.Droid
 {
 	//PatientInfo Activity. It display the information of the patient selected in PatientList
-	[Activity(Label = "PatientInfo")]
-	public class PatientInfo : Activity
+	[Activity(Label = "Patient Information")]
+	public class PatientInformation : Activity
 	{
 		//Layout Variables
-		TextView patientInfo;
+		TextView patientInformation;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
 			//Set content view to PatientInfo Layout
-			SetContentView(Resource.Layout.PatientInfo);
+			SetContentView(Resource.Layout.PatientInformation);
 
 			//Initialize variables
-			patientInfo = FindViewById<TextView>(Resource.Id.displayPatientInfo);
+			patientInformation = FindViewById<TextView>(Resource.Id.displayPatientInfo);
 
 			//Display information
-			patientInfo.Text = "ID: " + Session.selectedPatient.id + " Enter " + Session.selectedPatient.name + " information here!";
+			patientInformation.Text = "ID: " + Session.selectedPatient.id + " Enter " + Session.selectedPatient.name + " information here!";
 		}
 	}
 }

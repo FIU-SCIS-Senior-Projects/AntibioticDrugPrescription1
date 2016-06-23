@@ -52,7 +52,7 @@ namespace Guida.Droid
 			Session.selectedPatient = patientList[e.Position];
 
 			//Next activity. It display the patient information in another layout
-			StartActivity(typeof(PatientInfo));
+			StartActivity(typeof(PatientInformation));
 		}
 	}
 }

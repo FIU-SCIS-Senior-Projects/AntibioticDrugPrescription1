@@ -43,10 +43,10 @@ namespace Guida
         {
             Doctor user =  db.authenticate(username, password);
             if (user == null) return false;
-            else {
-                Session.user = user;
-                return true;
-            }
+
+            Session.user = user;
+            return true;
+
         }
 
 		/// <summary>
