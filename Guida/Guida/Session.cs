@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Guida
 {
+	//Session class store data required data to use it in another page
     public static class Session
     {
         public static Doctor user { get; set; }

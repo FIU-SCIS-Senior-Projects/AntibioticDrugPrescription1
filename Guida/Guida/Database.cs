@@ -24,7 +24,7 @@ namespace Guida
 
     /// <summary>
     /// Represents the database table "patients"
-    /// Patient has an id, name and a DoB(Date of Birth)
+	/// Patient has a unique id, name and a DoB(Date of Birth)
     /// </summary>
     [Table("patients")]
     public class Patient
@@ -39,6 +39,7 @@ namespace Guida
 
 	/// <summary>
 	/// Represents a relashionship between a doctor an a patient
+	/// Doctor=Patient has a unique id, patient_id, and doctor username
 	/// </summary>
 	[Table("doctor-patient")]
 	public class DoctorPatient
@@ -53,7 +54,7 @@ namespace Guida
 
     /// <summary>
     /// Represents the database table "visits"
-    /// Visit has a date, patient, and doctor
+    /// Visit has a unique id, date, patient, and doctor
     /// </summary>
     [Table("visits")]
     public class Visit
@@ -70,7 +71,7 @@ namespace Guida
 
     /// <summary>
     /// Represents the batabase table "disease"
-    /// Disease has a name, and an affectedArea.
+    /// Disease has a unique name, and an affectedArea.
     /// </summary>
     [Table("disease")]
     public class Disease
@@ -83,7 +84,7 @@ namespace Guida
 
     /// <summary>
     /// Represents the database table "antibiotics"
-    /// Antibiotic has a name, a price, acceptable uses, and a toxicity.
+    /// Antibiotic has a unique name, a price, acceptable uses, and a toxicity.
     /// </summary>
     [Table("antibiotics")]
     public class Antibiotic
@@ -158,6 +159,17 @@ namespace Guida
             return true;
         }
 
+		/// <summary>
+		/// Adds a user to the database
+		/// </summary>
+		/// <param name="doc">
+		/// The Patient object to be created.
+		/// Must have a unique id, a name and a DoB.
+		/// </param>
+		/// <returns>
+		/// True if the Patient was created successully.
+		/// False if the Patient was not created.
+		/// </returns>
 		public bool createPatient(Patient doc)
 		{
 			if (doc.name == null) return false;
@@ -174,6 +186,17 @@ namespace Guida
 			return true;
 		}
 
+		/// <summary>
+		/// Adds a relationship between a doctor and a patient to the database
+		/// </summary>
+		/// <param name="doc">
+		/// The Doctor-Patient object to be created.
+		/// Must have a unique id, a patient_id and a doctor username.
+		/// </param>
+		/// <returns>
+		/// True if the Doctor-Patient was created successully.
+		/// False if the Doctor-Patient was not created.
+		/// </returns>
 		public bool createDoctorPatient(DoctorPatient doc)
 		{
 			if (doc.patient_id < 0) return false;
@@ -187,6 +210,25 @@ namespace Guida
 				}
 			}
 			db.Insert(doc);
+			return true;
+		}
+
+		/// <summary>
+		/// Adds the antibiotic.
+		/// </summary>
+		/// <returns>The antibiotic.</returns>
+		/// <param name="antibiotic">Antibiotic.</param>
+		public bool addAntibiotic(Antibiotic antibiotic)
+		{
+			var table = db.Table<Antibiotic>();
+			foreach (var element in table)
+			{
+				if (element.name == antibiotic.name)
+				{
+					return false;
+				}
+			}
+			db.Insert(antibiotic);
 			return true;
 		}
 
@@ -213,7 +255,12 @@ namespace Guida
             return null;
         }
 
-		public List<Patient> GetPatientList(string username)
+		/// <summary>
+		/// Gets the patient list.
+		/// </summary>
+		/// <returns>The patient list.</returns>
+		/// <param name="username">Username.</param>
+		public List<Patient> getPatientList(string username)
 		{
 			var patient = db.Table<Patient>();
 			var doctorPatient = db.Table<DoctorPatient>();
@@ -233,86 +280,11 @@ namespace Guida
 			return list;
 		}
 
-		public List<string> DisplayPatients(string username)
-		{
-			var patients = db.Table<Patient>();
-			var doctorpatient = db.Table<DoctorPatient>();
-			List<string> list = new List<string>();
-
-			foreach (var pat in patients)
-			{
-				foreach (var docpat in doctorpatient)
-				{
-					if (pat.id == docpat.patient_id && docpat.doctor == username)
-					{
-						list.Add(pat.name);
-						break;
-					}
-
-				}
-			}
-			return list;
-		}
-
-		public List<string> DisplayPatientsID(string username)
-		{
-			var patients = db.Table<Patient>();
-			var doctorpatient = db.Table<DoctorPatient>();
-			List<string> list = new List<string>();
-
-			foreach (var pat in patients)
-			{
-				foreach (var docpat in doctorpatient)
-				{
-					if (pat.id == docpat.patient_id && docpat.doctor == username)
-					{
-						list.Add(pat.id.ToString());
-						break;
-					}
-
-				}
-			}
-			return list;
-		}
-
-		public bool patientExist(int id)
-		{
-			var patients = db.Table<Patient>();
-			foreach (var pat in patients)
-			{
-				if (pat.id == id)
-				{
-					Session.selectedPatient = pat;
-					return true;
-				}
-			}
-			return false;
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="name"></param>
-		/// <returns></returns>
-		public bool addAntibiotic(Antibiotic antibiotic)
-        {
-            var table = db.Table<Antibiotic>();
-            foreach (var element in table)
-            {
-                if(element.name == antibiotic.name)
-                {
-                    return false;
-                }
-            }
-            db.Insert(antibiotic);
-            return true;
-        }
-
         /// <summary>
-        /// 
+        /// Gets the antibiotic.
         /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
+        /// <returns>The antibiotic.</returns>
+        /// <param name="name">Name.</param>
         public Antibiotic getAntibiotic(String name)
         {
             Antibiotic antibiotic = null;

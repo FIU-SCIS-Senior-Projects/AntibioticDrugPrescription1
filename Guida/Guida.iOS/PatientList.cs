@@ -20,7 +20,7 @@ namespace Guida.iOS
 			base.ViewDidLoad();
 
 			//Get the List of patients of the current user logged in
-			patientList = appSettings.GetController().PatientList(Session.user.username);
+			patientList = appSettings.getController().getPatientList(Session.user.username);
 
 			//Create table to insert the name of the patients
 			patientTable = new UITableView

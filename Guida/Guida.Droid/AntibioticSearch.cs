@@ -36,7 +36,7 @@ namespace Guida.Droid
             searchButton.Click += delegate
             {
 				//Search for antibiotic on the database
-				Antibiotic found = appSettings.GetController().getAntibiotic(nameField.Text);
+				Antibiotic found = appSettings.getController().getAntibiotic(nameField.Text);
 
 				//if antibiotic exists, display information in next layout
 				if(found != null)

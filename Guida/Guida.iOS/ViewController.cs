@@ -22,7 +22,7 @@ namespace Guida.iOS
 			loginButton.TouchUpInside += (object sender, EventArgs e) => {
 
 				//if username and password is valid
-				if (appSettings.GetController().logIn(usernameField.Text,passwordField.Text)){
+				if (appSettings.getController().logIn(usernameField.Text,passwordField.Text)){
 
 					//Clear text
 					usernameField.Text = "";

@@ -47,7 +47,7 @@ namespace Guida.Droid
 			loginButton.Click += delegate {      
 
 				//Return true if username and password entered are stored in the database
-				bool auth = appSettings.GetController().logIn(usernameField.Text, passwordField.Text);
+				bool auth = appSettings.getController().logIn(usernameField.Text, passwordField.Text);
 
 				//If username and password is valid, start next activity
                 if (auth) StartActivity(typeof(Home));

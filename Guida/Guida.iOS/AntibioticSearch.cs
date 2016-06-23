@@ -19,7 +19,7 @@ namespace Guida.iOS
 			searchButton.TouchUpInside += delegate
 			{
 				//Return the antibiotic entered in nameField text box 
-				Antibiotic found = appSettings.GetController().getAntibiotic(nameField.Text);
+				Antibiotic found = appSettings.getController().getAntibiotic(nameField.Text);
 
 				//If antibiotic is found, display it
 				if (found != null)
