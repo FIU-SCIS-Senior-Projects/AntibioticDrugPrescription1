@@ -12,7 +12,7 @@
         android:text="Patient Info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/patientInfoButton" />
+        android:id="@+id/patientInformationButton" />
     <Button
         android:text="Search Antibiotic"
         android:layout_width="match_parent"
