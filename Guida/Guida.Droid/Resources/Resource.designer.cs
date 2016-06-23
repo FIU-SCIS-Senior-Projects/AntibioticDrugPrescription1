@@ -87,14 +87,17 @@ namespace Guida.Droid
 			// aapt resource value: 0x7f05000f
 			public const int authStatusText = 2131034127;
 			
+			// aapt resource value: 0x7f050010
+			public const int displayPatientInfo = 2131034128;
+			
 			// aapt resource value: 0x7f050005
 			public const int imageButton1 = 2131034117;
 			
 			// aapt resource value: 0x7f050006
 			public const int imageButton2 = 2131034118;
 			
-			// aapt resource value: 0x7f050010
-			public const int listView1 = 2131034128;
+			// aapt resource value: 0x7f050011
+			public const int listView1 = 2131034129;
 			
 			// aapt resource value: 0x7f05000e
 			public const int loginButton = 2131034126;

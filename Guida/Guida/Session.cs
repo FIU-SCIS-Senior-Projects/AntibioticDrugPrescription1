@@ -8,5 +8,6 @@ namespace Guida
     {
         public static Doctor user { get; set; }
         public static Patient selectedPatient { get; set; }
+		public static Antibiotic antibioticInformation { get; set; }
     }
 }

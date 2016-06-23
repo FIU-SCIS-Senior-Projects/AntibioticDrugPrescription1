@@ -29,8 +29,8 @@ namespace Guida
 			//DOCTOR-PATIENT
 			//Columns -> ID (AutoIncrement) | Patient id | Doctor Username
 			//------------------------------------------------------------
-			appSettings.GetController().addDoctorPatient(1, "Alan");
 			appSettings.GetController().addDoctorPatient(2, "Alan");
+			appSettings.GetController().addDoctorPatient(1, "Alan");
 			appSettings.GetController().addDoctorPatient(3, "Alan");
 			appSettings.GetController().addDoctorPatient(4, "Sean");
 			appSettings.GetController().addDoctorPatient(5, "Giri");

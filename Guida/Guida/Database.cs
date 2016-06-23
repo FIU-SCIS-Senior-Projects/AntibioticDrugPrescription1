@@ -213,6 +213,26 @@ namespace Guida
             return null;
         }
 
+		public List<Patient> GetPatientList(string username)
+		{
+			var patient = db.Table<Patient>();
+			var doctorPatient = db.Table<DoctorPatient>();
+			var list = new List<Patient>();
+
+			foreach (var pat in patient)
+			{
+				foreach (var docpat in doctorPatient)
+				{
+					if (pat.id == docpat.patient_id && docpat.doctor == username)
+					{
+						list.Add(pat);
+						break;
+					}
+				}
+			}
+			return list;
+		}
+
 		public List<string> DisplayPatients(string username)
 		{
 			var patients = db.Table<Patient>();

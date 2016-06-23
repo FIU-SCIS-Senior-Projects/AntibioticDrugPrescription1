@@ -52,6 +52,7 @@
     <Compile Include="Home.cs" />
     <Compile Include="PatientInfo.cs" />
     <Compile Include="AntibioticPrescription.cs" />
+    <Compile Include="AntibioticInformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

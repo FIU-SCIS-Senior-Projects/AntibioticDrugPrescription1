@@ -13,35 +13,46 @@ using Android.Widget;
 
 namespace Guida.Droid
 {
+	//PatientList Activity. It display a list of patients of the current user logged in
 	[Activity(Label = "PatientList")]
 	public class PatientList : Activity
 	{
-		List<string> patients;
-		List<string> patientsID;
-		ListView listp;
-		Controller mc;
+		//Variables
+		ListView list;				//Layout
+		List<Patient> patientList;	//List of Patients
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
+
+			//Set content view to PatientList Layout
 			SetContentView(Resource.Layout.PatientList);
 
-			//Code
-			mc = new Controller();
-			patients = mc.patientsList(Session.user.username);
-			patientsID = mc.patientsIDList(Session.user.username);
-			listp = FindViewById<ListView>(Resource.Id.listView1);
-			ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, patients);
-			listp.Adapter = adapter;
-			listp.ItemClick += listp_ItemClicked;
+			//Initialize variables
+			patientList = appSettings.GetController().PatientList(Session.user.username);	//List of patients of the current user logged in
+			list = FindViewById<ListView>(Resource.Id.listView1);							//List to be displayed in the layout
+
+			//List of names from the list of patients
+			var names = new List<string>();
+			foreach (Patient p in patientList)
+			{
+				names.Add(p.name);
+			}
+
+			//Display names of the patients in a list
+			var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, names);
+			list.Adapter = adapter;
+			list.ItemClick += listp_ItemClicked;
 		}
 
+		//if a patient is selected, display patient's information
 		void listp_ItemClicked(object sender, AdapterView.ItemClickEventArgs e)
 		{
-			if (mc.patientExist(Int32.Parse(patientsID[e.Position])))
-			{
-				StartActivity(typeof(PatientInfo));
-			}
+			//Save which patient was select
+			Session.selectedPatient = patientList[e.Position];
+
+			//Next activity. It display the patient information in another layout
+			StartActivity(typeof(PatientInfo));
 		}
 	}
 }

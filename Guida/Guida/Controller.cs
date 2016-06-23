@@ -108,6 +108,11 @@ namespace Guida
             return db.createUser(newUser);
         }
 
+		public List<Patient> PatientList(string username)
+		{
+			return db.GetPatientList(username);
+		}
+
 		public List<string> patientsList(string username)
 		{
 			return db.DisplayPatients(username);

@@ -12,30 +12,40 @@ using Android.Widget;
 
 namespace Guida.Droid
 {
-    [Activity(Label = "AntibioticSearch")]
+
+	//AntibioticSearch Activity. It let the user search for an antibiotic
+	[Activity(Label = "AntibioticSearch")]
     public class AntibioticSearch : Activity
     {
+		//Layout Variables
+		EditText nameField;
+		Button searchButton;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.AntibioticSearch);
-            Controller control = new Controller();
-            Button searchButton = FindViewById<Button>(Resource.Id.antibioticSearchButton);
-            EditText nameField = FindViewById<EditText>(Resource.Id.antibitoicSearchField);
 
+			//Set content view to AntibioticSearch Layout
+			SetContentView(Resource.Layout.AntibioticSearch);
+
+			//Initialize Variables
+			nameField = FindViewById<EditText>(Resource.Id.antibitoicSearchField);		//Name of the antibiotic text box
+            searchButton = FindViewById<Button>(Resource.Id.antibioticSearchButton);	//Search for antibiotic button
+            
+			//Search for the antibiatic entered in nameField on the database to display its information
             searchButton.Click += delegate
             {
-                String antibioticName = nameField.Text;
-                Antibiotic found = control.getAntibiotic(antibioticName);
-                if(found != null)
+				//Search for antibiotic on the database
+				Antibiotic found = appSettings.GetController().getAntibiotic(nameField.Text);
+
+				//if antibiotic exists, display information in next layout
+				if(found != null)
                 {
-                    SetContentView(Resource.Layout.AntibioticInformation);
-                    
-                    TextView name = FindViewById<TextView>(Resource.Id.antibioticNameText);
-                    TextView information = FindViewById<TextView>(Resource.Id.antibioticInfoText);
-                    name.Text = found.name;
-                    String info = "Price: $" + found.price + "\nAcceptableUses: " + found.acceptableUses + "\nToxicity: " + found.toxicity;
-                    information.Text = info;
+					//Save antibiotic information
+					Session.antibioticInformation = found;
+
+					//Display antibiotic information in the next activity
+					StartActivity(typeof(AntibioticInformation));
                 }
             };
         }
