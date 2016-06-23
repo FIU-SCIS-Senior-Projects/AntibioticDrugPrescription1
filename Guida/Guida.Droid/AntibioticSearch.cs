@@ -23,9 +23,6 @@ namespace Guida.Droid
             Button searchButton = FindViewById<Button>(Resource.Id.antibioticSearchButton);
             EditText nameField = FindViewById<EditText>(Resource.Id.antibitoicSearchField);
 
-            control.addAntibiotic("Ab1", "Flu", 5, "100mg");
-            control.addAntibiotic("Pulmoderpoxifan", "Derp", 5, "100mg");
-
             searchButton.Click += delegate
             {
                 String antibioticName = nameField.Text;

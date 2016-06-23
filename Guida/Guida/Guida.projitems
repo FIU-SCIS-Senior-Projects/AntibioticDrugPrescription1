@@ -13,5 +13,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Database.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Session.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data.cs" />
   </ItemGroup>
 </Project>

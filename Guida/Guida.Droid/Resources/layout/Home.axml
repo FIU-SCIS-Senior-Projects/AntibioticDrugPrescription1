@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <Button
-        android:text="Body Parts"
+        android:text="Antibiotic Prescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bodyButton" />
+        android:id="@+id/antibioticPrescriptionButton" />
     <Button
         android:text="Patient Info"
         android:layout_width="match_parent"

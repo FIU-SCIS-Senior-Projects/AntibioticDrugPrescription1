@@ -9,7 +9,11 @@ namespace Guida
 		public static Controller controller;
 		public static Controller GetController()
 		{
-			if (controller == null) controller = new Controller();
+			if (controller == null)
+			{
+				controller = new Controller();
+				Data.InsertData();
+			}
 			return controller;
 		}
 		public static void SetController(Controller ctrl)
@@ -23,7 +27,7 @@ namespace Guida
         Database db;
         public Controller()
         {
-            db = new Database();
+			db = new Database();
         }
 
         /// <summary>

@@ -13,30 +13,39 @@ using Android.Widget;
 
 namespace Guida.Droid
 {
+	//Home Activity. It let the user select next activity desired.
 	[Activity(Label = "Home")]
 	public class Home : Activity
 	{
+		//Layout Variables
+		Button antibioticPrescription, patientInfo, searchAntibiotic;
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-			// Create your application here
-			SetContentView(Resource.Layout.Home);
-			Button bodyParts = FindViewById<Button>(Resource.Id.bodyButton);
-			Button patientInfo = FindViewById<Button>(Resource.Id.patientInfoButton);
-			Button searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);
 
-			bodyParts.Click += delegate
+			//Set content view to Home Layout
+			SetContentView(Resource.Layout.Home);
+
+			//Initialize layout variables
+			//---------------------------
+			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);	//Antibiotic Prescription button
+			patientInfo = FindViewById<Button>(Resource.Id.patientInfoButton);							//Patient Information button
+			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);				//Search Antibiotic button
+
+			//if Antibiotic Prescription button is clicked, move to AntibioticPrescription activity
+			antibioticPrescription.Click += delegate
 			{
-				SetContentView(Resource.Layout.BodyParts);
+				StartActivity(typeof(AntibioticPrescription));
 			};
+
+			//if Patient Information button is clicked, move to PList activity
 			patientInfo.Click += delegate
 			{
-				//string username = Intent.GetStringExtra("Data") ?? "Data not available";
-				//var plist = new Intent(this, typeof(PList));
-				//plist.PutExtra("Data", username);
-				StartActivity(typeof(PList));
-				//StartActivity(typeof(PList));
+				StartActivity(typeof(PatientList));
 			};
+
+			//if Search Antibiotic button is clicked, move to AntibioticSearch activity
 			searchAntibiotic.Click += delegate
 			{
                 StartActivity(typeof(AntibioticSearch));

@@ -14,7 +14,7 @@ using Android.Widget;
 namespace Guida.Droid
 {
 	[Activity(Label = "PatientList")]
-	public class PList : Activity
+	public class PatientList : Activity
 	{
 		List<string> patients;
 		List<string> patientsID;
@@ -24,7 +24,7 @@ namespace Guida.Droid
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-			SetContentView(Resource.Layout.ListP);
+			SetContentView(Resource.Layout.PatientList);
 
 			//Code
 			mc = new Controller();
