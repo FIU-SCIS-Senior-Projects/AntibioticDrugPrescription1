@@ -16,10 +16,6 @@ namespace Guida.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel AntibioticInfo { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField nameField { get; set; }
 
         [Outlet]
@@ -28,11 +24,6 @@ namespace Guida.iOS
 
         void ReleaseDesignerOutlets ()
         {
-            if (AntibioticInfo != null) {
-                AntibioticInfo.Dispose ();
-                AntibioticInfo = null;
-            }
-
             if (nameField != null) {
                 nameField.Dispose ();
                 nameField = null;
