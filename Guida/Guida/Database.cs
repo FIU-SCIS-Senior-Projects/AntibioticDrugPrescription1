@@ -170,19 +170,19 @@ namespace Guida
 		/// True if the Patient was created successully.
 		/// False if the Patient was not created.
 		/// </returns>
-		public bool createPatient(Patient doc)
+		public bool createPatient(Patient patient)
 		{
-			if (doc.name == null) return false;
-			if (doc.DoB == null) return false;
+			if (patient.name == null) return false;
+			if (patient.DoB == null) return false;
 			var users = db.Table<Patient>();
 			foreach (Patient x in users)
 			{
-				if (x.id == doc.id)
+				if (x.id == patient.id)
 				{
 					return false;
 				}
 			}
-			db.Insert(doc);
+			db.Insert(patient);
 			return true;
 		}
 
@@ -197,19 +197,19 @@ namespace Guida
 		/// True if the Doctor-Patient was created successully.
 		/// False if the Doctor-Patient was not created.
 		/// </returns>
-		public bool createDoctorPatient(DoctorPatient doc)
+		public bool createDoctorPatient(DoctorPatient docpat)
 		{
-			if (doc.patient_id < 0) return false;
-			if (doc.doctor == null) return false;
+			if (docpat.patient_id < 0) return false;
+			if (docpat.doctor == null) return false;
 			var users = db.Table<DoctorPatient>();
 			foreach (DoctorPatient x in users)
 			{
-				if (x.patient_id == doc.patient_id && x.doctor == doc.doctor)
+				if (x.patient_id == docpat.patient_id && x.doctor == docpat.doctor)
 				{
 					return false;
 				}
 			}
-			db.Insert(doc);
+			db.Insert(docpat);
 			return true;
 		}
 
@@ -259,7 +259,7 @@ namespace Guida
 		/// Gets the patient list.
 		/// </summary>
 		/// <returns>The patient list.</returns>
-		/// <param name="username">Username.</param>
+		/// <param name="name">Name.</param>
 		public List<Patient> getPatientList(string name)
 		{
 			var patient = db.Table<Patient>();
