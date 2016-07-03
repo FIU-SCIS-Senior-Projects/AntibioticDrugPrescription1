@@ -7,8 +7,29 @@
         android:layout_width="match_parent"
         android:layout_height="55.0dp"
         android:id="@+id/infoLabel" />
-    <Spinner
-        android:id="@+id/infoSpinner"
+    <RadioGroup
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RadioButton
+            android:text="Biliary Track Infection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/biliary" />
+        <RadioButton
+            android:text="RadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton2" />
+        <RadioButton
+            android:text="RadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton3" />
+        <RadioButton
+            android:text="RadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton4" />
+    </RadioGroup>
 </LinearLayout>

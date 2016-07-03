@@ -18,7 +18,8 @@ namespace Guida.Droid
 	{
 		TextView step;
 
-		Spinner input;
+		//Spinner input;
+		RadioButton biliary;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -28,20 +29,20 @@ namespace Guida.Droid
 			SetContentView(Resource.Layout.AbdominalInfection);
 
 			step = FindViewById<TextView>(Resource.Id.infoLabel);  
-			input = FindViewById<Spinner>(Resource.Id.infoSpinner); 
+			//input = FindViewById<Spinner>(Resource.Id.infoSpinner); 
+			biliary = FindViewById<RadioButton>(Resource.Id.biliary);
 
 			step.Text = "Type of Infection";
-			var infections = new string []{ "Choose one", "Biliary Track", "Diverticulitis", "Pancreatitis", "Peritonitis" };
-			input.Adapter=new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleSpinnerItem,infections);
+			//var infections = new string []{ "Choose one", "Biliary Track", "Diverticulitis", "Pancreatitis", "Peritonitis" };
+			//input.Adapter=new ArrayAdapter<string>(this,Android.Resource.Layout.SimpleSpinnerItem,infections);
 
-			input.ItemSelected += (s,e)=>
+			biliary.Click += (s,e) =>
 			{
-				string item = e.Parent.GetItemAtPosition(e.Position).ToString();
 				//if (item == "Biliary Track") rule1(item);
-				if (item != "Choose one")
+				if (biliary.Text == "Biliary Track Infection")
 				{
 					RuleEngine re = new RuleEngine();
-					Antibiotic a = re.determineAntibiotic(item);
+					Antibiotic a = re.determineAntibiotic(biliary.Text);
 					if(a != null)
 						step.Text = a.name;
 					else step.Text = "Not found";
@@ -50,6 +51,7 @@ namespace Guida.Droid
 
 		}
 
+		/*
 		public void rule1(string item)
 		{
 			if (item == "Biliary Track")
@@ -94,7 +96,9 @@ namespace Guida.Droid
 				input.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, antibiotics);
 			}
 		}
+*/
 	}
+
 
 }
 
