@@ -18,11 +18,15 @@ namespace Guida.iOS
 		{
 			base.ViewDidLoad ();
 
-			//Log in button is clicked
-			loginButton.TouchUpInside += (object sender, EventArgs e) => {
+            //Connect to Database
+            Database.connect();
+            Data.insertData();
+
+            //Log in button is clicked
+            loginButton.TouchUpInside += (object sender, EventArgs e) => {
 
 				//if username and password is valid
-				if (appSettings.getController().logIn(usernameField.Text,passwordField.Text)){
+				if (Controller.logIn(usernameField.Text,passwordField.Text)){
 
 					//Clear text
 					usernameField.Text = "";
