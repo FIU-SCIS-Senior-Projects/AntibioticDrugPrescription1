@@ -99,6 +99,18 @@ namespace Guida
         public String toxicity { get; set; }
     }
 
+    [Table("rules")]
+    public class Rule {
+        [PrimaryKey, AutoIncrement,Column("id")]
+        public int id { get; set; }
+        [Column("illness")]
+        public string illness { get; set; }
+        [Column("condition")]
+        public string condition { get; set; }
+        [Column("antibiotic")]
+        public string antibiotic { get; set; }
+    }
+
     /// <summary>
     /// This class represents a connection to the local database.
     /// </summary>
@@ -130,6 +142,7 @@ namespace Guida
             db.CreateTable<Visit>();
             db.CreateTable<Disease>();
             db.CreateTable<Antibiotic>();
+            db.CreateTable<Rule>();
         }
 
         /// <summary>
@@ -298,6 +311,20 @@ namespace Guida
                 }
             }
             return antibiotic;
+        }
+
+        public bool addRule(Rule r) {
+            db.Insert(r);
+            return true;
+        }
+
+        public List<Rule> getRules(string illness) {
+            List<Rule> rules = new List<Rule>();
+            var table = db.Table<Rule>();
+            foreach(var rule in table) {
+                if (String.Compare(rule.illness, illness, true) == 0) rules.Add(rule);
+            }
+            return rules;
         }
     }
 }
