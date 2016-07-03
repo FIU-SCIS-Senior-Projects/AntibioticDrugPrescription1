@@ -164,5 +164,17 @@ namespace Guida
         {
             return db.getAntibiotic(name);
         }
+
+        public List<Rule> getRules(string illness) {
+            return db.getRules(illness);
+        }
+
+        public bool addRule(string illness, string condition, string antibiotic) {
+            Rule r = new Rule();
+            r.illness = illness;
+            r.condition = condition;
+            r.antibiotic = antibiotic;
+            return db.addRule(r);
+        }
     }
 }
