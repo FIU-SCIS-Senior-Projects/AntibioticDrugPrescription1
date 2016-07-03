@@ -37,7 +37,15 @@ namespace Guida.Droid
 			input.ItemSelected += (s,e)=>
 			{
 				string item = e.Parent.GetItemAtPosition(e.Position).ToString();
-				if (item == "Biliary Track") rule1(item);
+				//if (item == "Biliary Track") rule1(item);
+				if (item != "Choose one")
+				{
+					RuleEngine re = new RuleEngine();
+					Antibiotic a = re.determineAntibiotic(item);
+					if(a != null)
+						step.Text = a.name;
+					else step.Text = "Not found";
+				}
 			};
 
 		}
@@ -87,7 +95,6 @@ namespace Guida.Droid
 			}
 		}
 	}
-
 
 }
 
