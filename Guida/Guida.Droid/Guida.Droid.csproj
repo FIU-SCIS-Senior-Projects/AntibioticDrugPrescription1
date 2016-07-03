@@ -53,6 +53,7 @@
     <Compile Include="PatientInformation.cs" />
     <Compile Include="AntibioticPrescription.cs" />
     <Compile Include="AntibioticInformation.cs" />
+    <Compile Include="AbdominalInfection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -64,6 +65,7 @@
     <AndroidResource Include="Resources\layout\AntibioticSearch.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\AbdominalInfection.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
