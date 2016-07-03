@@ -7,18 +7,16 @@ namespace UnitTests
     [TestFixture]
     public class Story671
     {
-        Database db;
         [SetUp]
         public void Setup()
         {
-            db = new Database();
+            Database.connect();
         }
 
         [TearDown]
         public void Tear()
         {
-            db.db.DeleteAll<Antibiotic>();
-            db = null;
+            Database.db.DeleteAll<Antibiotic>();
         }
 
         /// <summary>
@@ -39,7 +37,7 @@ namespace UnitTests
             antibiotic.toxicity = "150mg";
            
             //assert
-            Assert.True(db.addAntibiotic(antibiotic));
+            Assert.True(Database.addAntibiotic(antibiotic));
         }
 
         /// <summary>
@@ -58,10 +56,10 @@ namespace UnitTests
             antibiotic.price = 350;
             antibiotic.acceptableUses = "Flu,Cold";
             antibiotic.toxicity = "150mg";
-            db.addAntibiotic(antibiotic);
+            Database.addAntibiotic(antibiotic);
 
             //assert
-            Assert.False(db.addAntibiotic(antibiotic));
+            Assert.False(Database.addAntibiotic(antibiotic));
         }
 
         /// <summary>
@@ -79,10 +77,10 @@ namespace UnitTests
             antibiotic.price = 350;
             antibiotic.acceptableUses = "Flu,Cold";
             antibiotic.toxicity = "150mg";
-            db.addAntibiotic(antibiotic);
+            Database.addAntibiotic(antibiotic);
 
             //execute
-            var ab = db.getAntibiotic("Test");
+            var ab = Database.getAntibiotic("Test");
 
             //assert
             Assert.True(ab.name == antibiotic.name && ab.price == antibiotic.price && ab.acceptableUses == antibiotic.acceptableUses && ab.toxicity == antibiotic.toxicity);
@@ -98,7 +96,7 @@ namespace UnitTests
         public void TC004()
         {
             //execute
-            var ab = db.getAntibiotic("Test");
+            var ab = Database.getAntibiotic("Test");
 
             //assert
             Assert.True(ab == null);
@@ -119,10 +117,10 @@ namespace UnitTests
             antibiotic.price = 350;
             antibiotic.acceptableUses = "Flu,Cold";
             antibiotic.toxicity = "150mg";
-            db.addAntibiotic(antibiotic);
+            Database.addAntibiotic(antibiotic);
 
             //execute
-            var ab = db.getAntibiotic("test");
+            var ab = Database.getAntibiotic("test");
 
             //assert
             Assert.True(ab.name == antibiotic.name && ab.price == antibiotic.price && ab.acceptableUses == antibiotic.acceptableUses && ab.toxicity == antibiotic.toxicity);

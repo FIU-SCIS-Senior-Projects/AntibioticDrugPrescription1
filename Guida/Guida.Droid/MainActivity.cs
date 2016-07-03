@@ -26,9 +26,13 @@ namespace Guida.Droid
 			//Set content view to Main Layout
 			SetContentView(Resource.Layout.Main);
 
-			//Initialize layout variables
-			//---------------------------
-			loginButton = FindViewById<Button> (Resource.Id.loginButton);		//Log in button
+            //Connect to the database - These lines need to be called in iOS initialization as well
+            Database.connect();
+            Data.insertData();
+
+            //Initialize layout variables
+            //---------------------------
+            loginButton = FindViewById<Button> (Resource.Id.loginButton);		//Log in button
             usernameField = FindViewById<EditText>(Resource.Id.usernameField);	//Username text field
             passwordField = FindViewById<EditText>(Resource.Id.passwordField);	//Password text field
             authStatus = FindViewById<TextView>(Resource.Id.authStatusText);	//Authentication text view 
@@ -47,7 +51,7 @@ namespace Guida.Droid
 			loginButton.Click += delegate {      
 
 				//Return true if username and password entered are stored in the database
-				bool auth = appSettings.getController().logIn(usernameField.Text, passwordField.Text);
+				bool auth = Controller.logIn(usernameField.Text, passwordField.Text);
 
 				//If username and password is valid, start next activity
                 if (auth) StartActivity(typeof(Home));

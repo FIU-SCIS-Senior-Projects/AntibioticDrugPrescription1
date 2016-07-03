@@ -7,17 +7,14 @@ namespace UnitTests
     [TestFixture]
     public class Story666
     {
-        Database db;
         [SetUp]
         public void Setup() {
-            db = new Database();
-            db.db.DeleteAll<Doctor>();
+            Database.connect();
         }
-
 
         [TearDown]
         public void Tear() {
-            db = null;
+            Database.db.DeleteAll<Doctor>();
         }
 
         /// <summary>
@@ -35,7 +32,7 @@ namespace UnitTests
             user.username = "testuser123";
             user.password = "987";
             user.name = "tester";
-            Assert.True(db.createUser(user));
+            Assert.True(Database.createUser(user));
         }
 
 
@@ -57,7 +54,7 @@ namespace UnitTests
             user.username = "testuser123";
             user.password = "987";
             user.name = "tester";
-            db.createUser(user);
+            Database.createUser(user);
 
             //Create duplicate user
             user.username = "testuser123";
@@ -65,7 +62,7 @@ namespace UnitTests
             user.name = "tester1";
 
             //Try to create duplicate user
-            Assert.False(db.createUser(user));
+            Assert.False(Database.createUser(user));
         }
 
         /// <summary>
@@ -88,7 +85,7 @@ namespace UnitTests
             user2.name = "tester";
 
             //Assert
-            Assert.False(db.createUser(user1) && db.createUser(user2));
+            Assert.False(Database.createUser(user1) && Database.createUser(user2));
         }
 
         /// <summary>
@@ -108,10 +105,10 @@ namespace UnitTests
             user.username = "testuser123";
             user.password = "987";
             user.name = "tester";
-            db.createUser(user);
+            Database.createUser(user);
 
             //Act
-            Doctor loggedIn = db.authenticate("testuser123", "987");
+            Doctor loggedIn = Database.authenticate("testuser123", "987");
 
             //Assert
             Assert.True(loggedIn.username == user.username && loggedIn.password == user.password && loggedIn.name == user.name);
@@ -134,10 +131,10 @@ namespace UnitTests
             user.username = "testuser123";
             user.password = "987";
             user.name = "tester";
-            db.createUser(user);
+            Database.createUser(user);
 
             //Assert
-            Assert.True(db.authenticate("testuser123", "985") == null);
+            Assert.True(Database.authenticate("testuser123", "985") == null);
         }
     }
 }

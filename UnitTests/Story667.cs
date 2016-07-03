@@ -8,20 +8,18 @@ namespace UnitTests
 	[TestFixture]
 	public class Story667
 	{
-		Database db;
 		[SetUp]
 		public void Setup()
 		{
-			db = new Database();
+            Database.connect();
 		}
 
 		[TearDown]
 		public void Tear()
 		{
-			db.db.DeleteAll<Doctor>();
-			db.db.DeleteAll<Patient>();
-			db.db.DeleteAll<DoctorPatient>();
-			db = null;
+			Database.db.DeleteAll<Doctor>();
+			Database.db.DeleteAll<Patient>();
+			Database.db.DeleteAll<DoctorPatient>();
 		}
 
 		/// <summary>
@@ -38,7 +36,7 @@ namespace UnitTests
 			patient.name = "Sergio";
 			patient.DoB = "Jul";
 
-			bool created = db.createPatient(patient);
+			bool created = Database.createPatient(patient);
 
 			//assert
 			Assert.True(created == true);
@@ -59,7 +57,7 @@ namespace UnitTests
 			patient.DoB = "Jul";
 
 			//execute
-			bool created = db.createPatient(patient);
+			bool created = Database.createPatient(patient);
 
 			//assert
 			Assert.True(created == false);
@@ -80,7 +78,7 @@ namespace UnitTests
 			doctorPatient.doctor = "Alan";
 
 			//execute
-			bool created = db.createDoctorPatient(doctorPatient);	
+			bool created = Database.createDoctorPatient(doctorPatient);	
 
 			//assert
 			Assert.True(created == true);
@@ -104,8 +102,8 @@ namespace UnitTests
 			doctorPatient2.doctor = "Alan";
 
 			//execute
-			bool created1 = db.createDoctorPatient(doctorPatient1);
-			bool created2 = db.createDoctorPatient(doctorPatient2);
+			bool created1 = Database.createDoctorPatient(doctorPatient1);
+			bool created2 = Database.createDoctorPatient(doctorPatient2);
 
 			//assert
 			Assert.True(created1 == true && created2 == false);
@@ -121,7 +119,7 @@ namespace UnitTests
 		public void TC005()
 		{
 			//execute
-			var ab = db.getPatientList("Test");
+			var ab = Database.getPatientList("Test");
 
 			//assert
 			Assert.True(ab.Count == 0);
@@ -140,20 +138,20 @@ namespace UnitTests
 			Doctor doctor = new Doctor();
 			doctor.username = "Alan";
 			doctor.password = "12345";
-			db.createUser(doctor);
+			Database.createUser(doctor);
 
 			Patient patient = new Patient();
 			patient.name = "Sergio";
 			patient.DoB = "Jul";
-			db.createPatient(patient);
+			Database.createPatient(patient);
 
 			DoctorPatient doctorPatient = new DoctorPatient();
 			doctorPatient.patient_id = patient.id;
 			doctorPatient.doctor = "Alan";
-			db.createDoctorPatient(doctorPatient);
+			Database.createDoctorPatient(doctorPatient);
 
 			//Execute
-			var list = db.getPatientList("Alan");
+			var list = Database.getPatientList("Alan");
 
 			//assert
 			Assert.True(list.Count > 0);

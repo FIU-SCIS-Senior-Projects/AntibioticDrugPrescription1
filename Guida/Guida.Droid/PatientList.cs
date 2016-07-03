@@ -29,7 +29,7 @@ namespace Guida.Droid
 			SetContentView(Resource.Layout.PatientList);
 
 			//Initialize variables
-			patientList = appSettings.getController().getPatientList(Session.user.username);	//List of patients of the current user logged in
+			patientList = Controller.getPatientList(Session.user.username);	//List of patients of the current user logged in
 			list = FindViewById<ListView>(Resource.Id.listView1);							//List to be displayed in the layout
 
 			//List of names from the list of patients

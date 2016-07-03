@@ -7,13 +7,8 @@ namespace Guida
 {
     class RuleEngine
     {
-        Controller controller;
         List<int> trueRules = new List<int>();
         Dictionary<string, int> missingKnowledge = new Dictionary<string, int>();
-
-        public RuleEngine() {
-            controller = appSettings.getController();
-        }
         
         /// <summary>
         /// Determines the proper antibiotic for a given illness
@@ -24,9 +19,9 @@ namespace Guida
         /// Null if no antibiotic was found
         /// </returns>
         public Antibiotic determineAntibiotic(String illness) {
-            List<Rule> rules = controller.getRules(illness);
+            List<Rule> rules = Controller.getRules(illness);
             foreach(Rule rule in rules) {
-                if (evaluateCondition(rule.condition,Session.patientData)) return controller.getAntibiotic(rule.antibiotic);
+                if (evaluateCondition(rule.condition,Session.patientData)) return Controller.getAntibiotic(rule.antibiotic);
             }
             return null;
         }

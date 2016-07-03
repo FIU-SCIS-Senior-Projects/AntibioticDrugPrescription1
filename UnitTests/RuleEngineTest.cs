@@ -12,6 +12,7 @@ namespace UnitTests {
 
         [SetUp]
         public void Setup() {
+            Database.connect();
             ie = new RuleEngine();
         }
 
@@ -62,14 +63,15 @@ namespace UnitTests {
             Assert.False(ie.evaluateCondition(condition, knowledge));
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         [Test]
         public void TC004() {
-            Controller c = appSettings.getController();
             //add antibiotic
-            c.addAntibiotic("BTIAB", "BTI", 150, "350mg");
+            Controller.addAntibiotic("BTIAB", "BTI", 150, "350mg");
             //add rule
-            c.addRule("Biliary tract infection",
+            Controller.addRule("Biliary tract infection",
                 "Community Aquired == true & severely ill == false & PCN allergy == no", "BTIAB");
             
             //Set up patient data

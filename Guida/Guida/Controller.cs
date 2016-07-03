@@ -4,35 +4,11 @@ using System.Text;
 
 namespace Guida
 {
-	//appSettings make sure only one Controller is created and it can be accessed in the front end
-    public static class appSettings {
-
-		public static Controller controller;
-		public static Controller getController()
-		{
-			if (controller == null)
-			{
-				controller = new Controller();
-				Data.insertData();
-			}
-			return controller;
-		}
-		public static void SetController(Controller ctrl)
-		{
-			controller = ctrl;
-		}
-    }
 
 	//Controller is the logic layer of the program.
 	//It contain all the functions required by the program
-    public class Controller
+    public static class Controller
     {
-		//Create a new Database
-        Database db;
-        public Controller()
-        {
-			db = new Database();
-        }
 
 		/// <summary>
 		/// Attempts to add a user.
@@ -43,13 +19,13 @@ namespace Guida
 		/// True if user was added
 		/// False is user was not added
 		/// </returns>
-		public bool addUser(String username, String password)
+		public static bool addUser(String username, String password)
 		{
 			Doctor newUser = new Doctor();
 			newUser.username = username;
 			newUser.password = password;
 			newUser.name = "";
-			return db.createUser(newUser);
+			return Database.createUser(newUser);
 		}
 
 		/// <summary>
@@ -61,13 +37,13 @@ namespace Guida
 		/// True if user was added
 		/// False is user was not added
 		/// </returns>
-		public bool addUser(String username, String password, String name)
+		public static bool addUser(String username, String password, String name)
 		{
 			Doctor newUser = new Doctor();
 			newUser.username = username;
 			newUser.password = password;
 			newUser.name = name;
-			return db.createUser(newUser);
+			return Database.createUser(newUser);
 		}
 
 
@@ -80,12 +56,12 @@ namespace Guida
 		/// </returns>
 		/// <param name="name">Name.</param>
 		/// <param name="DoB">Dob.</param>
-		public bool addPatient(String name, String DoB)
+		public static bool addPatient(String name, String DoB)
 		{
 			Patient newUser = new Patient();
 			newUser.name = name;
 			newUser.DoB = DoB;
-			return db.createPatient(newUser);
+			return Database.createPatient(newUser);
 		}
 
 		/// <summary>
@@ -94,12 +70,12 @@ namespace Guida
 		/// <returns>DoctorPatient.</returns>
 		/// <param name="patient_id">Patient identifier.</param>
 		/// <param name="username">Username.</param>
-		public bool addDoctorPatient(int patient_id, String username)
+		public static bool addDoctorPatient(int patient_id, String username)
 		{
 			DoctorPatient newUser = new DoctorPatient();
 			newUser.patient_id = patient_id;
 			newUser.doctor = username;
-			return db.createDoctorPatient(newUser);
+			return Database.createDoctorPatient(newUser);
 		}
 
 		/// <summary>
@@ -113,14 +89,14 @@ namespace Guida
 		/// True if it was added
 		/// False otherwise
 		/// </returns>
-		public bool addAntibiotic(String name, String acceptableUses, int price, String toxicity)
+		public static bool addAntibiotic(String name, String acceptableUses, int price, String toxicity)
 		{
 			Antibiotic antibiotic = new Antibiotic();
 			antibiotic.name = name;
 			antibiotic.acceptableUses = acceptableUses;
 			antibiotic.price = price;
 			antibiotic.toxicity = toxicity;
-			return db.addAntibiotic(antibiotic);
+			return Database.addAntibiotic(antibiotic);
 		}
 
 		/// <summary>
@@ -132,9 +108,9 @@ namespace Guida
 		/// True if logged in successfully
 		/// False if log in failed
 		/// </returns>
-		public bool logIn(String username, String password)
+		public static bool logIn(String username, String password)
 		{
-			Doctor user = db.authenticate(username, password);
+			Doctor user = Database.authenticate(username, password);
 			if (user == null) return false;
 
 			Session.user = user;
@@ -147,9 +123,9 @@ namespace Guida
 		/// </summary>
 		/// <returns>A List of Patients</returns>
 		/// <param name="name">Name.</param>
-		public List<Patient> getPatientList(String name)
+		public static List<Patient> getPatientList(String name)
 		{
-			return db.getPatientList(name);
+			return Database.getPatientList(name);
 		}
 
         /// <summary>
@@ -160,21 +136,21 @@ namespace Guida
         /// Antibiotic if name exists
         /// null otherwise
         /// </returns>
-        public Antibiotic getAntibiotic(String name)
+        public static Antibiotic getAntibiotic(String name)
         {
-            return db.getAntibiotic(name);
+            return Database.getAntibiotic(name);
         }
 
-        public List<Rule> getRules(string illness) {
-            return db.getRules(illness);
+        public static List<Rule> getRules(string illness) {
+            return Database.getRules(illness);
         }
 
-        public bool addRule(string illness, string condition, string antibiotic) {
+        public static bool addRule(string illness, string condition, string antibiotic) {
             Rule r = new Rule();
             r.illness = illness;
             r.condition = condition;
             r.antibiotic = antibiotic;
-            return db.addRule(r);
+            return Database.addRule(r);
         }
     }
 }

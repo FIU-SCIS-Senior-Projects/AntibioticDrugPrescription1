@@ -9,32 +9,32 @@ namespace Guida
 			//DOCTOR: 
 			//Columns -> Username | Password | Name (Optional)
 			//------------------------------------------------
-			appSettings.getController().addUser("Alan", "12345");
-			appSettings.getController().addUser("Sean", "12345");
-			appSettings.getController().addUser("Mohsen", "12345");
-			appSettings.getController().addUser("Sadjadi", "12345");
-			appSettings.getController().addUser("Giri", "12345");
-			appSettings.getController().addUser("Trevor", "12345");
+			Controller.addUser("Alan", "12345");
+			Controller.addUser("Sean", "12345");
+			Controller.addUser("Mohsen", "12345");
+			Controller.addUser("Sadjadi", "12345");
+			Controller.addUser("Giri", "12345");
+			Controller.addUser("Trevor", "12345");
 
 			//PATIENTS
 			//Columns -> ID (AutoIncrement) | Name | Date of Birth
 			//----------------------------------------------------
-			appSettings.getController().addPatient("Sergio", "Jul");
-			appSettings.getController().addPatient("Karla", "Aug");
-			appSettings.getController().addPatient("Richard", "Jan");
-			appSettings.getController().addPatient("Evelyn", "Dec");
-			appSettings.getController().addPatient("Guillermo", "Oct");
-			appSettings.getController().addPatient("Eduardo", "Sep");
+			Controller.addPatient("Sergio", "Jul");
+			Controller.addPatient("Karla", "Aug");
+			Controller.addPatient("Richard", "Jan");
+			Controller.addPatient("Evelyn", "Dec");
+			Controller.addPatient("Guillermo", "Oct");
+			Controller.addPatient("Eduardo", "Sep");
 
 			//DOCTOR-PATIENT
 			//Columns -> ID (AutoIncrement) | Patient id | Doctor Username
 			//------------------------------------------------------------
-			appSettings.getController().addDoctorPatient(2, "Alan");
-			appSettings.getController().addDoctorPatient(1, "Alan");
-			appSettings.getController().addDoctorPatient(3, "Alan");
-			appSettings.getController().addDoctorPatient(4, "Sean");
-			appSettings.getController().addDoctorPatient(5, "Giri");
-			appSettings.getController().addDoctorPatient(6, "Trevor");
+			Controller.addDoctorPatient(2, "Alan");
+			Controller.addDoctorPatient(1, "Alan");
+			Controller.addDoctorPatient(3, "Alan");
+			Controller.addDoctorPatient(4, "Sean");
+			Controller.addDoctorPatient(5, "Giri");
+			Controller.addDoctorPatient(6, "Trevor");
 
 			//VISIT
 			//appSettings.controller.addVisits(1, "01-05-16", "Sergio", "Thyru");
@@ -48,8 +48,8 @@ namespace Guida
 			//ANTIBIOTICS
 			//Columns -> Name | Price | Aceptance Use | Toxicity
 			//------------------------------------------------------------
-			appSettings.getController().addAntibiotic("Ab1", "Flu", 5, "100mg");
-			appSettings.getController().addAntibiotic("Pulmoderpoxifan", "Derp", 5, "100mg");
+			Controller.addAntibiotic("Ab1", "Flu", 5, "100mg");
+			Controller.addAntibiotic("Pulmoderpoxifan", "Derp", 5, "100mg");
 		}
 	}
 }

@@ -114,16 +114,17 @@ namespace Guida
     /// <summary>
     /// This class represents a connection to the local database.
     /// </summary>
-    class Database
+    public static class Database
     {
-        public SQLiteConnection db;
+        public static SQLiteConnection db;
 
         /// <summary>
         /// Creates a connection to the DB. DB location is based on operating system. 
         /// Creates all tables if they don't already exist.
         /// </summary>
-        public Database()
+        public static void connect()
         {
+            if (db != null) return;
             var sqliteFilename = "Guida.db3";
 #if __ANDROID__
             // Just use whatever directory SpecialFolder.Personal returns
@@ -156,7 +157,7 @@ namespace Guida
         /// True if the user was created successully.
         /// False if the user was not created.
         /// </returns>
-        public bool createUser(Doctor doc)
+        public static bool createUser(Doctor doc)
         {
             if (doc.password == null) return false;
             if (doc.username == null) return false;
@@ -172,18 +173,18 @@ namespace Guida
             return true;
         }
 
-		/// <summary>
-		/// Adds a user to the database
-		/// </summary>
-		/// <param name="doc">
-		/// The Patient object to be created.
-		/// Must have a unique id, a name and a DoB.
-		/// </param>
-		/// <returns>
-		/// True if the Patient was created successully.
-		/// False if the Patient was not created.
-		/// </returns>
-		public bool createPatient(Patient patient)
+        /// <summary>
+        /// Adds a user to the database
+        /// </summary>
+        /// <param name="doc">
+        /// The Patient object to be created.
+        /// Must have a unique id, a name and a DoB.
+        /// </param>
+        /// <returns>
+        /// True if the Patient was created successully.
+        /// False if the Patient was not created.
+        /// </returns>
+        public static bool createPatient(Patient patient)
 		{
 			if (patient.name == null) return false;
 			if (patient.DoB == null) return false;
@@ -210,7 +211,7 @@ namespace Guida
 		/// True if the Doctor-Patient was created successully.
 		/// False if the Doctor-Patient was not created.
 		/// </returns>
-		public bool createDoctorPatient(DoctorPatient docpat)
+		public static bool createDoctorPatient(DoctorPatient docpat)
 		{
 			if (docpat.patient_id < 0) return false;
 			if (docpat.doctor == null) return false;
@@ -231,7 +232,7 @@ namespace Guida
 		/// </summary>
 		/// <returns>The antibiotic.</returns>
 		/// <param name="antibiotic">Antibiotic.</param>
-		public bool addAntibiotic(Antibiotic antibiotic)
+		public static bool addAntibiotic(Antibiotic antibiotic)
 		{
 			var table = db.Table<Antibiotic>();
 			foreach (var element in table)
@@ -255,7 +256,7 @@ namespace Guida
         /// Doctor object if the username and password were authenticated
         /// Null if the username and password were not authenticated
         /// </returns>
-        public Doctor authenticate(string username, string password)
+        public static Doctor authenticate(string username, string password)
         {
             var users = db.Table<Doctor>();
             foreach (var doc in users)
@@ -273,7 +274,7 @@ namespace Guida
 		/// </summary>
 		/// <returns>The patient list.</returns>
 		/// <param name="name">Name.</param>
-		public List<Patient> getPatientList(string name)
+		public static List<Patient> getPatientList(string name)
 		{
 			var patient = db.Table<Patient>();
 			var doctorPatient = db.Table<DoctorPatient>();
@@ -298,7 +299,7 @@ namespace Guida
         /// </summary>
         /// <returns>The antibiotic.</returns>
         /// <param name="name">Name.</param>
-        public Antibiotic getAntibiotic(String name)
+        public static Antibiotic getAntibiotic(String name)
         {
             Antibiotic antibiotic = null;
             var antibiotics = db.Table<Antibiotic>();
@@ -313,12 +314,12 @@ namespace Guida
             return antibiotic;
         }
 
-        public bool addRule(Rule r) {
+        public static bool addRule(Rule r) {
             db.Insert(r);
             return true;
         }
 
-        public List<Rule> getRules(string illness) {
+        public static List<Rule> getRules(string illness) {
             List<Rule> rules = new List<Rule>();
             var table = db.Table<Rule>();
             foreach(var rule in table) {
