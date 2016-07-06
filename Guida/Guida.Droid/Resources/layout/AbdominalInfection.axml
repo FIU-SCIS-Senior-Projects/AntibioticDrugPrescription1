@@ -17,19 +17,19 @@
             android:layout_height="wrap_content"
             android:id="@+id/biliary" />
         <RadioButton
-            android:text="RadioButton"
+            android:text="Diverticulitis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/radioButton2" />
+            android:id="@+id/diverticulitis" />
         <RadioButton
-            android:text="RadioButton"
+            android:text="Pancreatitis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/radioButton3" />
+            android:id="@+id/pancreatitis" />
         <RadioButton
-            android:text="RadioButton"
+            android:text="Peritonitis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/radioButton4" />
+            android:id="@+id/peritonitis" />
     </RadioGroup>
 </LinearLayout>

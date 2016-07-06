@@ -19,7 +19,7 @@ namespace Guida.Droid
 	public class AntibioticPrescription : Activity
 	{
 		//Layout Variables
-		ImageButton abs;//, lung;
+		ImageButton abs, lung;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -31,6 +31,7 @@ namespace Guida.Droid
 			//Initialize layout variables
 			//---------------------------
 			abs = FindViewById<ImageButton>(Resource.Id.absButton);    	//Abs button
+			lung = FindViewById<ImageButton>(Resource.Id.lungButton);
 			//lung = FindViewById<Button>(Resource.Id.lungButton);	//Lung button
 
 			//if abs button is clicked, move to AntibioticInfection activity
@@ -39,6 +40,10 @@ namespace Guida.Droid
 				StartActivity(typeof(AbdominalInfection));
 			};
 
+			lung.Click += delegate
+			{
+				StartActivity(typeof(AbdominalInfection));
+			};
 		}
 	}
 }

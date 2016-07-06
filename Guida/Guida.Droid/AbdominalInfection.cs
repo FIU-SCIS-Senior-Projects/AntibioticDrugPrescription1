@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace Guida.Droid
 {
-	[Activity(Label = "AbdominalInfection")]
+	[Activity(Label = "Infections")]
 	public class AbdominalInfection : Activity
 	{
 		TextView step;
