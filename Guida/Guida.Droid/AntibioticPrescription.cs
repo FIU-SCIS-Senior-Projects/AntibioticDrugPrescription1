@@ -32,17 +32,24 @@ namespace Guida.Droid
 			//---------------------------
 			abs = FindViewById<ImageButton>(Resource.Id.absButton);    	//Abs button
 			lung = FindViewById<ImageButton>(Resource.Id.lungButton);
-			//lung = FindViewById<Button>(Resource.Id.lungButton);	//Lung button
 
 			//if abs button is clicked, move to AntibioticInfection activity
 			abs.Click += delegate
 			{
-				StartActivity(typeof(AbdominalInfection));
+				Disease d = new Disease();
+				d.name = "Not selected yet";
+				d.affectedArea = "Abdominal Infection";
+				Session.selectedArea = d;
+				StartActivity(typeof(Infections));
 			};
 
 			lung.Click += delegate
 			{
-				StartActivity(typeof(AbdominalInfection));
+				Disease d = new Disease();
+				d.name = "Not selected yet";
+				d.affectedArea = "Pulmonary Infection";
+				Session.selectedArea = d;
+				StartActivity(typeof(Infections));
 			};
 		}
 	}

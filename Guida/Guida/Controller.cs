@@ -78,6 +78,14 @@ namespace Guida
 			return Database.createDoctorPatient(newUser);
 		}
 
+		public static bool addDisease(string name, string affectedArea)
+		{
+			Disease newDisease = new Disease();
+			newDisease.name = name;
+			newDisease.affectedArea = affectedArea;
+			return Database.addDisease(newDisease);
+		}
+
 		/// <summary>
 		/// Attempts to add an antibiotic to the database
 		/// </summary>
@@ -126,6 +134,11 @@ namespace Guida
 		public static List<Patient> getPatientList(String name)
 		{
 			return Database.getPatientList(name);
+		}
+
+		public static List<Disease> getDisease(string affectedArea)
+		{
+			return Database.getDisease(affectedArea);
 		}
 
         /// <summary>

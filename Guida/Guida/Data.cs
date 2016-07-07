@@ -44,6 +44,13 @@ namespace Guida
 			//appSettings.controller.addVisits(1, "02-05-16", "Sergio", "Trevor");
 
 			//DESEASE
+			Controller.addDisease("Biliary Track","Abdominal Infection");
+			Controller.addDisease("Diverticulitis","Abdominal Infection");
+			Controller.addDisease("Pancreatitis","Abdominal Infection");
+			Controller.addDisease("Peritonitis","Abdominal Infection");
+			Controller.addDisease("AB1", "Pulmonary Infection");
+			Controller.addDisease("AB2", "Pulmonary Infection");
+			Controller.addDisease("AB3", "Pulmonary Infection");
 
 			//ANTIBIOTICS
 			//Columns -> Name | Price | Aceptance Use | Toxicity

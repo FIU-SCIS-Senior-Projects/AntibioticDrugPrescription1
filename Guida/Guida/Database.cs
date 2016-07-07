@@ -76,10 +76,10 @@ namespace Guida
     [Table("disease")]
     public class Disease
     {
-        [PrimaryKey, Column("name")]
+        [PrimaryKey,Column("name")]
         public String name { get; set; }
         [Column("affectedArea")]
-        public String affectedArea { get; set; }
+		public String affectedArea { get; set; }
     }
 
     /// <summary>
@@ -94,9 +94,9 @@ namespace Guida
         [Column("price")]
         public int price { get; set; }
         [Column("acceptableUses")]
-        public String acceptableUses { get; set; }
+        public string acceptableUses { get; set; }
         [Column("toxicity")]
-        public String toxicity { get; set; }
+        public string toxicity { get; set; }
     }
 
     [Table("rules")]
@@ -228,6 +228,27 @@ namespace Guida
 		}
 
 		/// <summary>
+		/// Adds the disease.
+		/// </summary>
+		/// <returns>The disease.</returns>
+		/// <param name="d">Disease</param>
+		public static bool addDisease(Disease d)
+		{
+			if (d.affectedArea == null) return false;
+			if (d.name == null) return false;
+			var diseases = db.Table<Disease>();
+			foreach (Disease x in diseases)
+			{
+				if (x.affectedArea == d.affectedArea && x.name == d.name)
+				{
+					return false;
+				}
+			}
+			db.Insert(d);
+			return true;
+		}
+
+		/// <summary>
 		/// Adds the antibiotic.
 		/// </summary>
 		/// <returns>The antibiotic.</returns>
@@ -289,6 +310,21 @@ namespace Guida
 						list.Add(pat);
 						break;
 					}
+				}
+			}
+			return list;
+		}
+
+		public static List<Disease> getDisease(string affectedArea)
+		{
+			var diseases = db.Table<Disease>();
+			var list = new List<Disease>();
+
+			foreach (var x in diseases)
+			{
+				if (x.affectedArea == affectedArea)
+				{
+					list.Add(x);
 				}
 			}
 			return list;
