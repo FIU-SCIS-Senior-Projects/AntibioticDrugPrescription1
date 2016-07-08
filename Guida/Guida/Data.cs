@@ -36,21 +36,44 @@ namespace Guida
 			Controller.addDoctorPatient(5, "Giri");
 			Controller.addDoctorPatient(6, "Trevor");
 
-			//VISIT
-			//appSettings.controller.addVisits(1, "01-05-16", "Sergio", "Thyru");
-			//appSettings.controller.addVisits(2, "02-05-16", "Karla", "Alan");
-			//appSettings.controller.addVisits(3, "03-05-16", "Richard", "Sean");
-			//appSettings.controller.addVisits(4, "04-05-16", "Everlyn", "Giri");
-			//appSettings.controller.addVisits(1, "02-05-16", "Sergio", "Trevor");
+            //VISIT
+            //appSettings.controller.addVisits(1, "01-05-16", "Sergio", "Thyru");
+            //appSettings.controller.addVisits(2, "02-05-16", "Karla", "Alan");
+            //appSettings.controller.addVisits(3, "03-05-16", "Richard", "Sean");
+            //appSettings.controller.addVisits(4, "04-05-16", "Everlyn", "Giri");
+            //appSettings.controller.addVisits(1, "02-05-16", "Sergio", "Trevor");
 
-			//DESEASE
+            //DESEASE
 
-			//ANTIBIOTICS
-			//Columns -> Name | Price | Aceptance Use | Toxicity
-			//------------------------------------------------------------
-			Controller.addAntibiotic("Ab1", "Flu", 5, "100mg");
-			Controller.addAntibiotic("Pulmoderpoxifan", "Derp", 5, "100mg");
-		}
+            //ANTIBIOTICS
+            //Columns -> Name | Price | Aceptance Use | Toxicity
+            //------------------------------------------------------------
+            Controller.addAntibiotic("Ceftriaxone", "Biliary Tract Infection", 5, "Unknown");     //update info
+            Controller.addAntibiotic("Ciprofloxacin", "Biliary Tract Infection",5, "Unknown");   //update info
+            Controller.addAntibiotic("Piperacilin", "Biliary Tract Infection", 5, "Unknown");     //update info
+            Controller.addAntibiotic("Cefepime", "Biliary Tract Infection", 5, "Unknown");        //update info
+            Controller.addAntibiotic("Aztreonam", "Biliary Tract Infection", 5, "Unknown");       //update info
+
+            ///
+            Controller.addRule("Biliary Track Infection", "acquired == community  & severely ill == false & pcn allergy == no", "Ceftriaxone");
+            Controller.addRule("Biliary Track Infection", "acquired == community & severely ill  == false & pcn allergy == severe", "Ciprofloxacin");
+            Controller.addRule("Biliary Track Infection", "acquired == hospital & pcn allergy == no", "Piperacilin");
+            Controller.addRule("Biliary Track Infection", "acquired == hospital & pcn allergy == non severe", "Cefepime");
+            Controller.addRule("Biliary Track Infection", "acquired == hospital & pcn allergy == severe", "Aztreonam");
+            Controller.addRule("Biliary Track Infection", "severely ill == true & pcn allergy == no", "Piperacilin");
+            Controller.addRule("Biliary Track Infection", "severely ill == true & pcn allergy == non severe", "Cefepime");
+            Controller.addRule("Biliary Track Infection", "severely ill == true & pcn allergy == severe", "Aztreonam");
+            Controller.addRule("Biliary Track Infection", "mtbm == true & pcn allergy == no", "Piperacilin");
+            Controller.addRule("Biliary Track Infection", "mtbm == true & pcn allergy == non severe", "Cefepime");
+            Controller.addRule("Biliary Track Infection", "mtbm == true & pcn allergy == severe", "Aztreonam");
+
+
+            //temp hardcoded patient data
+            Session.patientData = new System.Collections.Generic.Dictionary<string, string>();
+            Session.patientData.Add("acquired", "community");
+            Session.patientData.Add("severely ill", "false");
+            Session.patientData.Add("pcn allergy", "severe");
+        }
 	}
 }
 

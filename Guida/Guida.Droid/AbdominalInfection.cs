@@ -42,10 +42,12 @@ namespace Guida.Droid
 				if (biliary.Text == "Biliary Track Infection")
 				{
 					RuleEngine re = new RuleEngine();
-					Antibiotic a = re.determineAntibiotic(biliary.Text);
-					if(a != null)
-						step.Text = a.name;
-					else step.Text = "Not found";
+					Antibiotic a = re.determineAntibiotic(biliary.Text);                
+                    if (a != null) {
+                        Session.antibioticInformation = a;
+                        StartActivity(typeof(AntibioticInformation));
+                    }         
+                    else step.Text = "Not found";
 				}
 			};
 
