@@ -84,5 +84,12 @@ namespace UnitTests {
             Antibiotic found = ie.determineAntibiotic("Biliary tract infection");
             Assert.True(found.name == "BTIAB");
         }
+
+        [Test]
+        public void TC005() {
+            Antibiotic found = ie.determineAntibiotic("Biliary Tract Infection");
+            Console.WriteLine(found.name);
+            Assert.True(found.name == "Ciprofloxacin");
+        }
     }
 }
