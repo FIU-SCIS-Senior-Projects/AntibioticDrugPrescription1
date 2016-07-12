@@ -44,7 +44,7 @@ namespace Guida
 			//appSettings.controller.addVisits(1, "02-05-16", "Sergio", "Trevor");
 
 			//DESEASE
-			Controller.addDisease("Biliary Track","Abdominal Infection");
+			Controller.addDisease("Biliary Tract Infection","Abdominal Infection");
 			Controller.addDisease("Diverticulitis","Abdominal Infection");
 			Controller.addDisease("Pancreatitis","Abdominal Infection");
 			Controller.addDisease("Peritonitis","Abdominal Infection");
@@ -55,8 +55,31 @@ namespace Guida
 			//ANTIBIOTICS
 			//Columns -> Name | Price | Aceptance Use | Toxicity
 			//------------------------------------------------------------
-			Controller.addAntibiotic("Ab1", "Flu", 5, "100mg");
-			Controller.addAntibiotic("Pulmoderpoxifan", "Derp", 5, "100mg");
+			Controller.addAntibiotic("Ceftriaxone", "Biliary Tract Infection", 5, "Unknown");     //update info
+			Controller.addAntibiotic("Ciprofloxacin", "Biliary Tract Infection", 5, "Unknown");   //update info
+			Controller.addAntibiotic("Piperacilin", "Biliary Tract Infection", 5, "Unknown");     //update info
+			Controller.addAntibiotic("Cefepime", "Biliary Tract Infection", 5, "Unknown");        //update info
+			Controller.addAntibiotic("Aztreonam", "Biliary Tract Infection", 5, "Unknown");       //update info
+
+			 ///
+ 			Controller.addRule("Biliary Tract Infection", "acquired == community  & severely ill == false & pcn allergy == no", "Ceftriaxone");
+			Controller.addRule("Biliary Tract Infection", "acquired == community & severely ill  == false & pcn allergy == severe", "Ciprofloxacin");
+			Controller.addRule("Biliary Tract Infection", "acquired == hospital & pcn allergy == no", "Piperacilin");
+			Controller.addRule("Biliary Tract Infection", "acquired == hospital & pcn allergy == non severe", "Cefepime");
+			Controller.addRule("Biliary Tract Infection", "acquired == hospital & pcn allergy == severe", "Aztreonam");
+			Controller.addRule("Biliary Tract Infection", "severely ill == true & pcn allergy == no", "Piperacilin");
+			Controller.addRule("Biliary Tract Infection", "severely ill == true & pcn allergy == non severe", "Cefepime");
+			Controller.addRule("Biliary Tract Infection", "severely ill == true & pcn allergy == severe", "Aztreonam");
+			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == no", "Piperacilin");
+			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == non severe", "Cefepime");
+			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == severe", "Aztreonam");
+
+
+			//temp hardcoded patient data
+			Session.patientData = new System.Collections.Generic.Dictionary<string, string>();
+			Session.patientData.Add("acquired", "community");
+			Session.patientData.Add("severely ill", "false");
+			Session.patientData.Add("pcn allergy", "severe");
 		}
 	}
 }
