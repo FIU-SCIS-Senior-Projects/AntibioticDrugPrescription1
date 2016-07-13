@@ -66,6 +66,7 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Infections.axml" />
+    <AndroidResource Include="Resources\layout\Home.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -79,7 +80,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\abs.png" />
     <AndroidResource Include="Resources\drawable-hdpi\lung.png" />
     <AndroidResource Include="Resources\layout\PatientList.axml" />
-    <AndroidResource Include="Resources\layout\Home.axml" />
     <AndroidResource Include="Resources\layout\PatientInformation.axml" />
   </ItemGroup>
   <ItemGroup>
