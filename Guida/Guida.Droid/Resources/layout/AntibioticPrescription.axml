@@ -4,20 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="Choose one"
+        android:text="Affected Area"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
-        android:textAlignment="center" />
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textSize="45sp" />
     <ImageButton
         android:src="@drawable/abs"
-        android:layout_width="match_parent"
-        android:layout_height="122.0dp"
-        android:id="@+id/absButton" />
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/absButton"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp" />
     <ImageButton
         android:src="@drawable/lung"
-        android:layout_width="match_parent"
-        android:layout_height="122.0dp"
-        android:id="@+id/lungButton" />
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/lungButton"
+        android:layout_gravity="center" />
 </LinearLayout>

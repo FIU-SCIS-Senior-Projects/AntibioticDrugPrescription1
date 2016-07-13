@@ -18,6 +18,7 @@ namespace Guida.Droid
 	{
 		//Layout Variables
 		TextView patientInformation;
+		TextView patientName;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -27,10 +28,12 @@ namespace Guida.Droid
 			SetContentView(Resource.Layout.PatientInformation);
 
 			//Initialize variables
+			patientName = FindViewById<TextView>(Resource.Id.displayPatientName);
 			patientInformation = FindViewById<TextView>(Resource.Id.displayPatientInfo);
 
 			//Display information
-			patientInformation.Text = "ID: " + Session.selectedPatient.id + " Enter " + Session.selectedPatient.name + " information here!";
+			patientName.Text = Session.selectedPatient.name;
+			patientInformation.Text = "Patient ID: " + Session.selectedPatient.id + "\nDoB: " + Session.selectedPatient.DoB;
 		}
 	}
 }

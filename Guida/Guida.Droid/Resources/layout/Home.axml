@@ -5,17 +5,29 @@
     android:layout_height="match_parent">
     <Button
         android:text="Antibiotic Prescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/antibioticPrescriptionButton" />
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:id="@+id/antibioticPrescriptionButton"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        android:textSize="30sp" />
     <Button
-        android:text="Patient Info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/patientInformationButton" />
+        android:text="Patients Information"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:id="@+id/patientInformationButton"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp" />
     <Button
         android:text="Search Antibiotic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/searchAntibioticButton" />
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:id="@+id/searchAntibioticButton"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp" />
 </LinearLayout>

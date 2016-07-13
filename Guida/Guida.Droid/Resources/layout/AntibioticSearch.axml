@@ -3,13 +3,32 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <EditText
-        android:layout_width="match_parent"
+    <TextView
+        android:text="Search Antibiotic"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/antibitoicSearchField" />
+        android:id="@+id/textView1"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textSize="45sp" />
+    <EditText
+        android:text="enter antibiotic name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/antibitoicSearchField"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:textSize="45sp" />
     <Button
         android:text="Search"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/antibioticSearchButton" />
+        android:id="@+id/antibioticSearchButton"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="45sp" />
 </LinearLayout>

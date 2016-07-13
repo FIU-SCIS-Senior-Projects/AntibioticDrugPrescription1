@@ -54,7 +54,7 @@ namespace Guida.Droid
 
 				//Return true if username and password entered are stored in the database
 				bool auth = Controller.logIn(usernameField.Text, passwordField.Text);
-
+				passwordField.Text = "";
 				//If username and password is valid, start next activity
                 if (auth) StartActivity(typeof(Home));
 				//Else, let know the user log in failed

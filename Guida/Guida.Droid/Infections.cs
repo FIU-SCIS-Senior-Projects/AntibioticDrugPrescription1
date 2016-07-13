@@ -26,8 +26,7 @@ namespace Guida.Droid
 			//Set content view to AbdominalInfection Layout
 			SetContentView(Resource.Layout.Infections);
 
-			step = FindViewById<TextView>(Resource.Id.infoLabel);
-			step.Text = "Type of Infection";
+			step = FindViewById<TextView>(Resource.Id.infoLabel2);
 
 			d = Controller.getDisease(Session.selectedArea.affectedArea);
 
@@ -41,7 +40,7 @@ namespace Guida.Droid
 			}
 
 			//Display names of the infections in a list
-			var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, names);
+			var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItemSingleChoice, names);
 			list.Adapter = adapter;
 			list.ItemClick += listp_ItemClicked;
 
@@ -58,6 +57,7 @@ namespace Guida.Droid
 				StartActivity(typeof(AntibioticInformation));
 			}
 			else {
+				
 				step.Text = "Antibiotic for " + d[e.Position].name + " not found";
 			}
 		}

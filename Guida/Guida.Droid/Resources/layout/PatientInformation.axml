@@ -6,7 +6,26 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
+        android:text="Patient Information"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textSize="45sp" />
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="45.5dp"
-        android:id="@+id/displayPatientInfo" />
+        android:layout_height="wrap_content"
+        android:id="@+id/displayPatientName"
+        android:layout_marginTop="15dp"
+        android:textSize="30sp"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/displayPatientInfo"
+        android:layout_marginTop="15dp"
+        android:textSize="30sp" />
 </LinearLayout>

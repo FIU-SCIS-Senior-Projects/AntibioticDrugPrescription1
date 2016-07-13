@@ -32,6 +32,10 @@ namespace Guida.Droid
 			nameField = FindViewById<EditText>(Resource.Id.antibitoicSearchField);		//Name of the antibiotic text box
             searchButton = FindViewById<Button>(Resource.Id.antibioticSearchButton);	//Search for antibiotic button
             
+			nameField.Click += delegate {
+				nameField.Text = "";
+			};
+
 			//Search for the antibiatic entered in nameField on the database to display its information
             searchButton.Click += delegate
             {
