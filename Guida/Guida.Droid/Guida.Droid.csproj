@@ -83,9 +83,6 @@
     <AndroidResource Include="Resources\layout\PatientInformation.axml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\6b549318-aff8-4198-93b8-6685ec7c6538.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\background.jpg" />
   </ItemGroup>
   <Import Project="..\Guida\Guida.projitems" Label="Shared" Condition="Exists('..\Guida\Guida.projitems')" />

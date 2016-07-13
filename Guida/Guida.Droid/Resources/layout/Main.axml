@@ -3,31 +3,45 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <EditText
+    <EditText xmlns:tools="http://schemas.android.com/tools"
         android:inputType="textPersonName"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/usernameField"
-        xmlns:tools="http://schemas.android.com/tools"
         tools:text="username"
-        android:text="username" />
-    <EditText
+        android:text="username"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:textSize="45sp" />
+    <EditText xmlns:tools="http://schemas.android.com/tools"
         android:inputType="textPassword"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/passwordField"
-        xmlns:tools="http://schemas.android.com/tools"
         tools:text="password"
-        android:text="password" />
+        android:text="password"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="45sp" />
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="@string/login" />
+        android:text="@string/login"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="45sp" />
     <TextView
-        android:text="Status:"
+        android:text="Please Log in"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/authStatusText" />
+        android:id="@+id/authStatusText"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="45sp" />
 </LinearLayout>
