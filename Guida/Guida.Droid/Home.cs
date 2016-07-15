@@ -14,7 +14,7 @@ using Android.Widget;
 namespace Guida.Droid
 {
 	//Home Activity. It let the user select next activity desired.
-	[Activity(Label = "Home")]
+	[Activity(Label = "test")]
 	public class Home : Activity
 	{
 		//Layout Variables

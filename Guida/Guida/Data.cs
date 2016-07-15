@@ -61,7 +61,6 @@ namespace Guida
 			Controller.addAntibiotic("Cefepime", "Biliary Tract Infection", 5, "Unknown");        //update info
 			Controller.addAntibiotic("Aztreonam", "Biliary Tract Infection", 5, "Unknown");       //update info
 
-			 ///
  			Controller.addRule("Biliary Tract Infection", "acquired == community  & severely ill == false & pcn allergy == no", "Ceftriaxone");
 			Controller.addRule("Biliary Tract Infection", "acquired == community & severely ill  == false & pcn allergy == severe", "Ciprofloxacin");
 			Controller.addRule("Biliary Tract Infection", "acquired == hospital & pcn allergy == no", "Piperacilin");
@@ -73,7 +72,6 @@ namespace Guida
 			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == no", "Piperacilin");
 			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == non severe", "Cefepime");
 			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == severe", "Aztreonam");
-
 
 			//temp hardcoded patient data
 			Session.patientData = new System.Collections.Generic.Dictionary<string, string>();
