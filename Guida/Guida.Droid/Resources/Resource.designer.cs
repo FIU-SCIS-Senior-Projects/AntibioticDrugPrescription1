@@ -72,8 +72,8 @@ namespace Guida.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050003
-			public const int absButton = 2131034115;
+			// aapt resource value: 0x7f050006
+			public const int absButton = 2131034118;
 			
 			// aapt resource value: 0x7f050002
 			public const int antibioticInfoText = 2131034114;
@@ -81,14 +81,14 @@ namespace Guida.Droid
 			// aapt resource value: 0x7f050001
 			public const int antibioticNameText = 2131034113;
 			
-			// aapt resource value: 0x7f050007
-			public const int antibioticPrescriptionButton = 2131034119;
+			// aapt resource value: 0x7f050003
+			public const int antibioticPrescriptionButton = 2131034115;
 			
-			// aapt resource value: 0x7f050006
-			public const int antibioticSearchButton = 2131034118;
+			// aapt resource value: 0x7f050009
+			public const int antibioticSearchButton = 2131034121;
 			
-			// aapt resource value: 0x7f050005
-			public const int antibitoicSearchField = 2131034117;
+			// aapt resource value: 0x7f050008
+			public const int antibitoicSearchField = 2131034120;
 			
 			// aapt resource value: 0x7f050010
 			public const int authStatusText = 2131034128;
@@ -111,17 +111,17 @@ namespace Guida.Droid
 			// aapt resource value: 0x7f05000f
 			public const int loginButton = 2131034127;
 			
-			// aapt resource value: 0x7f050004
-			public const int lungButton = 2131034116;
+			// aapt resource value: 0x7f050007
+			public const int lungButton = 2131034119;
 			
 			// aapt resource value: 0x7f05000e
 			public const int passwordField = 2131034126;
 			
-			// aapt resource value: 0x7f050008
-			public const int patientInformationButton = 2131034120;
+			// aapt resource value: 0x7f050004
+			public const int patientInformationButton = 2131034116;
 			
-			// aapt resource value: 0x7f050009
-			public const int searchAntibioticButton = 2131034121;
+			// aapt resource value: 0x7f050005
+			public const int searchAntibioticButton = 2131034117;
 			
 			// aapt resource value: 0x7f050000
 			public const int textView1 = 2131034112;
@@ -152,19 +152,16 @@ namespace Guida.Droid
 			public const int AntibioticSearch = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Home = 2130903043;
+			public const int Infections = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Infections = 2130903044;
+			public const int Main = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int Main = 2130903045;
+			public const int PatientInformation = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int PatientInformation = 2130903046;
-			
-			// aapt resource value: 0x7f030007
-			public const int PatientList = 2130903047;
+			public const int PatientList = 2130903046;
 			
 			static Layout()
 			{

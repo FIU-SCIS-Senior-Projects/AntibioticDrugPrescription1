@@ -20,6 +20,7 @@ namespace Guida.Droid
 	{
 		//Layout Variables
 		ImageButton abs, lung;
+		Button antibioticPrescription, patientInformation, searchAntibiotic;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -32,6 +33,25 @@ namespace Guida.Droid
 			//---------------------------
 			abs = FindViewById<ImageButton>(Resource.Id.absButton);    	//Abs button
 			lung = FindViewById<ImageButton>(Resource.Id.lungButton);
+			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
+			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
+			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
+
+			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkRed);
+			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+
+			//if Patient Information button is clicked, move to PList activity
+			patientInformation.Click += delegate
+			{
+				StartActivity(typeof(PatientList));
+			};
+
+			//if Search Antibiotic button is clicked, move to AntibioticSearch activity
+			searchAntibiotic.Click += delegate
+			{
+				StartActivity(typeof(AntibioticSearch));
+			};
 
 			//if abs button is clicked, move to AntibioticInfection activity
 			abs.Click += delegate

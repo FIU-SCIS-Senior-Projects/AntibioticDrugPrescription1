@@ -7,7 +7,7 @@ namespace Guida
 {
     class RuleEngine
     {
-        List<int> trueRules = new List<int>();
+        //List<int> trueRules = new List<int>();
         Dictionary<string, int> missingKnowledge = new Dictionary<string, int>();
         
         /// <summary>

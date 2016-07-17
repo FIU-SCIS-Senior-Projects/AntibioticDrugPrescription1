@@ -20,6 +20,7 @@ namespace Guida.Droid
 		//Layout Variables
 		EditText nameField;
 		Button searchButton;
+		Button antibioticPrescription, patientInformation, searchAntibiotic;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,9 +32,28 @@ namespace Guida.Droid
 			//Initialize Variables
 			nameField = FindViewById<EditText>(Resource.Id.antibitoicSearchField);		//Name of the antibiotic text box
             searchButton = FindViewById<Button>(Resource.Id.antibioticSearchButton);	//Search for antibiotic button
-            
+            antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
+			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
+			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
+
+			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkRed);
+
 			nameField.Click += delegate {
 				nameField.Text = "";
+			};
+
+			//if Antibiotic Prescription button is clicked, move to AntibioticPrescription activity
+			antibioticPrescription.Click += delegate
+			{
+				StartActivity(typeof(AntibioticPrescription));
+			};
+
+			//if Patient Information button is clicked, move to PList activity
+			patientInformation.Click += delegate
+			{
+				StartActivity(typeof(PatientList));
 			};
 
 			//Search for the antibiatic entered in nameField on the database to display its information

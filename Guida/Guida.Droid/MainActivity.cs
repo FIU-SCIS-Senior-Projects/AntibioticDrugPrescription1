@@ -38,7 +38,7 @@ namespace Guida.Droid
             passwordField = FindViewById<EditText>(Resource.Id.passwordField);	//Password text field
             authStatus = FindViewById<TextView>(Resource.Id.authStatusText);    //Authentication text view 
 			tries = 0;
-
+			loginButton.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
 			//Clear Text when usernameField is clicked
 			usernameField.Click += delegate {
 				usernameField.Text = "";
@@ -56,7 +56,7 @@ namespace Guida.Droid
 				bool auth = Controller.logIn(usernameField.Text, passwordField.Text);
 				passwordField.Text = "";
 				//If username and password is valid, start next activity
-                if (auth) StartActivity(typeof(Home));
+				if (auth) StartActivity(typeof(PatientList));
 				//Else, let know the user log in failed
                 else authStatus.Text = " Log in Failed! " + ++tries + " Attempt/s";
                 
