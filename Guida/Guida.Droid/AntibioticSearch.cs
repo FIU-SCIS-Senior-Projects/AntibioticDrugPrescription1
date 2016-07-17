@@ -21,7 +21,8 @@ namespace Guida.Droid
 		EditText nameField;
 		Button searchButton;
 		Button antibioticPrescription, patientInformation, searchAntibiotic;
-
+		Button logout;
+		TextView label;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -35,7 +36,11 @@ namespace Guida.Droid
             antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
 			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
 			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
+			label = FindViewById<TextView>(Resource.Id.textView1);
+			logout = FindViewById<Button>(Resource.Id.logout);
 
+			label.SetBackgroundColor(Android.Graphics.Color.Gray);
+			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
 			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
 			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
 			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkRed);
@@ -54,6 +59,12 @@ namespace Guida.Droid
 			patientInformation.Click += delegate
 			{
 				StartActivity(typeof(PatientList));
+			};
+			logout.Click += delegate
+			{
+				StartActivity(typeof(MainActivity));
+				//clear user below
+				// [add later]
 			};
 
 			//Search for the antibiatic entered in nameField on the database to display its information

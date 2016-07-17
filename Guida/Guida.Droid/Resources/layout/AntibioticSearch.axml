@@ -33,16 +33,28 @@
             android:layout_gravity="center"
             android:textSize="20sp" />
     </LinearLayout>
-    <TextView
-        android:text="Search Antibiotic"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:textSize="45sp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Search Antibiotic"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="45sp" />
+        <Button
+            android:text="logout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/logout"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+    </LinearLayout>
     <EditText
         android:text="enter antibiotic name"
         android:layout_width="wrap_content"
