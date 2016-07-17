@@ -19,6 +19,11 @@ namespace Guida.Droid
 		TextView step;
 		ListView list;
 		List<Disease> d;
+		Button logout;
+		TextView label;
+		Button antibioticPrescription, patientInformation, searchAntibiotic;
+
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -26,8 +31,18 @@ namespace Guida.Droid
 			//Set content view to AbdominalInfection Layout
 			SetContentView(Resource.Layout.Infections);
 
-			step = FindViewById<TextView>(Resource.Id.infoLabel);
-			step.Text = "Type of Infection";
+			step = FindViewById<TextView>(Resource.Id.infoLabel2);
+			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
+			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
+			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
+			label = FindViewById<TextView>(Resource.Id.textView1);
+			logout = FindViewById<Button>(Resource.Id.logout);
+
+			label.SetBackgroundColor(Android.Graphics.Color.Gray);
+			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
+			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkRed);
+			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
 
 			d = Controller.getDisease(Session.selectedArea.affectedArea);
 
@@ -41,11 +56,27 @@ namespace Guida.Droid
 			}
 
 			//Display names of the infections in a list
-			var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, names);
+			var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItemSingleChoice, names);
 			list.Adapter = adapter;
 			list.ItemClick += listp_ItemClicked;
 
+			//if Patient Information button is clicked, move to PList activity
+			patientInformation.Click += delegate
+			{
+				StartActivity(typeof(PatientList));
+			};
 
+			//if Search Antibiotic button is clicked, move to AntibioticSearch activity
+			searchAntibiotic.Click += delegate
+			{
+				StartActivity(typeof(AntibioticSearch));
+			};
+			logout.Click += delegate
+			{
+				StartActivity(typeof(MainActivity));
+				//clear user below
+				// [add later]
+			};
 		}
 		//if a infection is selected, display antibiotic's information
 		void listp_ItemClicked(object sender, AdapterView.ItemClickEventArgs e)
@@ -58,6 +89,7 @@ namespace Guida.Droid
 				StartActivity(typeof(AntibioticInformation));
 			}
 			else {
+				
 				step.Text = "Antibiotic for " + d[e.Position].name + " not found";
 			}
 		}

@@ -2,22 +2,71 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:text="Choose one"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:textAlignment="center" />
+        android:layout_height="wrap_content">
+        <Button
+            android:text="Antibiotic Prescription"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/antibioticPrescriptionButton"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+        <Button
+            android:text="Patients Information"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/patientInformationButton"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+        <Button
+            android:text="Search Antibiotic"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchAntibioticButton"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Affected Area"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="45sp" />
+        <Button
+            android:text="logout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/logout"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+    </LinearLayout>
     <ImageButton
         android:src="@drawable/abs"
-        android:layout_width="match_parent"
-        android:layout_height="122.0dp"
-        android:id="@+id/absButton" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/absButton"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp" />
     <ImageButton
         android:src="@drawable/lung"
-        android:layout_width="match_parent"
-        android:layout_height="122.0dp"
-        android:id="@+id/lungButton" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lungButton"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp" />
 </LinearLayout>

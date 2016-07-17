@@ -19,7 +19,9 @@ namespace Guida.Droid
 	{
 		//Layout Variables
 		TextView name;
+		Button antibioticPrescription, patientInformation, searchAntibiotic, logout;
 		TextView information;
+		TextView label;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -31,6 +33,33 @@ namespace Guida.Droid
 			//Initialize variables
 			name = FindViewById<TextView>(Resource.Id.antibioticNameText);
 			information = FindViewById<TextView>(Resource.Id.antibioticInfoText);
+			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
+			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
+			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
+
+			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkRed);
+			label.SetBackgroundColor(Android.Graphics.Color.Gray);
+			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
+
+			//if Antibiotic Prescription button is clicked, move to AntibioticPrescription activity
+			antibioticPrescription.Click += delegate
+			{
+				StartActivity(typeof(AntibioticPrescription));
+			};
+
+			//if Patient Information button is clicked, move to PList activity
+			patientInformation.Click += delegate
+			{
+				StartActivity(typeof(PatientList));
+			};
+			logout.Click += delegate
+			{
+				StartActivity(typeof(MainActivity));
+				//clear user below
+				// [add later]
+			};
 
 			//Display information
 			name.Text = Session.antibioticInformation.name;

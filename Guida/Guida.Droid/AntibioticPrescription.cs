@@ -20,7 +20,9 @@ namespace Guida.Droid
 	{
 		//Layout Variables
 		ImageButton abs, lung;
-
+		Button antibioticPrescription, patientInformation, searchAntibiotic;
+		Button logout;
+		TextView label;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -32,6 +34,29 @@ namespace Guida.Droid
 			//---------------------------
 			abs = FindViewById<ImageButton>(Resource.Id.absButton);    	//Abs button
 			lung = FindViewById<ImageButton>(Resource.Id.lungButton);
+			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
+			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
+			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
+			label = FindViewById<TextView>(Resource.Id.textView1);
+			logout = FindViewById<Button>(Resource.Id.logout);
+
+			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkRed);
+			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			label.SetBackgroundColor(Android.Graphics.Color.Gray);
+			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
+
+			//if Patient Information button is clicked, move to PList activity
+			patientInformation.Click += delegate
+			{
+				StartActivity(typeof(PatientList));
+			};
+
+			//if Search Antibiotic button is clicked, move to AntibioticSearch activity
+			searchAntibiotic.Click += delegate
+			{
+				StartActivity(typeof(AntibioticSearch));
+			};
 
 			//if abs button is clicked, move to AntibioticInfection activity
 			abs.Click += delegate
@@ -41,6 +66,12 @@ namespace Guida.Droid
 				d.affectedArea = "Abdominal Infection";
 				Session.selectedArea = d;
 				StartActivity(typeof(Infections));
+			};
+			logout.Click += delegate
+			{
+				StartActivity(typeof(MainActivity));
+				//clear user below
+				// [add later]
 			};
 
 			lung.Click += delegate

@@ -18,6 +18,7 @@ namespace Guida.Droid
 		Button loginButton;
 		EditText usernameField, passwordField;
 		TextView authStatus;
+		int tries;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -35,8 +36,9 @@ namespace Guida.Droid
             loginButton = FindViewById<Button> (Resource.Id.loginButton);		//Log in button
             usernameField = FindViewById<EditText>(Resource.Id.usernameField);	//Username text field
             passwordField = FindViewById<EditText>(Resource.Id.passwordField);	//Password text field
-            authStatus = FindViewById<TextView>(Resource.Id.authStatusText);	//Authentication text view 
-
+            authStatus = FindViewById<TextView>(Resource.Id.authStatusText);    //Authentication text view 
+			tries = 0;
+			loginButton.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
 			//Clear Text when usernameField is clicked
 			usernameField.Click += delegate {
 				usernameField.Text = "";
@@ -52,11 +54,14 @@ namespace Guida.Droid
 
 				//Return true if username and password entered are stored in the database
 				bool auth = Controller.logIn(usernameField.Text, passwordField.Text);
-
 				//If username and password is valid, start next activity
-                if (auth) StartActivity(typeof(Home));
+				if (auth)
+				{
+					StartActivity(typeof(PatientList));
+					Finish();
+				}
 				//Else, let know the user log in failed
-                else authStatus.Text += " Log in Failed! ";
+                else authStatus.Text = " Log in Failed! " + ++tries + " Attempt/s";
                 
             };
 

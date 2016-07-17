@@ -17,7 +17,11 @@ namespace Guida.Droid
 	public class PatientInformation : Activity
 	{
 		//Layout Variables
-		TextView patientInformation;
+		TextView patientInfo;
+		TextView patientName;
+		Button antibioticPrescription, patientInformation, searchAntibiotic;
+		Button logout;
+		TextView label;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -27,10 +31,40 @@ namespace Guida.Droid
 			SetContentView(Resource.Layout.PatientInformation);
 
 			//Initialize variables
-			patientInformation = FindViewById<TextView>(Resource.Id.displayPatientInfo);
+			patientName = FindViewById<TextView>(Resource.Id.displayPatientName);
+			patientInfo = FindViewById<TextView>(Resource.Id.displayPatientInfo);
+			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
+			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
+			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
+			label = FindViewById<TextView>(Resource.Id.textView1);
+			logout = FindViewById<Button>(Resource.Id.logout);
 
+			label.SetBackgroundColor(Android.Graphics.Color.Gray);
+			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
+			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkRed);
+			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+
+			//if Antibiotic Prescription button is clicked, move to AntibioticPrescription activity
+			antibioticPrescription.Click += delegate
+			{
+				StartActivity(typeof(AntibioticPrescription));
+			};
+
+			//if Search Antibiotic button is clicked, move to AntibioticSearch activity
+			searchAntibiotic.Click += delegate
+			{
+				StartActivity(typeof(AntibioticSearch));
+			};
+			logout.Click += delegate
+			{
+				StartActivity(typeof(MainActivity));
+				//clear user below
+				// [add later]
+			};
 			//Display information
-			patientInformation.Text = "ID: " + Session.selectedPatient.id + " Enter " + Session.selectedPatient.name + " information here!";
+			patientName.Text = Session.selectedPatient.name;
+			patientInfo.Text = "Patient ID: " + Session.selectedPatient.id + "\nDoB: " + Session.selectedPatient.DoB;
 		}
 	}
 }

@@ -19,7 +19,10 @@ namespace Guida.Droid
 	{
 		//Variables
 		ListView list;				//Layout
-		List<Patient> patientList;	//List of Patients
+		List<Patient> patientList;  //List of Patients
+		Button antibioticPrescription, patientInformation, searchAntibiotic;
+		Button logout;
+		TextView label;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -31,6 +34,18 @@ namespace Guida.Droid
 			//Initialize variables
 			patientList = Controller.getPatientList(Session.user.username);	//List of patients of the current user logged in
 			list = FindViewById<ListView>(Resource.Id.listView1);							//List to be displayed in the layout
+			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
+			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
+			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
+			label = FindViewById<TextView>(Resource.Id.textView1); 
+			logout = FindViewById<Button>(Resource.Id.logout);
+
+			label.SetBackgroundColor(Android.Graphics.Color.Gray);
+			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
+			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkRed);
+			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+
 
 			//List of names from the list of patients
 			var names = new List<string>();
@@ -43,6 +58,25 @@ namespace Guida.Droid
 			var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, names);
 			list.Adapter = adapter;
 			list.ItemClick += listp_ItemClicked;
+
+			//if Antibiotic Prescription button is clicked, move to AntibioticPrescription activity
+			antibioticPrescription.Click += delegate
+			{
+				StartActivity(typeof(AntibioticPrescription));
+			};
+
+			//if Search Antibiotic button is clicked, move to AntibioticSearch activity
+			searchAntibiotic.Click += delegate
+			{
+				StartActivity(typeof(AntibioticSearch));
+			};
+
+			logout.Click += delegate {
+				StartActivity(typeof(MainActivity));
+				//Session.user = null;
+				//clear user below
+				// [add later]
+			};
 		}
 
 		//if a patient is selected, display patient's information
