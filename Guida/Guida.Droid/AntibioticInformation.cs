@@ -37,10 +37,10 @@ namespace Guida.Droid
 			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
 			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
 
-			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
-			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			patientInformation.SetBackgroundColor(Android.Graphics.Color.Transparent);
+			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.Transparent);
 			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkRed);
-			label.SetBackgroundColor(Android.Graphics.Color.Gray);
+			label.SetBackgroundColor(Android.Graphics.Color.DarkGray);
 			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
 
 			//if Antibiotic Prescription button is clicked, move to AntibioticPrescription activity

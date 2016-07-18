@@ -38,7 +38,7 @@ namespace Guida.Droid
             passwordField = FindViewById<EditText>(Resource.Id.passwordField);	//Password text field
             authStatus = FindViewById<TextView>(Resource.Id.authStatusText);    //Authentication text view 
 			tries = 0;
-			loginButton.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			loginButton.SetBackgroundColor(Android.Graphics.Color.DarkGray);
 			//Clear Text when usernameField is clicked
 			usernameField.Click += delegate {
 				usernameField.Text = "";

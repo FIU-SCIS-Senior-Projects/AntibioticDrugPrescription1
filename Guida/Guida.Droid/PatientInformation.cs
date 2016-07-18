@@ -39,11 +39,11 @@ namespace Guida.Droid
 			label = FindViewById<TextView>(Resource.Id.textView1);
 			logout = FindViewById<Button>(Resource.Id.logout);
 
-			label.SetBackgroundColor(Android.Graphics.Color.Gray);
+			label.SetBackgroundColor(Android.Graphics.Color.DarkGray);
 			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
 			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkRed);
-			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
-			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.Transparent);
+			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.Transparent);
 
 			//if Antibiotic Prescription button is clicked, move to AntibioticPrescription activity
 			antibioticPrescription.Click += delegate

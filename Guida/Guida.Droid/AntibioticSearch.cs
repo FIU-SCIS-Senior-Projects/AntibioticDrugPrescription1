@@ -39,11 +39,12 @@ namespace Guida.Droid
 			label = FindViewById<TextView>(Resource.Id.textView1);
 			logout = FindViewById<Button>(Resource.Id.logout);
 
-			label.SetBackgroundColor(Android.Graphics.Color.Gray);
+			label.SetBackgroundColor(Android.Graphics.Color.DarkGray);
 			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
-			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
-			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			patientInformation.SetBackgroundColor(Android.Graphics.Color.Transparent);
+			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.Transparent);
 			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkRed);
+			searchButton.SetBackgroundColor(Android.Graphics.Color.DarkGray);
 
 			nameField.Click += delegate {
 				nameField.Text = "";

@@ -40,10 +40,10 @@ namespace Guida.Droid
 			label = FindViewById<TextView>(Resource.Id.textView1);
 			logout = FindViewById<Button>(Resource.Id.logout);
 
-			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
+			patientInformation.SetBackgroundColor(Android.Graphics.Color.Transparent);
 			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.DarkRed);
-			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkBlue);
-			label.SetBackgroundColor(Android.Graphics.Color.Gray);
+			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.Transparent);
+			label.SetBackgroundColor(Android.Graphics.Color.DarkGray);
 			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
 
 			//if Patient Information button is clicked, move to PList activity

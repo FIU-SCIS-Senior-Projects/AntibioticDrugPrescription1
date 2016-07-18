@@ -90,14 +90,17 @@ namespace Guida.Droid
 			// aapt resource value: 0x7f050009
 			public const int antibitoicSearchField = 2131034121;
 			
-			// aapt resource value: 0x7f050010
-			public const int authStatusText = 2131034128;
+			// aapt resource value: 0x7f050011
+			public const int authStatusText = 2131034129;
+			
+			// aapt resource value: 0x7f050013
+			public const int displayPatientInfo = 2131034131;
 			
 			// aapt resource value: 0x7f050012
-			public const int displayPatientInfo = 2131034130;
+			public const int displayPatientName = 2131034130;
 			
-			// aapt resource value: 0x7f050011
-			public const int displayPatientName = 2131034129;
+			// aapt resource value: 0x7f05000d
+			public const int guida = 2131034125;
 			
 			// aapt resource value: 0x7f05000c
 			public const int infoLabel2 = 2131034124;
@@ -105,8 +108,8 @@ namespace Guida.Droid
 			// aapt resource value: 0x7f05000b
 			public const int listView1 = 2131034123;
 			
-			// aapt resource value: 0x7f05000f
-			public const int loginButton = 2131034127;
+			// aapt resource value: 0x7f050010
+			public const int loginButton = 2131034128;
 			
 			// aapt resource value: 0x7f050004
 			public const int logout = 2131034116;
@@ -114,8 +117,8 @@ namespace Guida.Droid
 			// aapt resource value: 0x7f050008
 			public const int lungButton = 2131034120;
 			
-			// aapt resource value: 0x7f05000e
-			public const int passwordField = 2131034126;
+			// aapt resource value: 0x7f05000f
+			public const int passwordField = 2131034127;
 			
 			// aapt resource value: 0x7f050001
 			public const int patientInformationButton = 2131034113;
@@ -126,8 +129,8 @@ namespace Guida.Droid
 			// aapt resource value: 0x7f050003
 			public const int textView1 = 2131034115;
 			
-			// aapt resource value: 0x7f05000d
-			public const int usernameField = 2131034125;
+			// aapt resource value: 0x7f05000e
+			public const int usernameField = 2131034126;
 			
 			static Id()
 			{

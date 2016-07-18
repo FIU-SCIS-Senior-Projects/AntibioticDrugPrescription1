@@ -4,6 +4,16 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background">
+    <TextView
+        android:text="Guida"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="55sp"
+        android:id="@+id/guida" />
     <EditText xmlns:tools="http://schemas.android.com/tools"
         android:inputType="textPersonName"
         android:layout_width="300dp"
@@ -13,7 +23,7 @@
         android:text="username"
         android:gravity="center"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="30dp"
         android:textSize="45sp" />
     <EditText xmlns:tools="http://schemas.android.com/tools"
         android:inputType="textPassword"
@@ -34,7 +44,7 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:textSize="45sp" />
+        android:textSize="40sp" />
     <TextView
         android:text="Please Log in"
         android:textAppearance="?android:attr/textAppearanceSmall"

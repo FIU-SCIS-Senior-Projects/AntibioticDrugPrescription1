@@ -18,6 +18,10 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="20sp" />
+        <View
+            android:layout_height="fill_parent"
+            android:layout_width="2px"
+            android:background="#90909090" />
         <Button
             android:text="Patients Information"
             android:layout_width="200dp"
@@ -26,6 +30,10 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="20sp" />
+        <View
+            android:layout_height="fill_parent"
+            android:layout_width="2px"
+            android:background="#90909090" />
         <Button
             android:text="Search Antibiotic"
             android:layout_width="200dp"
