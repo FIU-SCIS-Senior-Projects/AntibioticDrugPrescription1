@@ -8,7 +8,7 @@ namespace Guida
     class RuleEngine
     {
         List<int> trueRules = new List<int>();
-        Dictionary<string, int> missingKnowledge = new Dictionary<string, int>();
+        Dictionary<string, double> missingKnowledge = new Dictionary<string, double>();
         
         /// <summary>
         /// Determines the proper antibiotic for a given illness
@@ -35,6 +35,9 @@ namespace Guida
         public bool evaluateCondition(String condition,Dictionary<string,string> knowledge) {
             char[] delim = { '&' };
             String boolPattern = @"\s*(\w+\s*\w+)\s+([<>=]+)\s+(\w+\s*\w+)";
+            bool truth = true;
+            List<string> missing = new List<string>();
+
             foreach (String c in condition.Split(delim)) {
                 foreach (Match exp in Regex.Matches(c, boolPattern)) {
                     string variable = exp.Groups[1].Value;
@@ -44,30 +47,49 @@ namespace Guida
                         String data = knowledge[variable];
                         switch (op) {
                             case ">":
-                                if (!(Double.Parse(data) > Double.Parse(value))) return false;
+                                if (!(Double.Parse(data) > Double.Parse(value))) truth = false;
                                 break;
                             case ">=":
-                                if (!(Double.Parse(data) >= Double.Parse(value))) return false;
+                                if (!(Double.Parse(data) >= Double.Parse(value))) truth = false;
                                 break;
                             case "<":
-                                if (!(Double.Parse(data) < Double.Parse(value))) return false;
+                                if (!(Double.Parse(data) < Double.Parse(value))) truth = false;
                                 break;
                             case "<=":
-                                if (!(Double.Parse(data) <= Double.Parse(value))) return false;
+                                if (!(Double.Parse(data) <= Double.Parse(value))) truth = false;
                                 break;
                             case "==":
-                                if (!(String.Compare(data, value, true) == 0)) return false;
+                                if (!(String.Compare(data, value, true) == 0)) truth = false;
                                 break;
-                            default: return false;
+                            default:
+                                truth = false;
+                                break;
                         }
                     }
                     else {
-                        missingKnowledge.Add(variable, 1);      //needs to be modified to hold the relative weight of the missing knowdlege
-                        return false;
+                        missing.Add(variable);
+                        truth = false;
                     }
                 }
             }
-            return true;
+
+            if(missing.Count > 0) {
+                foreach(string m in missing) {
+                    missingKnowledge.Add(m, missing.Count / (condition.Split(delim).Length));
+                }
+            }
+
+            return truth;
         }
+
+        public string getMissing() {
+            string least = null;
+            foreach(KeyValuePair<string,double> m in missingKnowledge) {
+                if (least == null) least = m.Key;
+                if (m.Value < missingKnowledge[least]) least = m.Key;
+            }
+            return least;
+        }
+
     }
 }
