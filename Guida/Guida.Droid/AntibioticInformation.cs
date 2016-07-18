@@ -22,7 +22,7 @@ namespace Guida.Droid
 		Button antibioticPrescription, patientInformation, searchAntibiotic, logout;
 		TextView information;
 		TextView label;
-
+		TextView user, patient;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -36,12 +36,26 @@ namespace Guida.Droid
 			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
 			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
 			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
+			user = FindViewById<TextView>(Resource.Id.currentUser);
+			patient = FindViewById<TextView>(Resource.Id.currentPatient);
+			label = FindViewById<TextView>(Resource.Id.textView1);
+			logout = FindViewById<Button>(Resource.Id.logout);
 
 			patientInformation.SetBackgroundColor(Android.Graphics.Color.Transparent);
 			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.Transparent);
 			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkRed);
 			label.SetBackgroundColor(Android.Graphics.Color.DarkGray);
 			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
+
+			user.Text = "Doctor: " + Session.user.username;
+			if (Session.selectedPatient == null) patient.Text = "Patient: Not Selected";
+			else patient.Text = "Patient: " + Session.selectedPatient.name;
+
+			//if Search Antibiotic button is clicked, move to AntibioticSearch activity
+			searchAntibiotic.Click += delegate
+			{
+				StartActivity(typeof(AntibioticSearch));
+			};
 
 			//if Antibiotic Prescription button is clicked, move to AntibioticPrescription activity
 			antibioticPrescription.Click += delegate
@@ -54,6 +68,7 @@ namespace Guida.Droid
 			{
 				StartActivity(typeof(PatientList));
 			};
+
 			logout.Click += delegate
 			{
 				StartActivity(typeof(MainActivity));

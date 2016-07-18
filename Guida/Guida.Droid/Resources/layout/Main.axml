@@ -44,7 +44,7 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:textSize="40sp" />
+        android:textSize="45sp" />
     <TextView
         android:text="Please Log in"
         android:textAppearance="?android:attr/textAppearanceSmall"

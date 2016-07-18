@@ -63,6 +63,20 @@
             android:layout_gravity="center"
             android:textSize="20sp" />
     </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/currentUser"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="30sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/currentPatient"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="30sp" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
