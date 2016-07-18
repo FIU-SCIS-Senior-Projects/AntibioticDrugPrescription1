@@ -52,9 +52,12 @@ namespace Guida.Droid
 		{
 			RuleEngine re = new RuleEngine();
 			Antibiotic a = re.determineAntibiotic(d[e.Position].name);
-			if (a != null)
-				step.Text = a.name;
-			else step.Text = "Antibiotic for "+ d[e.Position].name +" not found";
+            if (a != null)
+                step.Text = a.name;
+            else {
+                //string missing = re.getMissing();
+                step.Text = "Antibiotic for " + d[e.Position].name + " not found\nInformation Needed: ";
+            }
 		}
 	}
 }

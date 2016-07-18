@@ -79,7 +79,7 @@ namespace Guida
             Session.patientData = new System.Collections.Generic.Dictionary<string, string>();
             Session.patientData.Add("acquired", "community");
             Session.patientData.Add("severely ill", "false");
-            Session.patientData.Add("pcn allergy", "severe");
+            //Session.patientData.Add("pcn allergy", "severe");
         }
 	}
 }

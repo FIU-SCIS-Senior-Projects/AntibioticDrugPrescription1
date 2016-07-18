@@ -7,9 +7,12 @@ namespace Guida
 {
     class RuleEngine
     {
-        List<int> trueRules = new List<int>();
-        Dictionary<string, double> missingKnowledge = new Dictionary<string, double>();
+        public Dictionary<string, int> missingKnowledge;
         
+        public RuleEngine() {
+            missingKnowledge = new Dictionary<string, int>();
+        }
+
         /// <summary>
         /// Determines the proper antibiotic for a given illness
         /// </summary>
@@ -75,21 +78,23 @@ namespace Guida
 
             if(missing.Count > 0) {
                 foreach(string m in missing) {
-                    missingKnowledge.Add(m, missing.Count / (condition.Split(delim).Length));
+                    missingKnowledge.Add(m, missing.Count);
                 }
             }
 
             return truth;
         }
 
+        
         public string getMissing() {
             string least = null;
-            foreach(KeyValuePair<string,double> m in missingKnowledge) {
+            foreach(KeyValuePair<string,int> m in missingKnowledge) {
                 if (least == null) least = m.Key;
                 if (m.Value < missingKnowledge[least]) least = m.Key;
             }
             return least;
         }
+        
 
     }
 }
