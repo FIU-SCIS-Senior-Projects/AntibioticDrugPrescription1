@@ -96,7 +96,7 @@ namespace Guida.Droid
 			}
 			else {
 				
-				step.Text = "Antibiotic for " + d[e.Position].name + " not found";
+				step.Text = "Antibiotic for " + d[e.Position].name + " not found\nRequired Patient Data: ";
 			}
 		}
 	}
