@@ -55,8 +55,8 @@ namespace Guida.Droid
             if (a != null)
                 step.Text = a.name;
             else {
-                //string missing = re.getMissing();
-                step.Text = "Antibiotic for " + d[e.Position].name + " not found\nInformation Needed: ";
+                string missing = re.getMissing();
+                step.Text = "Antibiotic for " + d[e.Position].name + " not found\nInformation Needed: " + missing;
             }
 		}
 	}
