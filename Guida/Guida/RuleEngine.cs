@@ -94,9 +94,10 @@ namespace Guida
                     best = m;
                 }
             }
-            string ret = "";
+            string ret = null;
             foreach(string s in best.Value) {
-                ret = ret + " and " + s ;
+                if (ret == null) ret = s;
+                else ret = ret + " and " + s ;
             }
             return ret;
         }
