@@ -74,16 +74,31 @@ namespace Guida
 			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == non severe", "Cefepime");
 			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == severe", "Aztreonam");
 
-			//acquired == community
-			//acquired == hospital
-			//severely ill == true
-			//severely ill == false
-			//pcn allergy == no
-			//pcn allergy == severe
-			//pcn allergy == non severe
+            Controller.addRule("Diverticulitis", "infection == moderate & pcn allergy == no", "Amoxacillin");
+            Controller.addRule("Diverticulitis", "infection == moderate & pcn allergy == severe", "Ciprofloxacin");
+            Controller.addRule("Diverticulitis", "infection == severe & pcn allergy == no", "Piperavillin");
+            Controller.addRule("Diverticulitis", "infection == severe & pcn allergy = non severe", "Cefepime");
+            Controller.addRule("Diverticulitis", "infection == severe & pcn allergy = severe", "Ciprofloxacin");
 
-			//temp hardcoded patient data
-			//Session.patientData = new System.Collections.Generic.Dictionary<string, string>();
+            Controller.addRule("Pancreatitis", "abdominal sepsis == true & pcn allergy == no", "Piperacilin");
+            Controller.addRule("Pancreatitis", "abdominal sepsis == true & pcn allergy == non severe", "Cefepime");
+            Controller.addRule("Pancreatitis", "abdominal sepsis == true & pcn allergy == severe", "Ciprofloxacin");
+
+            Controller.addRule("Peritonitis", "peritonitis == primary & pcn allergy == no", "Cefriaxone");
+            Controller.addRule("Peritonitis", "peritonitis == primary & pcn allergy == severe", "Monifloxacin");
+            Controller.addRule("Peritonitis", "Peritonitis == spontaneous * pcn allergy == no", "Cefriaxone");
+            Controller.addRule("Peritonitis", "Peritonitis == spontaneous * pcn allergy == severe", "Monifloxacin");
+
+            //acquired == community
+            //acquired == hospital
+            //severely ill == true
+            //severely ill == false
+            //pcn allergy == no
+            //pcn allergy == severe
+            //pcn allergy == non severe
+
+            //temp hardcoded patient data
+            //Session.patientData = new System.Collections.Generic.Dictionary<string, string>();
             //Session.patientData.Add("acquired", "community");
             //Session.patientData.Add("severely ill", "false");
             //Session.patientData.Add("pcn allergy", "severe");
