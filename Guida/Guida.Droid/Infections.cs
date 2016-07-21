@@ -87,18 +87,27 @@ namespace Guida.Droid
 		//if a infection is selected, display antibiotic's information
 		void listp_ItemClicked(object sender, AdapterView.ItemClickEventArgs e)
 		{
-			RuleEngine re = new RuleEngine();
-			Antibiotic a = re.determineAntibiotic(d[e.Position].name);
-
-			if (a != null)
+			if (Session.selectedPatient == null)
 			{
-				Session.antibioticInformation = a;
-				StartActivity(typeof(AntibioticInformation));
+				step.Text ="Please, select a patient";
 			}
 			else {
-                string missing = re.getMissing();
-				step.Text = "Antibiotic for " + d[e.Position].name + " not found\nRequired Patient Data: " + missing;
+
+
+				RuleEngine re = new RuleEngine();
+				Antibiotic a = re.determineAntibiotic(d[e.Position].name);
+
+				if (a != null)
+				{
+					Session.antibioticInformation = a;
+					StartActivity(typeof(AntibioticInformation));
+				}
+				else {
+					string missing = re.getMissing();
+					step.Text = "Antibiotic for " + d[e.Position].name + " not found\nRequired Patient Data: " + missing;
 			}
+			}
+
 		}
 	}
 }
