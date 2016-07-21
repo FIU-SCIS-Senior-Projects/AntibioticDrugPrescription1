@@ -35,7 +35,7 @@ namespace Guida
         }
 
         /// <summary>
-        /// Evaluates the truth of a given conditional sting based on a knowledge Dictionary
+        /// Evaluates the s given conditional string based on a knowledge Dictionary
         /// </summary>
         /// <param name="condition"></param>
         /// <param name="knowledge"></param>

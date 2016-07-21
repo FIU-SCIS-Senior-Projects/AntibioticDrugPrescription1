@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Guida
 {
@@ -56,10 +57,12 @@ namespace Guida
 		/// </returns>
 		/// <param name="name">Name.</param>
 		/// <param name="DoB">Dob.</param>
-		public static bool addPatient(String name, String DoB)
+		public static bool addPatient(String name, String lastName, String condition,String DoB)
 		{
 			Patient newUser = new Patient();
 			newUser.name = name;
+			newUser.lastName = lastName;
+			newUser.condition = condition;
 			newUser.DoB = DoB;
 			return Database.createPatient(newUser);
 		}
@@ -165,5 +168,20 @@ namespace Guida
             r.antibiotic = antibiotic;
             return Database.addRule(r);
         }
+
+		public static void patientSelected(String condition)
+		{
+			char[] delim = { '&' };
+			String boolPattern = @"\s*(\w+(\s*\w+)*)\s+([<>=]+)\s*(\w+(\s*\w+)*)";
+			Dictionary<string, string> pc = new Dictionary<string, string>();
+			foreach (String c in condition.Split(delim))
+			{
+				Match exp = Regex.Match(c, boolPattern);
+				string variable = exp.Groups[1].Value;
+				string value = exp.Groups[4].Value;
+				pc.Add(variable,value);
+			}
+			Session.patientData = pc;
+		}
     }
 }

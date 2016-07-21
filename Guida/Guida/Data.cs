@@ -19,12 +19,12 @@ namespace Guida
 			//PATIENTS
 			//Columns -> ID (AutoIncrement) | Name | Date of Birth
 			//----------------------------------------------------
-			Controller.addPatient("Sergio", "Jul");
-			Controller.addPatient("Karla", "Aug");
-			Controller.addPatient("Richard", "Jan");
-			Controller.addPatient("Evelyn", "Dec");
-			Controller.addPatient("Guillermo", "Oct");
-			Controller.addPatient("Eduardo", "Sep");
+			Controller.addPatient("Sergio", "Medina","acquired == community & severely ill == false & pcn allergy == no","August 5");
+			Controller.addPatient("Karla", "Perez", "acquired == community & severely ill == false & pcn allergy == severe", "February 10");
+			Controller.addPatient("Richard", "Krox", "severely ill == true & pcn allergy == non severe","January 2");
+			Controller.addPatient("Evelyn", "Gonzales", "acquired == hospital & pcn allergy == severe", "December 23");
+			Controller.addPatient("Guillermo", "Lojo","severely ill == true & pcn allergy == severe","October 12");
+			Controller.addPatient("Eduardo", "Gutierrez","acquired == hospital & pcn allergy == no", "September 1");
 
 			//DOCTOR-PATIENT
 			//Columns -> ID (AutoIncrement) | Patient id | Doctor Username
@@ -61,6 +61,7 @@ namespace Guida
             Controller.addAntibiotic("Cefepime", "Biliary Tract Infection", 5, "Unknown");        //update info
             Controller.addAntibiotic("Aztreonam", "Biliary Tract Infection", 5, "Unknown");       //update info
 
+			//RULES
  			Controller.addRule("Biliary Tract Infection", "acquired == community  & severely ill == false & pcn allergy == no", "Ceftriaxone");
 			Controller.addRule("Biliary Tract Infection", "acquired == community & severely ill  == false & pcn allergy == severe", "Ciprofloxacin");
 			Controller.addRule("Biliary Tract Infection", "acquired == hospital & pcn allergy == no", "Piperacilin");
@@ -82,12 +83,11 @@ namespace Guida
 			//pcn allergy == non severe
 
 			//temp hardcoded patient data
-			Session.patientData = new System.Collections.Generic.Dictionary<string, string>();
-            Session.patientData.Add("acquired", "community");
-            Session.patientData.Add("severely ill", "false");
-            Session.patientData.Add("pcn allergy", "severe");
+			//Session.patientData = new System.Collections.Generic.Dictionary<string, string>();
+            //Session.patientData.Add("acquired", "community");
+            //Session.patientData.Add("severely ill", "false");
+            //Session.patientData.Add("pcn allergy", "severe");
         }
-
 	}
 }
 

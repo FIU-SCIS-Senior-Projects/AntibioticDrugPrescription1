@@ -52,6 +52,8 @@ namespace Guida.Droid
 			if (Session.selectedPatient == null) patient.Text = "Patient: Not Selected";
 			else patient.Text = "Patient: " + Session.selectedPatient.name;
 
+			Controller.patientSelected(Session.selectedPatient.condition);
+
 			patientInformation.Click += delegate {
 				StartActivity(typeof(PatientList));
 			};

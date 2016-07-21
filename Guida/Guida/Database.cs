@@ -43,12 +43,8 @@ namespace Guida
         public String name { get; set; }
 		[Column("lastName")]
 		public String lastName { get; set; }
-		[Column("acquired")]
-		public String acquired { get; set; } //community | hospital
-		[Column("severyill")]
-		public String severyill { get; set; } //true | false
-		[Column("PNCallergy")]
-		public String PNCallergy { get; set; }  //no | severe | non severe
+		[Column("condition")]
+		public String condition { get; set; }
         [Column("DoB")]
         public String DoB { get; set; }
     }
