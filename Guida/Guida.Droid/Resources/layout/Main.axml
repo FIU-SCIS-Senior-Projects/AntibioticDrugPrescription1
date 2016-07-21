@@ -46,7 +46,6 @@
         android:layout_marginTop="10dp"
         android:textSize="45sp" />
     <TextView
-        android:text="Please Log in"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
