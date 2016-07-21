@@ -73,12 +73,19 @@ namespace Guida
 			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == non severe", "Cefepime");
 			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == severe", "Aztreonam");
 
+			//acquired == community
+			//acquired == hospital
+			//severely ill == true
+			//severely ill == false
+			//pcn allergy == no
+			//pcn allergy == severe
+			//pcn allergy == non severe
 
-            //temp hardcoded patient data
-            Session.patientData = new System.Collections.Generic.Dictionary<string, string>();
+			//temp hardcoded patient data
+			Session.patientData = new System.Collections.Generic.Dictionary<string, string>();
             Session.patientData.Add("acquired", "community");
             Session.patientData.Add("severely ill", "false");
-            //Session.patientData.Add("pcn allergy", "severe");
+            Session.patientData.Add("pcn allergy", "severe");
         }
 
 	}

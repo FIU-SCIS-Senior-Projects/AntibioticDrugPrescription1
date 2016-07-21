@@ -22,17 +22,33 @@ namespace Guida
         public String name { get; set; }
     }
 
-    /// <summary>
-    /// Represents the database table "patients"
+	//acquired == community
+	//acquired == hospital
+	//severely ill == true
+	//severely ill == false
+	//pcn allergy == no
+	//pcn allergy == severe
+	//pcn allergy == non severe
+
+	/// <summary>
+	/// Represents the database table "patients"
 	/// Patient has a unique id, name and a DoB(Date of Birth)
-    /// </summary>
-    [Table("patients")]
+	/// </summary>
+	[Table("patients")]
     public class Patient
     {
         [PrimaryKey, AutoIncrement, Column("id")]
 		public int id { get; set;}
         [Column("name")]
         public String name { get; set; }
+		[Column("lastName")]
+		public String lastName { get; set; }
+		[Column("acquired")]
+		public String acquired { get; set; } //community | hospital
+		[Column("severyill")]
+		public String severyill { get; set; } //true | false
+		[Column("PNCallergy")]
+		public String PNCallergy { get; set; }  //no | severe | non severe
         [Column("DoB")]
         public String DoB { get; set; }
     }
