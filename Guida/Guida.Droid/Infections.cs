@@ -103,8 +103,20 @@ namespace Guida.Droid {
                     antibioticList.ItemClick += lista_ItemClicked;
                 }
                 else {
+                    SetContentView(Resource.Layout.AntibioticList);
                     string missing = re.getMissing();
-                    step.Text = "Antibiotic for " + d[e.Position].name + " not found\nRequired Patient Data: " + missing;
+                    char[] delim = { '&' };
+                    ListView antibioticList = FindViewById<ListView>(Resource.Id.antibioticListView);
+                    string[] ab = missing.Split(delim);
+                    antibitoics = new List<string>();
+                    foreach (string s in ab) {
+                        antibitoics.Add(s);
+                    }
+                    var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItemSingleChoice, antibitoics);
+                    antibioticList.Adapter = adapter;
+
+                    TextView title = FindViewById<TextView>(Resource.Id.antibioticListTitleText);
+                    title.Text = "Missing Information";
                 }
             }
 

@@ -53,7 +53,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="500dp"
             android:layout_height="wrap_content"
-            android:id="@+id/textView1"
+            android:id="@+id/antibioticListTitleText"
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="45sp"
