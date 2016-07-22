@@ -87,7 +87,6 @@
             android:layout_weight="50" />
     </LinearLayout>
     <TextView
-        android:text="Name"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -95,12 +94,28 @@
         android:layout_marginTop="15dp"
         android:textSize="30sp"
         android:gravity="center" />
-    <TextView
-        android:text="Information"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="30sp"
-        android:id="@+id/antibioticInfoText" />
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/antibioticInfoText"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginTop="15dp"
+            android:textSize="30sp"
+            android:gravity="right"
+            android:layout_weight="50" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/antibioticInfoText2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginTop="15dp"
+            android:textSize="30sp"
+            android:gravity="left"
+            android:layout_weight="50" />
+    </LinearLayout>
 </LinearLayout>
