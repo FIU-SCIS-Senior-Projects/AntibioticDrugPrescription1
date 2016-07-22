@@ -22,10 +22,10 @@ namespace Guida
         /// Antibiotic if rule matches
         /// Null if no antibiotic was found
         /// </returns>
-        public Antibiotic determineAntibiotic(String illness) {
+        public string determineAntibiotic(String illness) {
             List<Rule> rules = Controller.getRules(illness);
             foreach (Rule rule in rules) {
-                if (evaluateCondition(rule.condition, Session.patientData)) return Controller.getAntibiotic(rule.antibiotic);
+                if (evaluateCondition(rule.condition, Session.patientData)) return rule.antibiotic;
                 else {
                     List<string> missing = determineMissing(rule.condition, Session.patientData);
                     missingKnowledge.Add(rule,missing);

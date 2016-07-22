@@ -4,16 +4,11 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background">
-    <TextView
-        android:text="Guida"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    <ImageView
+        android:src="@drawable/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="55sp"
-        android:id="@+id/guida" />
+        android:id="@+id/imageView1" />
     <EditText xmlns:tools="http://schemas.android.com/tools"
         android:inputType="textPersonName"
         android:layout_width="300dp"
