@@ -78,14 +78,14 @@ namespace Guida.Droid
 			// aapt resource value: 0x7f05000a
 			public const int absButton = 2131034122;
 			
+			// aapt resource value: 0x7f050007
+			public const int antibioticInfoText = 2131034119;
+			
 			// aapt resource value: 0x7f050008
-			public const int antibioticInfoText = 2131034120;
+			public const int antibioticListTitleText = 2131034120;
 			
 			// aapt resource value: 0x7f050009
 			public const int antibioticListView = 2131034121;
-			
-			// aapt resource value: 0x7f050007
-			public const int antibioticNameText = 2131034119;
 			
 			// aapt resource value: 0x7f050000
 			public const int antibioticPrescriptionButton = 2131034112;

@@ -18,7 +18,6 @@ namespace Guida.Droid
 	public class AntibioticInformation : Activity
 	{
 		//Layout Variables
-		TextView name;
 		Button antibioticPrescription, patientInformation, searchAntibiotic, logout;
 		TextView information;
 		TextView label;
@@ -32,7 +31,6 @@ namespace Guida.Droid
 			SetContentView(Resource.Layout.AntibioticInformation);
 
 			//Initialize variables
-			name = FindViewById<TextView>(Resource.Id.antibioticNameText);
 			information = FindViewById<TextView>(Resource.Id.antibioticInfoText);
 			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
 			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
@@ -78,8 +76,8 @@ namespace Guida.Droid
 			};
 
 			//Display information
-			name.Text = Session.antibioticInformation.name;
-			String info = "Price: $" + Session.antibioticInformation.price + "\nAcceptableUses: " + Session.antibioticInformation.acceptableUses 
+			label.Text = Session.antibioticInformation.name;
+			String info = "Price: $" + Session.antibioticInformation.price + "\nAcceptable Uses: " + Session.antibioticInformation.acceptableUses 
                           + "\nToxicity: " + Session.antibioticInformation.toxicity;
 			information.Text = info;
 		}

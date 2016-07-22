@@ -87,15 +87,6 @@
             android:layout_weight="50" />
     </LinearLayout>
     <TextView
-        android:text="Name"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/antibioticNameText"
-        android:layout_marginTop="15dp"
-        android:textSize="30sp"
-        android:gravity="center" />
-    <TextView
         android:text="Information"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
