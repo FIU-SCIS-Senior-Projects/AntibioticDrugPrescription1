@@ -22,6 +22,7 @@ namespace Guida.Droid
 
 		protected override void OnCreate (Bundle bundle)
 		{
+			RequestWindowFeature(WindowFeatures.NoTitle);
 			base.OnCreate (bundle);
 
 			//Set content view to Main Layout

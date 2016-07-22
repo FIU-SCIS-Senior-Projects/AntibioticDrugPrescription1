@@ -26,6 +26,7 @@ namespace Guida.Droid
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
+			RequestWindowFeature(WindowFeatures.NoTitle);
 			base.OnCreate(savedInstanceState);
 
 			//Set content view to AbdominalInfection Layout

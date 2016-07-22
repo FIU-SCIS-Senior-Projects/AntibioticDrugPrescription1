@@ -26,6 +26,7 @@ namespace Guida.Droid
 		TextView user, patient;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
+			RequestWindowFeature(WindowFeatures.NoTitle);
 			base.OnCreate(savedInstanceState);
 
 			//Set content view to AntibioticPrescription Layout
