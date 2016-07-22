@@ -102,6 +102,9 @@ namespace Guida.Droid
 			// aapt resource value: 0x7f050015
 			public const int displayPatientInfo = 2131034133;
 			
+			// aapt resource value: 0x7f050016
+			public const int displayPatientInfo2 = 2131034134;
+			
 			// aapt resource value: 0x7f050014
 			public const int displayPatientName = 2131034132;
 			

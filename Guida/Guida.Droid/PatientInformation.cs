@@ -18,11 +18,13 @@ namespace Guida.Droid
 	{
 		//Layout Variables
 		TextView patientInfo;
+		TextView patientInfo2;
 		TextView patientName;
 		Button antibioticPrescription, patientInformation, searchAntibiotic;
 		Button logout;
 		TextView label;
 		TextView user, patient;
+		//LinearLayout t;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -34,6 +36,7 @@ namespace Guida.Droid
 			//Initialize variables
 			patientName = FindViewById<TextView>(Resource.Id.displayPatientName);
 			patientInfo = FindViewById<TextView>(Resource.Id.displayPatientInfo);
+			patientInfo2 = FindViewById<TextView>(Resource.Id.displayPatientInfo2);
 			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
 			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
 			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
@@ -41,12 +44,17 @@ namespace Guida.Droid
 			logout = FindViewById<Button>(Resource.Id.logout);
 			user = FindViewById<TextView>(Resource.Id.currentUser);
 			patient = FindViewById<TextView>(Resource.Id.currentPatient);
+			//t = FindViewById<LinearLayout>(Resource.Id.table);
 
 			label.SetBackgroundColor(Android.Graphics.Color.DarkGray);
 			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
 			patientInformation.SetBackgroundColor(Android.Graphics.Color.DarkRed);
 			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.Transparent);
 			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.Transparent);
+			//t.SetBackgroundColor(Android.Graphics.Color.Transparent);
+			patientName.SetTextColor(Android.Graphics.Color.White);
+			patientInfo.SetTextColor(Android.Graphics.Color.White);
+			patientInfo2.SetTextColor(Android.Graphics.Color.White);
 
 			user.Text = "Doctor: " + Session.user.username;
 			if (Session.selectedPatient == null) patient.Text = "Patient: Not Selected";
@@ -75,9 +83,30 @@ namespace Guida.Droid
 				// [add later]
 			};
 			//Display information
-			patientName.Text = Session.selectedPatient.name;
-			patientInfo.Text = "Patient ID: " + Session.selectedPatient.id + "\nDoB: " + Session.selectedPatient.DoB;
+			patientName.Text = Session.selectedPatient.name + " " + Session.selectedPatient.lastName ;
+			string displayInfo = "";
+			string displayInfo2 = "";
+			displayInfo += "First Name: \n";
+			displayInfo2 += Session.selectedPatient.name + "\n";
+			displayInfo += "Last Name: \n";
+			displayInfo2 += Session.selectedPatient.lastName + "\n";
+			displayInfo += "Date of Birth: \n";
+			displayInfo2 += Session.selectedPatient.DoB + "\n";
+			foreach (KeyValuePair<string, string> entry in Session.patientData)
+			{
+				displayInfo += entry.Key + ": \n";
+				displayInfo2 += entry.Value + "\n";
+			}
+			patientInfo.Text = displayInfo;
+			patientInfo2.Text = displayInfo2;
 		}
 	}
 }
 
+//acquired == community
+//acquired == hospital
+//severely ill == true
+//severely ill == false
+//pcn allergy == no
+//pcn allergy == severe
+//pcn allergy == non severe

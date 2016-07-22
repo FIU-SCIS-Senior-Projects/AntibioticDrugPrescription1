@@ -56,7 +56,8 @@ namespace Guida.Droid
 			var names = new List<string>();
 			foreach (Patient p in patientList)
 			{
-				names.Add(p.name);
+				string name = p.name + " " + p.lastName;
+				names.Add(name);
 			}
 
 			//Display names of the patients in a list
