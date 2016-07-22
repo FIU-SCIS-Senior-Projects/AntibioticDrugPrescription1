@@ -19,12 +19,12 @@ namespace Guida
 			//PATIENTS
 			//Columns -> ID (AutoIncrement) | Name | Date of Birth
 			//----------------------------------------------------
-			Controller.addPatient("Sergio", "Medina","acquired == community & severely ill == false & pcn allergy == no","August 5");
-			Controller.addPatient("Karla", "Perez", "acquired == community & severely ill == false & pcn allergy == severe", "February 10");
-			Controller.addPatient("Richard", "Krox", "severely ill == true & pcn allergy == non severe","January 2");
-			Controller.addPatient("Evelyn", "Gonzales", "acquired == hospital & pcn allergy == severe", "December 23");
-			Controller.addPatient("Guillermo", "Lojo","severely ill == true & pcn allergy == severe","October 12");
-			Controller.addPatient("Eduardo", "Gutierrez","acquired == hospital & pcn allergy == no", "September 1");
+			Controller.addPatient("Sergio", "Medina","illness acquired from == community & illness severity == non severe & pcn allergy == no","August 5");
+			Controller.addPatient("Karla", "Perez", "illness acquired from == community & illness severity == non severe & pcn allergy == severe", "February 10");
+			Controller.addPatient("Richard", "Krox", "illness severity == severe & pcn allergy == non severe", "January 2");
+			Controller.addPatient("Evelyn", "Gonzales", "illness acquired from == hospital & pcn allergy == severe", "December 23");
+			Controller.addPatient("Guillermo", "Lojo", "illness severity == non severe & pcn allergy == severe", "October 12");
+			Controller.addPatient("Eduardo", "Gutierrez", "illness acquired from == hospital & pcn allergy == no", "September 1");
 
 			//DOCTOR-PATIENT
 			//Columns -> ID (AutoIncrement) | Patient id | Doctor Username
@@ -48,9 +48,9 @@ namespace Guida
 			Controller.addDisease("Diverticulitis","Abdominal Infection");
 			Controller.addDisease("Pancreatitis","Abdominal Infection");
 			Controller.addDisease("Peritonitis","Abdominal Infection");
-			Controller.addDisease("AB1", "Pulmonary Infection");
-			Controller.addDisease("AB2", "Pulmonary Infection");
-			Controller.addDisease("AB3", "Pulmonary Infection");
+			//Controller.addDisease("AB1", "Pulmonary Infection");
+			//Controller.addDisease("AB2", "Pulmonary Infection");
+			//Controller.addDisease("AB3", "Pulmonary Infection");
 
 			//ANTIBIOTICS
             //Columns -> Name | Price | Aceptance Use | Toxicity
@@ -62,32 +62,32 @@ namespace Guida
             Controller.addAntibiotic("Aztreonam", "Biliary Tract Infection", 5, "Unknown");       //update info
 
 			//RULES
- 			Controller.addRule("Biliary Tract Infection", "acquired == community  & severely ill == false & pcn allergy == no", "Ceftriaxone");
-			Controller.addRule("Biliary Tract Infection", "acquired == community & severely ill  == false & pcn allergy == severe", "Ciprofloxacin");
-			Controller.addRule("Biliary Tract Infection", "acquired == hospital & pcn allergy == no", "Piperacilin");
-			Controller.addRule("Biliary Tract Infection", "acquired == hospital & pcn allergy == non severe", "Cefepime");
-			Controller.addRule("Biliary Tract Infection", "acquired == hospital & pcn allergy == severe", "Aztreonam");
-			Controller.addRule("Biliary Tract Infection", "severely ill == true & pcn allergy == no", "Piperacilin");
-			Controller.addRule("Biliary Tract Infection", "severely ill == true & pcn allergy == non severe", "Cefepime");
-			Controller.addRule("Biliary Tract Infection", "severely ill == true & pcn allergy == severe", "Aztreonam");
+ 			Controller.addRule("Biliary Tract Infection", "illness acquired from == community  & severely ill == false & pcn allergy == no", "Ceftriaxone");
+			Controller.addRule("Biliary Tract Infection", "illness acquired from == community & severely ill  == false & pcn allergy == severe", "Ciprofloxacin");
+			Controller.addRule("Biliary Tract Infection", "illness acquired from == hospital & pcn allergy == no", "Piperacilin");
+			Controller.addRule("Biliary Tract Infection", "illness acquired from == hospital & pcn allergy == non severe", "Cefepime");
+			Controller.addRule("Biliary Tract Infection", "illness acquired from == hospital & pcn allergy == severe", "Aztreonam");
+			Controller.addRule("Biliary Tract Infection", "illness severity == severe & pcn allergy == no", "Piperacilin");
+			Controller.addRule("Biliary Tract Infection", "illness severity == severe & pcn allergy == non severe", "Cefepime");
+			Controller.addRule("Biliary Tract Infection", "illness severity == severe & pcn allergy == severe", "Aztreonam");
 			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == no", "Piperacilin");
 			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == non severe", "Cefepime");
 			Controller.addRule("Biliary Tract Infection", "mtbm == true & pcn allergy == severe", "Aztreonam");
 
-            Controller.addRule("Diverticulitis", "infection == moderate & pcn allergy == no", "Amoxacillin");
-            Controller.addRule("Diverticulitis", "infection == moderate & pcn allergy == severe", "Ciprofloxacin");
-            Controller.addRule("Diverticulitis", "infection == severe & pcn allergy == no", "Piperavillin");
-            Controller.addRule("Diverticulitis", "infection == severe & pcn allergy = non severe", "Cefepime");
-            Controller.addRule("Diverticulitis", "infection == severe & pcn allergy = severe", "Ciprofloxacin");
+            Controller.addRule("Diverticulitis", "infection severity == moderate & pcn allergy == no", "Amoxacillin");
+            Controller.addRule("Diverticulitis", "infection severity == moderate & pcn allergy == severe", "Ciprofloxacin");
+            Controller.addRule("Diverticulitis", "infection severity == severe & pcn allergy == no", "Piperavillin");
+            Controller.addRule("Diverticulitis", "infection severity == severe & pcn allergy = non severe", "Cefepime");
+            Controller.addRule("Diverticulitis", "infection severity == severe & pcn allergy = severe", "Ciprofloxacin");
 
             Controller.addRule("Pancreatitis", "abdominal sepsis == true & pcn allergy == no", "Piperacilin");
             Controller.addRule("Pancreatitis", "abdominal sepsis == true & pcn allergy == non severe", "Cefepime");
             Controller.addRule("Pancreatitis", "abdominal sepsis == true & pcn allergy == severe", "Ciprofloxacin");
 
-            Controller.addRule("Peritonitis", "peritonitis == primary & pcn allergy == no", "Cefriaxone");
-            Controller.addRule("Peritonitis", "peritonitis == primary & pcn allergy == severe", "Monifloxacin");
-            Controller.addRule("Peritonitis", "Peritonitis == spontaneous * pcn allergy == no", "Cefriaxone");
-            Controller.addRule("Peritonitis", "Peritonitis == spontaneous * pcn allergy == severe", "Monifloxacin");
+            Controller.addRule("Peritonitis", "peritonitis type == primary & pcn allergy == no", "Cefriaxone");
+            Controller.addRule("Peritonitis", "peritonitis type == primary & pcn allergy == severe", "Monifloxacin");
+            Controller.addRule("Peritonitis", "Peritonitis type == spontaneous * pcn allergy == no", "Cefriaxone");
+            Controller.addRule("Peritonitis", "Peritonitis type == spontaneous * pcn allergy == severe", "Monifloxacin");
 
             //acquired == community
             //acquired == hospital
