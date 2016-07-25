@@ -56,6 +56,7 @@ namespace Guida.Droid
 			patientName.SetTextColor(Android.Graphics.Color.White);
 			patientInfo.SetTextColor(Android.Graphics.Color.White);
 			patientInfo2.SetTextColor(Android.Graphics.Color.White);
+			label.Text = Session.selectedPatient.name + " " + Session.selectedPatient.lastName;
 
 			user.Text = "Doctor: " + Session.user.username;
 			if (Session.selectedPatient == null) patient.Text = "Patient: Not Selected";
@@ -84,7 +85,7 @@ namespace Guida.Droid
 				// [add later]
 			};
 			//Display information
-			patientName.Text = Session.selectedPatient.name + " " + Session.selectedPatient.lastName ;
+			//patientName.Text = Session.selectedPatient.name + " " + Session.selectedPatient.lastName ;
 			string displayInfo = "";
 			string displayInfo2 = "";
 			displayInfo += "First Name: \n";

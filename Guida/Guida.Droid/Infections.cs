@@ -87,20 +87,11 @@ namespace Guida.Droid {
 
 
                 RuleEngine re = new RuleEngine();
+				Session.selectedArea.name = d[e.Position].name;
                 string a = re.determineAntibiotic(d[e.Position].name);
 
                 if (a != null) {
-                    SetContentView(Resource.Layout.AntibioticList);
-                    char[] delim = { ',' };
-                    ListView antibioticList = FindViewById<ListView>(Resource.Id.antibioticListView);
-                    string[] ab = a.Split(delim);
-                    antibitoics = new List<string>();
-                    foreach (string s in ab) {
-                        antibitoics.Add(s);
-                    }
-                    var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItemSingleChoice, antibitoics);
-                    antibioticList.Adapter = adapter;
-                    antibioticList.ItemClick += lista_ItemClicked;
+					StartActivity(typeof(AntibioticList));
                 }
                 else {
                     SetContentView(Resource.Layout.AntibioticList);
@@ -123,12 +114,6 @@ namespace Guida.Droid {
 
 
         }
-
-        void lista_ItemClicked(object sender, AdapterView.ItemClickEventArgs e) {
-            Session.antibioticInformation = Controller.getAntibiotic(antibitoics.ElementAt(e.Position));
-            StartActivity(typeof(AntibioticInformation));
-        }
-
     }
 }
 

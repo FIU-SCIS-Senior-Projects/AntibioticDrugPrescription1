@@ -19,9 +19,12 @@ namespace Guida.Droid
 	{
 		//Layout Variables
 		Button antibioticPrescription, patientInformation, searchAntibiotic, logout;
-		TextView information;
+		//TextView information;
 		TextView label;
 		TextView user, patient;
+		TextView antibioticInfo;
+		TextView antibioticInfo2;
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			RequestWindowFeature(WindowFeatures.NoTitle);
@@ -31,7 +34,12 @@ namespace Guida.Droid
 			SetContentView(Resource.Layout.AntibioticInformation);
 
 			//Initialize variables
+/*<<<<<<< HEAD
 			information = FindViewById<TextView>(Resource.Id.antibioticInfoText);
+=======
+			name = FindViewById<TextView>(Resource.Id.antibioticNameText);
+			//information = FindViewById<TextView>(Resource.Id.antibioticInfoText);
+>>>>>>> patient*/
 			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
 			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
 			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
@@ -39,12 +47,17 @@ namespace Guida.Droid
 			patient = FindViewById<TextView>(Resource.Id.currentPatient);
 			label = FindViewById<TextView>(Resource.Id.textView1);
 			logout = FindViewById<Button>(Resource.Id.logout);
+			antibioticInfo = FindViewById<TextView>(Resource.Id.antibioticInfoText);
+			antibioticInfo2 = FindViewById<TextView>(Resource.Id.antibioticInfoText2);
 
 			patientInformation.SetBackgroundColor(Android.Graphics.Color.Transparent);
 			antibioticPrescription.SetBackgroundColor(Android.Graphics.Color.Transparent);
 			searchAntibiotic.SetBackgroundColor(Android.Graphics.Color.DarkRed);
 			label.SetBackgroundColor(Android.Graphics.Color.DarkGray);
 			logout.SetBackgroundColor(Android.Graphics.Color.DarkCyan);
+			antibioticInfo.SetTextColor(Android.Graphics.Color.White);
+			antibioticInfo2.SetTextColor(Android.Graphics.Color.White);
+			label.Text = Session.antibioticInformation.name;
 
 			user.Text = "Doctor: " + Session.user.username;
 			if (Session.selectedPatient == null) patient.Text = "Patient: Not Selected";
@@ -76,10 +89,32 @@ namespace Guida.Droid
 			};
 
 			//Display information
+/*<<<<<<< HEAD
 			label.Text = Session.antibioticInformation.name;
 			String info = "Price: $" + Session.antibioticInformation.price + "\nAcceptable Uses: " + Session.antibioticInformation.acceptableUses 
                           + "\nToxicity: " + Session.antibioticInformation.toxicity;
 			information.Text = info;
+=======
+			name.Text = Session.antibioticInformation.name;*/
+
+			string displayInfo = "";
+			string displayInfo2 = "";
+			displayInfo += "Name: \n";
+			displayInfo2 += Session.antibioticInformation.name + "\n";
+			displayInfo += "Price: \n";
+			displayInfo2 += Session.antibioticInformation.price + "\n";
+			displayInfo += "Acceptable uses: \n";
+			displayInfo2 += Session.antibioticInformation.acceptableUses + "\n";
+			displayInfo += "Toxicity: \n";
+			displayInfo2 += Session.antibioticInformation.toxicity + "\n";
+
+			antibioticInfo.Text = displayInfo;
+			antibioticInfo2.Text = displayInfo2;
+
+			//String info = "Price: $" + Session.antibioticInformation.price + "\nAcceptableUses: " + Session.antibioticInformation.acceptableUses 
+            //              + "\nToxicity: " + Session.antibioticInformation.toxicity;
+			//information.Text = info;
+//>>>>>>> patient
 		}
 	}
 }
