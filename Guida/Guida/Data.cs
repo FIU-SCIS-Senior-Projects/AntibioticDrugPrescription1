@@ -19,12 +19,12 @@ namespace Guida
 			//PATIENTS
 			//Columns -> ID (AutoIncrement) | Name | Date of Birth
 			//----------------------------------------------------
-			Controller.addPatient("Sergio", "Medina","illness acquired from == community & illness severity == non severe & pcn allergy == no","August 5");
-			Controller.addPatient("Karla", "Perez", "illness acquired from == community & illness severity == non severe & pcn allergy == severe", "February 10");
-			Controller.addPatient("Richard", "Krox", "illness severity == severe & pcn allergy == non severe", "January 2");
-			Controller.addPatient("Evelyn", "Gonzales", "illness acquired from == hospital & pcn allergy == severe", "December 23");
-			Controller.addPatient("Guillermo", "Lojo", "illness severity == non severe & pcn allergy == severe", "October 12");
-			Controller.addPatient("Eduardo", "Gutierrez", "illness acquired from == hospital & pcn allergy == no", "September 1");
+			Controller.addPatient("Sergio", "Medina","illness acquired from == community  & severely ill == false & pcn allergy == no","August 5");
+			Controller.addPatient("Karla", "Perez", "illness acquired from == community & severely ill  == false & pcn allergy == severe", "February 10");
+			Controller.addPatient("Richard", "Krox", "illness acquired from == hospital & pcn allergy == no", "January 2");
+			Controller.addPatient("Evelyn", "Gonzales", "illness acquired from == hospital & pcn allergy == non severe", "December 23");
+			Controller.addPatient("Guillermo", "Lojo", "illness acquired from == hospital & pcn allergy == severe", "October 12");
+			Controller.addPatient("Eduardo", "Gutierrez", "illness severity == severe & pcn allergy == severe", "September 1");
 
 			//DOCTOR-PATIENT
 			//Columns -> ID (AutoIncrement) | Patient id | Doctor Username
