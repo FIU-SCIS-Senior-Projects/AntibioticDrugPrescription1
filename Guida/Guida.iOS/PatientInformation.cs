@@ -13,6 +13,7 @@ namespace Guida.iOS
 
 		public override void ViewDidLoad()
 		{
+			Controller.patientSelected(Session.selectedPatient.condition);
 			patientInformation.Text = "ID: " + Session.selectedPatient.id + "\nEnter " + Session.selectedPatient.name + " information here!";
 		}
 	}

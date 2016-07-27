@@ -85,7 +85,6 @@ namespace Guida.Droid {
             }
             else {
 
-
                 RuleEngine re = new RuleEngine();
 				Session.selectedArea.name = d[e.Position].name;
                 string a = re.determineAntibiotic(d[e.Position].name);

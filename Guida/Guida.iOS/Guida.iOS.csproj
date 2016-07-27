@@ -163,6 +163,11 @@
     <Compile Include="AntibioticInformation.designer.cs">
       <DependentUpon>AntibioticInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Infections.cs" />
+    <Compile Include="Infections.designer.cs">
+      <DependentUpon>Infections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableInfections.cs" />
   </ItemGroup>
   <Import Project="..\Guida\Guida.projitems" Label="Shared" Condition="Exists('..\Guida\Guida.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

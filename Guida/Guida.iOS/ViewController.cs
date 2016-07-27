@@ -18,6 +18,8 @@ namespace Guida.iOS
 		{
 			base.ViewDidLoad ();
 
+			//this.View.BackgroundColor = UIColor.FromPatternImage(UIImage.FromFile("background.jpg"));
+
             //Connect to Database
             Database.connect();
             Data.insertData();
@@ -44,6 +46,8 @@ namespace Guida.iOS
 			base.DidReceiveMemoryWarning ();
 			// Release any cached data, images, etc that aren't in use.
 		}
+
+
 	}
 }
 
