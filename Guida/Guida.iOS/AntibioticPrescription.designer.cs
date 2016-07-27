@@ -14,8 +14,25 @@ namespace Guida.iOS
     [Register ("AntibioticPrescription")]
     partial class AntibioticPrescription
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton abs { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton lung { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (abs != null) {
+                abs.Dispose ();
+                abs = null;
+            }
+
+            if (lung != null) {
+                lung.Dispose ();
+                lung = null;
+            }
         }
     }
 }

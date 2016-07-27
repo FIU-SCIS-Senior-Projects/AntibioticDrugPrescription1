@@ -166,13 +166,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="315" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="315" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" restorationIdentifier="abs">
                                 <rect key="frame" x="115" y="176" width="128" height="120"/>
                                 <state key="normal" backgroundImage="abs.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="382" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="382" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" restorationIdentifier="lung">
                                 <rect key="frame" x="116" y="347" width="125" height="116"/>
                                 <state key="normal" backgroundImage="lung.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -180,6 +180,10 @@
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="abs" destination="315" id="name-outlet-315"/>
+                        <outlet property="lung" destination="382" id="name-outlet-382"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="293" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -259,6 +263,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="369" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="714" y="1408"/>
+        </scene>
+        <scene sceneID="395">
+            <objects>
+                <viewController id="396" sceneMemberID="viewController" customClass="Infections" storyboardIdentifier="Infections">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="393"/>
+                        <viewControllerLayoutGuide type="bottom" id="394"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="397">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="398" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1428" y="1421"/>
         </scene>
     </scenes>
     <resources>
