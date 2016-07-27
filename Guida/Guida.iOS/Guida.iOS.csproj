@@ -170,4 +170,7 @@
     <BundleResource Include="Resources\abs.png" />
     <BundleResource Include="Resources\lung.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\background.jpg" />
+  </ItemGroup>
 </Project>

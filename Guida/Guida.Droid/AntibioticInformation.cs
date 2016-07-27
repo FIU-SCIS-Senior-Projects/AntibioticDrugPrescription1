@@ -34,12 +34,6 @@ namespace Guida.Droid
 			SetContentView(Resource.Layout.AntibioticInformation);
 
 			//Initialize variables
-/*<<<<<<< HEAD
-			information = FindViewById<TextView>(Resource.Id.antibioticInfoText);
-=======
-			name = FindViewById<TextView>(Resource.Id.antibioticNameText);
-			//information = FindViewById<TextView>(Resource.Id.antibioticInfoText);
->>>>>>> patient*/
 			antibioticPrescription = FindViewById<Button>(Resource.Id.antibioticPrescriptionButton);    //Antibiotic Prescription button
 			patientInformation = FindViewById<Button>(Resource.Id.patientInformationButton);            //Patient Information button
 			searchAntibiotic = FindViewById<Button>(Resource.Id.searchAntibioticButton);                //Search Antibiotic button
@@ -88,21 +82,12 @@ namespace Guida.Droid
 				// [add later]
 			};
 
-			//Display information
-/*<<<<<<< HEAD
-			label.Text = Session.antibioticInformation.name;
-			String info = "Price: $" + Session.antibioticInformation.price + "\nAcceptable Uses: " + Session.antibioticInformation.acceptableUses 
-                          + "\nToxicity: " + Session.antibioticInformation.toxicity;
-			information.Text = info;
-=======
-			name.Text = Session.antibioticInformation.name;*/
-
 			string displayInfo = "";
 			string displayInfo2 = "";
 			displayInfo += "Name: \n";
 			displayInfo2 += Session.antibioticInformation.name + "\n";
 			displayInfo += "Price: \n";
-			displayInfo2 += Session.antibioticInformation.price + "\n";
+			displayInfo2 += "$" + Session.antibioticInformation.price + "\n";
 			displayInfo += "Acceptable uses: \n";
 			displayInfo2 += Session.antibioticInformation.acceptableUses + "\n";
 			displayInfo += "Toxicity: \n";
@@ -111,10 +96,6 @@ namespace Guida.Droid
 			antibioticInfo.Text = displayInfo;
 			antibioticInfo2.Text = displayInfo2;
 
-			//String info = "Price: $" + Session.antibioticInformation.price + "\nAcceptableUses: " + Session.antibioticInformation.acceptableUses 
-            //              + "\nToxicity: " + Session.antibioticInformation.toxicity;
-			//information.Text = info;
-//>>>>>>> patient
 		}
 	}
 }
