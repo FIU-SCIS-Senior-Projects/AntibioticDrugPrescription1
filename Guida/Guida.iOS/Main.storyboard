@@ -281,9 +281,27 @@
             </objects>
             <point key="canvasLocation" x="1428" y="1421"/>
         </scene>
+        <scene sceneID="427">
+            <objects>
+                <viewController id="428" sceneMemberID="viewController" customClass="AntibioticList" storyboardIdentifier="AntibioticList">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="425"/>
+                        <viewControllerLayoutGuide type="bottom" id="426"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="429">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="430" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-20" y="2119"/>
+        </scene>
     </scenes>
     <resources>
         <image name="abs.png" width="274" height="256"/>
         <image name="lung.png" width="252" height="248"/>
+        <image name="background.jpg" width="470" height="835"/>
     </resources>
 </document>

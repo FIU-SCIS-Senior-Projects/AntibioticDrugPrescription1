@@ -2,6 +2,7 @@
 using Foundation;
 using UIKit;
 using System.Collections.Generic;
+
 namespace Guida.iOS
 {
 	//This class is used to create a list  of patients for PatientList page
@@ -43,6 +44,12 @@ namespace Guida.iOS
 			//Store patient selected to display his information on next page
 			if (Session.selectedPatient == null){
 				//step.Text = "Please, select a patient";
+				UIAlertView alert = new UIAlertView()
+				{
+					Message = "Please select patient"
+				};
+				alert.AddButton("OK");
+				alert.Show();
 			}
 			else {
 				RuleEngine re = new RuleEngine();
@@ -52,18 +59,21 @@ namespace Guida.iOS
 				if (a != null)
 				{
 					Session.antibioticInformation = Controller.getAntibiotic(a);
-					UIViewController home = parent.Storyboard.InstantiateViewController("AntibioticInformation") as AntibioticInformation;
+					UIViewController home = parent.Storyboard.InstantiateViewController("AntibioticList") as AntibioticList;
 					parent.NavigationController.PushViewController(home, true);
-
 				}
 				else {
-
+					UIAlertView alert = new UIAlertView()
+					{
+						Title = "Alert",
+						Message = "Missing information"
+					};
+					alert.AddButton("OK");
+					alert.Show();
 				}
 
 				tableView.DeselectRow(indexPath, true);
 			}
-
-
 		}
 	}
 }
