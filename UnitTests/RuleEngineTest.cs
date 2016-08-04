@@ -29,9 +29,8 @@ namespace UnitTests {
         public void TC001() {
             Dictionary<string, string> knowledge = new Dictionary<string, string>();
             knowledge.Add("weight", "500");
-            knowledge.Add("derp", "5");
             knowledge.Add("alan", "true");
-            string condition = "weight > 100 & derp < 10 & alan == true";
+            string condition = "weight > 100 & alan == true";
             Assert.True(ie.evaluateCondition(condition, knowledge));
         }
 
@@ -81,15 +80,15 @@ namespace UnitTests {
             knowledge.Add("PCN allergy", "no");
             Session.patientData = knowledge;
 
-            Antibiotic found = ie.determineAntibiotic("Biliary tract infection");
-            Assert.True(found.name == "BTIAB");
+            String found = ie.determineAntibiotic("Biliary tract infection");
+            Assert.True(found == "BTIAB");
         }
 
         [Test]
         public void TC005() {
-            Antibiotic found = ie.determineAntibiotic("Biliary Tract Infection");
-            Console.WriteLine(found.name);
-            Assert.True(found.name == "Ciprofloxacin");
+            String found = ie.determineAntibiotic("Biliary Tract Infection");
+            Console.WriteLine(found);
+            Assert.True(found == "Ciprofloxacin");
         }
     }
 }
